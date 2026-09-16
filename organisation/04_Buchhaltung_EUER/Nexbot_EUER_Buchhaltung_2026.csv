@@ -1,0 +1,6 @@
+Datum;Typ;Beleg-Nr;Kategorie;Beschreibung;Betrag (EUR)
+2026-01-15;Ausgabe;BELEG-001;Domain & Webhosting (Vercel, Hetzner);Hetzner Cloud Server & Domains;-35,50
+2026-02-01;Ausgabe;BELEG-002;Software & Lizenzen (SaaS, Tools);Vercel Pro Subscription;-20,00
+2026-02-15;Ausgabe;BELEG-003;Telekommunikation & Internet;Anteil Mobilfunk & Internet Manching;-29,00
+2026-03-01;Einnahme;RE-2026-001;Website-Erstellung (Festpreis);Musterkunde GmbH – Webdesign Festpreis;1250,00
+2026-03-01;Einnahme;RE-2026-002;Monatliche Betreuung & Hosting (49€);Musterkunde GmbH – Hosting & Pflege;49,00

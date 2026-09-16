@@ -1,0 +1,1187 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nexbot – Musterangebot Webdesign &amp; Software</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Inter:wght@300;400;500;600;700&family=Sora:wght@400;600;700;800&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-screen: #06060a;
+      --paper-bg: #ffffff;
+      --text-main: #111827;
+      --text-muted: #4b5563;
+      --text-light: #9ca3af;
+      --border-color: #e5e7eb;
+      --accent-dark: #0f172a;
+      --accent-cyan: #38bdf8;
+      --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-display: 'Sora', sans-serif;
+      --font-mono: 'Space Mono', monospace;
+      --font-sig: 'Caveat', cursive;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background-color: var(--bg-screen);
+      font-family: var(--font-sans);
+      color: var(--text-main);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 24px 16px 40px 16px;
+      line-height: 1.5;
+      min-height: 100vh;
+    }
+
+    /* ─── PROFESSIONAL TOOLBAR (LINEAR / STRIPE LEVEL) ────────────────── */
+    .toolbar-wrapper {
+      position: sticky;
+      top: 14px;
+      z-index: 1000;
+      width: 100%;
+      max-width: 860px;
+      margin-bottom: 24px;
+    }
+
+    .toolbar {
+      background: rgba(13, 13, 20, 0.92);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 10px;
+      padding: 8px 14px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.55), 0 2px 6px rgba(255, 255, 255, 0.05) inset;
+    }
+
+    .toolbar-brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-family: var(--font-display);
+      font-size: 13px;
+      font-weight: 700;
+      color: #ffffff;
+      white-space: nowrap;
+    }
+
+    .toolbar-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--accent-cyan);
+      box-shadow: 0 0 8px var(--accent-cyan);
+    }
+
+    .toolbar-tag {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      color: #94a3b8;
+      background: rgba(255, 255, 255, 0.06);
+      padding: 2px 7px;
+      border-radius: 4px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .toolbar-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .tb-btn {
+      height: 33px;
+      padding: 0 12px;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.2px;
+      border-radius: 6px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.18s ease;
+      text-decoration: none;
+      white-space: nowrap;
+      border: 1px solid transparent;
+    }
+
+    .tb-btn svg {
+      width: 13px;
+      height: 13px;
+      stroke-width: 1.8;
+      flex-shrink: 0;
+    }
+
+    /* Secondary Ghost Buttons */
+    .tb-btn-secondary {
+      background: #14141f;
+      color: #cbd5e1;
+      border-color: rgba(255, 255, 255, 0.12);
+    }
+
+    .tb-btn-secondary:hover {
+      background: #1e1e2d;
+      color: #ffffff;
+      border-color: rgba(255, 255, 255, 0.25);
+    }
+
+    /* Active / Accent Buttons */
+    .tb-btn-accent {
+      background: rgba(56, 189, 248, 0.1);
+      color: var(--accent-cyan);
+      border-color: rgba(56, 189, 248, 0.3);
+    }
+
+    .tb-btn-accent:hover {
+      background: rgba(56, 189, 248, 0.2);
+      border-color: var(--accent-cyan);
+      color: #ffffff;
+    }
+
+    /* Primary CTA Button (Print) */
+    .tb-btn-primary {
+      background: #ffffff;
+      color: #050508;
+      font-weight: 700;
+      border-color: #ffffff;
+      box-shadow: 0 2px 10px rgba(255, 255, 255, 0.15);
+    }
+
+    .tb-btn-primary:hover {
+      background: #e2e8f0;
+      border-color: #e2e8f0;
+      transform: translateY(-1px);
+    }
+
+    /* Responsive Toolbar on Mobile */
+    @media screen and (max-width: 740px) {
+      .toolbar {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 10px;
+        padding: 10px;
+      }
+      .toolbar-brand {
+        justify-content: center;
+      }
+      .toolbar-actions {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+        gap: 6px;
+      }
+      .tb-btn {
+        justify-content: center;
+        width: 100%;
+      }
+    }
+
+    /* ─── SCREEN SHEET CONTAINER (RESPONSIVE) ────────────────────────── */
+    .sheet {
+      background: var(--paper-bg);
+      width: 100%;
+      max-width: 210mm;
+      min-height: 297mm;
+      padding: 18mm 18mm 16mm 18mm;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.55);
+      position: relative;
+      color: #111827;
+      font-size: 9.5pt;
+      border-radius: 4px;
+      display: flex;
+      flex-direction: column;
+      box-sizing: border-box;
+    }
+
+    /* Falzmarken für Bildschirm-Preview */
+    .fold-mark-1 { position: absolute; left: 0; top: 105mm; width: 6mm; height: 1px; background: #cbd5e1; }
+    .fold-mark-2 { position: absolute; left: 0; top: 210mm; width: 6mm; height: 1px; background: #cbd5e1; }
+    .punch-mark { position: absolute; left: 0; top: 148.5mm; width: 10mm; height: 1px; background: #94a3b8; }
+
+    /* Header */
+    .doc-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      border-bottom: 2px solid var(--accent-dark);
+      padding-bottom: 14px;
+      margin-bottom: 18px;
+    }
+
+    .logo-container { display: flex; align-items: center; gap: 12px; }
+    .logo-svg { width: 40px; height: 40px; flex-shrink: 0; }
+    .logo-text h1 { font-family: var(--font-display); font-size: 15pt; font-weight: 800; color: #050508; line-height: 1.1; }
+    .logo-text p { font-family: var(--font-mono); font-size: 7.2pt; color: #64748b; letter-spacing: 1.2px; text-transform: uppercase; }
+
+    .sender-topline {
+      font-family: var(--font-mono);
+      font-size: 7.2pt;
+      color: #64748b;
+      text-align: right;
+      line-height: 1.35;
+    }
+
+    /* Address & Meta Block (Responsive Flex/Grid) */
+    .address-meta-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 105mm) minmax(0, 1fr);
+      gap: 12mm;
+      margin-bottom: 18px;
+    }
+
+    .recipient-block { padding-top: 3mm; }
+    .return-line {
+      font-family: var(--font-mono);
+      font-size: 6.8pt;
+      color: #64748b;
+      border-bottom: 1px solid #e2e8f0;
+      padding-bottom: 2px;
+      margin-bottom: 5mm;
+    }
+
+    .recipient-address {
+      font-size: 10pt;
+      line-height: 1.45;
+      color: #0f172a;
+      min-height: 22mm;
+      word-break: break-word;
+      overflow-wrap: anywhere;
+    }
+
+    .meta-block {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 6px;
+      padding: 10px 14px;
+      font-size: 8.5pt;
+      height: fit-content;
+    }
+
+    .meta-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 4px 0;
+      border-bottom: 1px dashed #e2e8f0;
+      gap: 8px;
+    }
+    .meta-row:last-child { border-bottom: none; }
+    .meta-label { color: #64748b; font-family: var(--font-mono); font-size: 7.2pt; white-space: nowrap; }
+    .meta-value { font-weight: 600; font-family: var(--font-mono); color: #0f172a; word-break: break-word; }
+
+    /* Title Block */
+    .doc-title-block { margin-bottom: 14px; }
+    .doc-badge {
+      display: inline-block;
+      font-family: var(--font-mono);
+      font-size: 7.5pt;
+      font-weight: 700;
+      background: var(--accent-dark);
+      color: #ffffff;
+      padding: 2px 7px;
+      border-radius: 4px;
+      margin-bottom: 6px;
+      letter-spacing: 0.5px;
+    }
+
+    .doc-title { font-family: var(--font-display); font-size: 15pt; font-weight: 800; color: #050508; letter-spacing: -0.4px; line-height: 1.25; }
+    .doc-subtitle { font-size: 8.8pt; color: #475569; margin-top: 4px; line-height: 1.4; }
+
+    /* Table */
+    .items-table { width: 100%; border-collapse: collapse; margin-bottom: 14px; font-size: 8.8pt; }
+    .items-table th {
+      background: var(--accent-dark);
+      color: #ffffff;
+      font-family: var(--font-mono);
+      font-size: 7.2pt;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      padding: 7px 8px;
+      text-align: left;
+    }
+    .items-table th.text-right, .items-table td.text-right { text-align: right; }
+    .items-table td { padding: 8px 8px; border-bottom: 1px solid #e2e8f0; vertical-align: top; }
+    .items-table tr:nth-child(even) td { background: #fafafa; }
+
+    .item-pos { font-family: var(--font-mono); font-size: 7.8pt; color: #64748b; width: 22px; }
+    .item-title { font-weight: 700; color: #0f172a; font-size: 9pt; margin-bottom: 2px; }
+    .item-desc { color: #475569; font-size: 8.2pt; line-height: 1.35; word-break: break-word; }
+    .item-desc ul { margin-top: 3px; padding-left: 14px; }
+    .item-desc li { margin-bottom: 2px; }
+
+    .item-action-col { width: 34px; text-align: center; }
+    .btn-row-del {
+      background: rgba(239, 68, 68, 0.08);
+      border: 1px solid rgba(239, 68, 68, 0.25);
+      color: #ef4444;
+      cursor: pointer;
+      width: 26px;
+      height: 26px;
+      border-radius: 6px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.18s ease;
+      opacity: 0.75;
+    }
+    .btn-row-del:hover {
+      background: #ef4444;
+      border-color: #ef4444;
+      color: #ffffff;
+      opacity: 1;
+      transform: scale(1.06);
+    }
+    .btn-row-del svg { width: 13px; height: 13px; stroke-width: 2; }
+
+    .date-field-btn {
+      cursor: pointer;
+      border-bottom: 1.5px dashed rgba(56, 189, 248, 0.5);
+      border-radius: 2px;
+      padding: 1px 3px;
+      transition: all 0.15s ease;
+    }
+    .date-field-btn:hover {
+      background: rgba(56, 189, 248, 0.12);
+      border-bottom-color: #0284c7;
+      color: #0284c7;
+    }
+
+    /* Totals Block (Spacious, No Collisions) */
+    .totals-area { display: flex; justify-content: flex-end; margin-bottom: 14px; }
+    .totals-box {
+      width: 95mm;
+      max-width: 100%;
+      border: 1px solid var(--accent-dark);
+      border-radius: 6px;
+      background: #f8fafc;
+      overflow: hidden;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+    }
+    .totals-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 7px 12px;
+      font-size: 8.8pt;
+      border-bottom: 1px solid #e2e8f0;
+      gap: 16px;
+    }
+    .totals-row .tot-label { white-space: nowrap; color: #334155; }
+    .totals-row .tot-val {
+      font-family: var(--font-mono);
+      font-weight: 600;
+      text-align: right;
+      min-width: 90px;
+      white-space: nowrap;
+    }
+    .totals-row.final {
+      background: var(--accent-dark);
+      color: #ffffff;
+      font-weight: 700;
+      font-size: 9.8pt;
+      border-bottom: none;
+      padding: 9px 12px;
+      letter-spacing: 0.2px;
+    }
+    .totals-row.final .tot-label { color: #ffffff; font-weight: 700; }
+    .totals-row.final .tot-val {
+      font-family: var(--font-mono);
+      color: var(--accent-cyan);
+      font-size: 11pt;
+      font-weight: 800;
+      min-width: 100px;
+    }
+    .vat-note {
+      font-size: 7.2pt;
+      color: #64748b;
+      padding: 6px 12px;
+      background: #ffffff;
+      border-top: 1px solid #e2e8f0;
+      font-style: italic;
+      line-height: 1.35;
+    }
+
+    /* Conditions & Notes */
+    .section-box {
+      border: 1px solid #e2e8f0;
+      border-radius: 6px;
+      padding: 8px 12px;
+      margin-bottom: 14px;
+      background: #ffffff;
+      font-size: 8.2pt;
+    }
+    .section-box h4 {
+      font-family: var(--font-mono);
+      font-size: 7.5pt;
+      color: var(--accent-dark);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 4px;
+    }
+    .conditions-list {
+      list-style: none;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4px 10px;
+    }
+    .conditions-list li { color: #334155; display: flex; align-items: flex-start; gap: 5px; line-height: 1.3; }
+    .conditions-list li::before { content: "▪"; color: var(--accent-dark); font-size: 9pt; }
+
+    /* Acceptance / Signature Area */
+    .acceptance-box {
+      border: 1.5px dashed var(--accent-dark);
+      background: #f8fafc;
+      border-radius: 8px;
+      padding: 10px 14px;
+      margin-bottom: 14px;
+    }
+    .acceptance-header { font-family: var(--font-display); font-weight: 700; font-size: 9pt; color: var(--accent-dark); margin-bottom: 2px; }
+    .acceptance-text { font-size: 7.8pt; color: #475569; margin-bottom: 8px; }
+
+    .signatures-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 15mm;
+      margin-top: 8px;
+    }
+
+    .signature-slot {
+      border-top: 1px solid var(--accent-dark);
+      padding-top: 4px;
+      position: relative;
+    }
+    .sig-caption { font-family: var(--font-mono); font-size: 6.8pt; color: #64748b; }
+    .sig-name { font-weight: 600; font-size: 8.2pt; color: var(--accent-dark); margin-top: 1px; }
+
+    .sig-display-container {
+      height: 38px;
+      display: flex;
+      align-items: flex-end;
+      margin-bottom: 4px;
+    }
+    .sig-image { max-height: 38px; max-width: 100%; object-fit: contain; }
+    .sig-typed { font-family: var(--font-sig); font-size: 22pt; color: #0f172a; line-height: 1; }
+
+    .sig-trigger-btn {
+      font-size: 10px;
+      font-family: var(--font-mono);
+      background: #e2e8f0;
+      border: 1px solid #cbd5e1;
+      padding: 2px 6px;
+      border-radius: 4px;
+      cursor: pointer;
+      color: #0f172a;
+      display: inline-block;
+      margin-top: 4px;
+    }
+
+    /* Footer */
+    .doc-footer {
+      margin-top: auto;
+      border-top: 1px solid #e2e8f0;
+      padding-top: 6px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      font-size: 6.8pt;
+      color: #64748b;
+      font-family: var(--font-mono);
+      line-height: 1.35;
+    }
+    .footer-col h5 { color: var(--accent-dark); font-weight: 700; margin-bottom: 2px; }
+
+    /* Edit Mode Visual Indicators */
+    [contenteditable="true"] { outline: 1px dashed transparent; transition: all 0.2s; }
+    body.edit-mode [contenteditable="true"] {
+      outline: 1px dashed #38bdf8;
+      background: rgba(56, 189, 248, 0.06);
+      border-radius: 2px;
+      padding: 1px 3px;
+    }
+
+    /* Modal */
+    .sig-modal-backdrop {
+      display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(5, 5, 8, 0.75); backdrop-filter: blur(6px);
+      z-index: 2000; align-items: center; justify-content: center; padding: 16px;
+    }
+    .sig-modal-backdrop.active { display: flex; }
+    .sig-modal { background: #ffffff; color: #0f172a; border-radius: 12px; width: 100%; max-width: 480px; padding: 20px; box-shadow: 0 20px 50px rgba(0,0,0,0.4); }
+    .sig-modal-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; border-bottom: 1px solid #e2e8f0; padding-bottom: 8px; }
+    .sig-modal-title { font-family: var(--font-display); font-weight: 700; font-size: 13pt; }
+    .sig-tab-bar { display: flex; gap: 8px; margin-bottom: 12px; }
+    .sig-tab { padding: 6px 12px; font-size: 11px; font-family: var(--font-mono); font-weight: 600; border: 1px solid #cbd5e1; background: #f8fafc; border-radius: 6px; cursor: pointer; }
+    .sig-tab.active { background: #0f172a; color: #ffffff; border-color: #0f172a; }
+    .canvas-container { border: 1px solid #cbd5e1; border-radius: 8px; background: #f8fafc; touch-action: none; margin-bottom: 10px; }
+    #sigCanvas { width: 100%; height: 150px; display: block; cursor: crosshair; }
+    .typed-sig-container { display: none; margin-bottom: 12px; }
+    .typed-sig-container.active { display: block; }
+    .typed-sig-input { width: 100%; padding: 8px 10px; border: 1px solid #cbd5e1; border-radius: 6px; font-size: 13px; margin-bottom: 8px; }
+    .typed-sig-preview { font-family: var(--font-sig); font-size: 30pt; color: #0f172a; padding: 8px; border: 1px dashed #cbd5e1; border-radius: 6px; background: #f8fafc; min-height: 60px; display: flex; align-items: center; }
+    .sig-modal-footer { display: flex; justify-content: space-between; align-items: center; margin-top: 12px; }
+
+    @media screen and (max-width: 850px) {
+      body { padding: 10px 6px; }
+      .sheet { padding: 12mm 10mm; }
+      .address-meta-grid { grid-template-columns: 1fr; gap: 15px; }
+      .signatures-grid { grid-template-columns: 1fr; gap: 20px; }
+      .conditions-list { grid-template-columns: 1fr; }
+      .fold-mark-1, .fold-mark-2, .punch-mark { display: none; }
+    }
+
+    /* ─── EXACT PRINT STYLESHEET (MULTI-PAGE SAFE & NO CUT-OFFS) ──────── */
+    @page {
+      size: A4 portrait;
+      margin-top: 0mm;
+      margin-bottom: 0mm;
+      margin-left: 12mm;
+      margin-right: 12mm;
+    }
+
+    @media print {
+      html, body {
+        background: #ffffff !important;
+        color: #111827 !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        font-size: 8.8pt !important;
+      }
+
+      .toolbar-wrapper, .sig-trigger-btn, .sig-modal-backdrop, .btn-row-del, .item-action-col, .fold-mark-1, .fold-mark-2, .punch-mark, .no-print {
+        display: none !important;
+      }
+
+      .sheet {
+        box-shadow: none !important;
+        margin: 0 !important;
+        width: 100% !important;
+        max-width: none !important;
+        min-height: auto !important;
+        height: auto !important;
+        padding: 8mm 2mm 8mm 2mm !important;
+        border: none !important;
+        border-radius: 0 !important;
+        overflow: visible !important;
+        display: block !important;
+      }
+
+      /* Protect atomic blocks from being sliced in half across pages */
+      .doc-header {
+        break-inside: avoid;
+        page-break-inside: avoid;
+        margin-bottom: 8px !important;
+      }
+      .address-meta-grid {
+        break-inside: avoid;
+        page-break-inside: avoid;
+        margin-bottom: 8px !important;
+      }
+      .recipient-address {
+        padding-top: 4px !important;
+      }
+      .doc-title-block {
+        break-inside: avoid;
+        page-break-inside: avoid;
+        margin-bottom: 8px !important;
+      }
+      .doc-title-block h2 {
+        font-size: 13pt !important;
+        margin-top: 2px !important;
+      }
+      .items-table {
+        width: 100% !important;
+        margin-bottom: 8px !important;
+      }
+      .items-table thead { display: table-header-group; }
+      .items-table th { padding: 5px 6px !important; }
+      .items-table td { padding: 5px 6px !important; }
+      .items-table tr, .item-row {
+        break-inside: avoid;
+        page-break-inside: avoid;
+      }
+      .item-bullets { margin-top: 2px !important; }
+      .item-bullets li { margin-bottom: 1px !important; }
+      .totals-area {
+        break-inside: avoid;
+        page-break-inside: avoid;
+        margin-top: 6px !important;
+      }
+      .totals-card {
+        padding: 6px 12px !important;
+      }
+      .totals-row { margin-bottom: 3px !important; }
+      .totals-row.final { padding-top: 3px !important; margin-top: 3px !important; }
+      .section-box {
+        break-inside: avoid;
+        page-break-inside: avoid;
+        margin-top: 8px !important;
+        padding: 6px 12px !important;
+      }
+      .conditions-list {
+        gap: 3px 12px !important;
+        font-size: 7.6pt !important;
+      }
+      .acceptance-box {
+        break-inside: avoid;
+        page-break-inside: avoid;
+        margin-top: 8px !important;
+        padding: 6px 12px !important;
+      }
+      .acceptance-text { margin-bottom: 6px !important; }
+      .signatures-grid {
+        break-inside: avoid;
+        page-break-inside: avoid;
+        gap: 14px !important;
+      }
+      .sig-display-container { height: 28px !important; }
+      .sig-typed { font-size: 18pt !important; }
+
+      .doc-footer {
+        break-inside: avoid;
+        page-break-inside: avoid;
+        position: static !important;
+        margin-top: 8px !important;
+        border-top: 1px solid #e2e8f0 !important;
+        padding-top: 5px !important;
+      }
+
+      body.edit-mode [contenteditable="true"] {
+        outline: none !important;
+        background: transparent !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Professional Linear/Stripe-Style Toolbar (No Emojis, Crisp SVGs) -->
+  <div class="toolbar-wrapper">
+    <div class="toolbar">
+      <div class="toolbar-brand">
+        <span class="toolbar-dot"></span>
+        RAPHAEL NEUMEIER <span class="toolbar-tag">ANGEBOT</span>
+      </div>
+      <div class="toolbar-actions">
+        <button class="tb-btn tb-btn-secondary" id="toggleEditBtn" onclick="toggleEditMode()">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+          <span>Editieren</span>
+        </button>
+        <button class="tb-btn tb-btn-secondary" onclick="addNewPosition()">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          <span>Position</span>
+        </button>
+        <button class="tb-btn tb-btn-secondary" onclick="openDateModal()">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          <span>Datum</span>
+        </button>
+        <button class="tb-btn tb-btn-accent" onclick="openSignatureModal('client')">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M20.24 12.24a6 6 0 0 0-8.49-8.49L3 11.5V17h5.5l8.24-8.25"/><path d="M16 8 2 22"/><path d="M17.5 15H9"/></svg>
+          <span>Signatur</span>
+        </button>
+        <button class="tb-btn tb-btn-primary" onclick="window.print()">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+          <span>PDF Drucken</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <input type="date" id="nativeDatePicker" style="display:none;" onchange="handleNativeDateChange(this.value)">
+
+  <!-- DIN A4 Sheet -->
+  <div class="sheet">
+    <div class="fold-mark-1"></div>
+    <div class="punch-mark"></div>
+    <div class="fold-mark-2"></div>
+
+    <header class="doc-header">
+      <div class="logo-container">
+        <svg class="logo-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+          <rect width="100" height="100" rx="20" fill="#050508"/>
+          <rect x="3" y="3" width="94" height="94" rx="17" fill="none" stroke="#252535" stroke-width="2"/>
+          <path d="M28 72 V28 L72 72 V28" fill="none" stroke="#ffffff" stroke-width="11" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <div class="logo-text">
+          <h1>RAPHAEL NEUMEIER</h1>
+          <p>NEXBOT WEBDESIGN &amp; SOFTWARE</p>
+        </div>
+      </div>
+      <div class="sender-topline">
+        Raphael Neumeier<br>
+        Grasweg 85 · 85077 Manching<br>
+        Tel: +49 176 51270378<br>
+        raphael.m.neumeier@gmail.com
+      </div>
+    </header>
+
+    <div class="address-meta-grid">
+      <div class="recipient-block">
+        <div class="return-line">Raphael Neumeier · Grasweg 85 · 85077 Manching</div>
+        <div class="recipient-address" contenteditable="true" id="recipientAddress">
+          <strong>Musterkunde GmbH</strong><br>
+          z. Hd. Herrn Max Mustermann<br>
+          Musterstraße 12<br>
+          85055 Ingolstadt
+        </div>
+      </div>
+
+      <div class="meta-block">
+        <div class="meta-row">
+          <span class="meta-label">ANGEBOTS-NR:</span>
+          <span class="meta-value" contenteditable="true" id="docNumber">ANG-2026-001</span>
+        </div>
+        <div class="meta-row">
+          <span class="meta-label">DATUM:</span>
+          <span class="meta-value date-field-btn" contenteditable="true" id="docDate" onclick="pickDateFor(this, 'docDate')" title="Klicken, um Datum im Kalender zu wählen">16.09.2026</span>
+        </div>
+        <div class="meta-row">
+          <span class="meta-label">GÜLTIG BIS:</span>
+          <span class="meta-value date-field-btn" contenteditable="true" id="docValidUntil" onclick="pickDateFor(this, 'validUntil')" title="Klicken, um Datum im Kalender zu wählen">30.09.2026 (14 Tage)</span>
+        </div>
+        <div class="meta-row">
+          <span class="meta-label">PROJEKT-ID:</span>
+          <span class="meta-value" contenteditable="true">NEX-WEB-042</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="doc-title-block">
+      <span class="doc-badge">[ VERBINDLICHES ANGEBOT ]</span>
+      <h2 class="doc-title" contenteditable="true">Erstellung eines modernen Webauftritts &amp; Hosting-Infrastruktur</h2>
+      <p class="doc-subtitle" contenteditable="true">Vielen Dank für Ihre Anfrage. Sehr gerne biete ich Ihnen die Umsetzung Ihrer neuen Website zu transparenten Festpreiskonditionen an:</p>
+    </div>
+
+    <table class="items-table">
+      <thead>
+        <tr>
+          <th class="item-pos">Pos.</th>
+          <th>Leistungsbeschreibung &amp; Spezifikation</th>
+          <th class="text-right" style="width: 55px;">Menge</th>
+          <th class="text-right" style="width: 80px;">Einzelpreis</th>
+          <th class="text-right" style="width: 80px;">Gesamt</th>
+          <th class="item-action-col no-print" style="width: 36px; text-align: center;"></th>
+        </tr>
+      </thead>
+      <tbody id="itemsTbody">
+        <tr class="item-row">
+          <td class="item-pos">01</td>
+          <td>
+            <div class="item-title" contenteditable="true">Nexbot Business-Webauftritt (Handwerk &amp; KMU Festpreis)</div>
+            <div class="item-desc" contenteditable="true">
+              Konzeption, Design und schlüsselfertige Full-Stack-Entwicklung:
+              <ul>
+                <li>Individuelles Screendesign &amp; Mobile-First Optimierung (Zero-Collision)</li>
+                <li>Performance-Engineering (&lt; 1,2s Ladezeit, 100/100 PageSpeed)</li>
+                <li>Rechtskonform nach § 5 DDG, Art. 13 DSGVO &amp; TDDDG Two-Click</li>
+                <li>Inklusive 2 strukturierter Korrekturschleifen</li>
+              </ul>
+            </div>
+          </td>
+          <td class="text-right" contenteditable="true">1 Psch.</td>
+          <td class="text-right item-price" contenteditable="true" oninput="calculateTotals()">1.250,00 €</td>
+          <td class="text-right font-mono item-total"><strong>1.250,00 €</strong></td>
+          <td class="item-action-col no-print" style="text-align: center; vertical-align: top; padding-top: 8px;">
+            <button type="button" class="btn-row-del" onclick="removeRow(this)" title="Position löschen" aria-label="Position löschen">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path><line x1="10" y1="11" x2="10" y2="17"></line><line x1="14" y1="11" x2="14" y2="17"></line></svg>
+            </button>
+          </td>
+        </tr>
+        <tr class="item-row">
+          <td class="item-pos">02</td>
+          <td>
+            <div class="item-title" contenteditable="true">Nexbot Highspeed-Hosting, SSL &amp; monatliche Pflege (Option)</div>
+            <div class="item-desc" contenteditable="true">
+              Rundum-Sorglos-Infrastruktur mit deutscher Server-Anbindung:
+              <ul>
+                <li>Domain-Verwaltung, SSL-Zertifikate, DDoS-Schutz &amp; monatliche Backups</li>
+                <li>Inklusive bis zu 30 Minuten Content-Änderungen pro Monat</li>
+              </ul>
+            </div>
+          </td>
+          <td class="text-right" contenteditable="true">1 Mt.</td>
+          <td class="text-right item-price" contenteditable="true" oninput="calculateTotals()">49,00 €</td>
+          <td class="text-right font-mono item-total"><strong>49,00 €*</strong></td>
+          <td class="item-action-col no-print" style="text-align: center; vertical-align: top; padding-top: 8px;">
+            <button type="button" class="btn-row-del" onclick="removeRow(this)" title="Position löschen" aria-label="Position löschen">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path><line x1="10" y1="11" x2="10" y2="17"></line><line x1="14" y1="11" x2="14" y2="17"></line></svg>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="totals-area">
+      <div class="totals-box">
+        <div class="totals-row">
+          <span class="tot-label">Zwischensumme einmalig:</span>
+          <span class="tot-val" id="subtotalVal">1.250,00 €</span>
+        </div>
+        <div class="totals-row">
+          <span class="tot-label">Umsatzsteuer (0% gem. § 19 UStG):</span>
+          <span class="tot-val">0,00 €</span>
+        </div>
+        <div class="totals-row final">
+          <span class="tot-label">GESAMTBETRAG EINMALIG</span>
+          <span class="tot-val" id="totalVal">1.250,00 €</span>
+        </div>
+        <div class="vat-note">
+          * Zzgl. optional 49,00 € / Monat für laufendes Hosting &amp; Betreuung ab Go-Live.<br>
+          Gemäß § 19 UStG wird keine Umsatzsteuer berechnet (Kleinunternehmerregelung).
+        </div>
+      </div>
+    </div>
+
+    <div class="section-box">
+      <h4>[ KONDITIONEN &amp; PROJEKTABLAUF ]</h4>
+      <ul class="conditions-list" contenteditable="true">
+        <li><strong>0 € Vorab-Risiko:</strong> Entwurf zur Vorab-Prüfung vor Rechnungsstellung.</li>
+        <li><strong>Zahlungsbedingungen:</strong> Zahlbar innerhalb von 14 Tagen nach Abnahme rein netto.</li>
+        <li><strong>Lieferzeit:</strong> Fertigstellung innerhalb von 10–14 Werktagen nach Datenlieferung.</li>
+        <li><strong>Mitwirkung:</strong> Texte, Bildmaterial und Freigaben werden kundenseitig bereitgestellt.</li>
+      </ul>
+    </div>
+
+    <div class="acceptance-box">
+      <div class="acceptance-header">AUFTRAGSERTEILUNG / ANNAHME DES ANGEBOTS</div>
+      <p class="acceptance-text">Hiermit nehme(n) ich/wir das vorstehende Angebot verbindlich an. Die Grundlagen des beigefügten Webdesign-Projektvertrags werden anerkannt.</p>
+      
+      <div class="signatures-grid">
+        <div class="signature-slot">
+          <div class="sig-display-container">
+            <span class="sig-typed">Raphael Neumeier</span>
+          </div>
+          <div class="sig-caption date-field-btn" id="sigDateContractor" onclick="pickDateFor(this, 'contractorSig')" title="Klicken, um Datum im Kalender zu wählen">Manching, 16.09.2026</div>
+          <div class="sig-name">Raphael Neumeier (Nexbot Webdesign)</div>
+        </div>
+        
+        <div class="signature-slot" id="clientSigSlot">
+          <div class="sig-display-container" id="clientSigDisplay">
+            <span style="color: #94a3b8; font-size: 8pt; font-style: italic;">[ Hier digital unterschreiben oder tippen ]</span>
+          </div>
+          <div class="sig-caption date-field-btn" contenteditable="true" id="clientSigLocationDate" onclick="pickDateFor(this, 'clientSig')" title="Klicken, um Datum im Kalender zu wählen">Ingolstadt, 16.09.2026</div>
+          <div class="sig-name" contenteditable="true" id="clientSigCompanyName">Musterkunde GmbH</div>
+          <button type="button" class="sig-trigger-btn" onclick="openSignatureModal('client')">Unterschrift erfassen</button>
+        </div>
+      </div>
+    </div>
+
+    <footer class="doc-footer">
+      <div class="footer-col">
+        <h5>UNTERNEHMEN</h5>
+        Raphael Neumeier<br>
+        Nexbot Webdesign &amp; Software<br>
+        Grasweg 85 · 85077 Manching
+      </div>
+      <div class="footer-col">
+        <h5>KONTAKT</h5>
+        Tel: +49 176 51270378<br>
+        E-Mail: raphael.m.neumeier@gmail.com<br>
+        Web: https://nexbot.info
+      </div>
+      <div class="footer-col">
+        <h5>BANK &amp; STEUER</h5>
+        Finanzamt Ingolstadt / Pfaffenhofen<br>
+        Steuer-Nr.: 124/XXX/XXXXX<br>
+        IBAN: DE00 0000 0000 0000 0000 00
+      </div>
+    </footer>
+  </div>
+
+  <!-- Modal -->
+  <div class="sig-modal-backdrop" id="sigModal">
+    <div class="sig-modal">
+      <div class="sig-modal-header">
+        <div class="sig-modal-title">Digitale Signatur</div>
+        <button class="tb-btn tb-btn-secondary" onclick="closeSignatureModal()" style="height: 28px; padding: 0 8px;">✕</button>
+      </div>
+
+      <div class="sig-tab-bar">
+        <button class="sig-tab active" id="tabDraw" onclick="switchSigTab('draw')">Zeichnen</button>
+        <button class="sig-tab" id="tabType" onclick="switchSigTab('type')">Name tippen</button>
+      </div>
+
+      <div id="drawPanel">
+        <div class="canvas-container">
+          <canvas id="sigCanvas"></canvas>
+        </div>
+        <button type="button" class="tb-btn tb-btn-secondary" onclick="clearCanvas()" style="height: 28px; padding: 0 8px; font-size: 10px;">Löschen</button>
+      </div>
+
+      <div id="typePanel" class="typed-sig-container">
+        <input type="text" id="typeSigInput" class="typed-sig-input" placeholder="Vor- und Nachname..." oninput="updateTypedSigPreview(this.value)">
+        <div class="typed-sig-preview" id="typedSigPreview">Max Mustermann</div>
+      </div>
+
+      <div class="sig-modal-footer">
+        <button class="tb-btn tb-btn-secondary" onclick="closeSignatureModal()">Abbrechen</button>
+        <button class="tb-btn tb-btn-primary" onclick="applySignature()">Unterschrift übernehmen</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function initDates() {
+      const now = new Date();
+      const formattedToday = formatDateDE(now);
+      const validUntil = new Date(now.getTime() + 14 * 24 * 60 * 60 * 1000);
+      const formattedValid = formatDateDE(validUntil);
+
+      document.getElementById('docDate').textContent = formattedToday;
+      document.getElementById('docValidUntil').textContent = formattedValid + ' (14 Tage)';
+      document.getElementById('sigDateContractor').textContent = 'Manching, ' + formattedToday;
+      document.getElementById('clientSigLocationDate').textContent = 'Ingolstadt, ' + formattedToday;
+      
+      const yyyy = now.getFullYear();
+      const mm = String(now.getMonth() + 1).padStart(2, '0');
+      const dd = String(now.getDate()).padStart(2, '0');
+      document.getElementById('nativeDatePicker').value = `${yyyy}-${mm}-${dd}`;
+    }
+
+    function formatDateDE(d) {
+      const day = String(d.getDate()).padStart(2, '0');
+      const month = String(d.getMonth() + 1).padStart(2, '0');
+      const year = d.getFullYear();
+      return `${day}.${month}.${year}`;
+    }
+
+    let activeDateField = null;
+    let activeDateType = null;
+
+    function pickDateFor(el, type) {
+      activeDateField = el;
+      activeDateType = type;
+      const picker = document.getElementById('nativeDatePicker');
+      const text = el.textContent || '';
+      const match = text.match(/(\d{2})\.(\d{2})\.(\d{4})/);
+      if (match) {
+        picker.value = `${match[3]}-${match[2]}-${match[1]}`;
+      } else {
+        const now = new Date();
+        const yyyy = now.getFullYear();
+        const mm = String(now.getMonth() + 1).padStart(2, '0');
+        const dd = String(now.getDate()).padStart(2, '0');
+        picker.value = `${yyyy}-${mm}-${dd}`;
+      }
+      if (picker.showPicker) {
+        picker.showPicker();
+      } else {
+        picker.click();
+      }
+    }
+
+    function openDateModal() {
+      pickDateFor(document.getElementById('docDate'), 'docDate');
+    }
+
+    function handleNativeDateChange(val) {
+      if (!val) return;
+      const parts = val.split('-');
+      const pickedDate = new Date(parseInt(parts[0]), parseInt(parts[1]) - 1, parseInt(parts[2]));
+      const formatted = formatDateDE(pickedDate);
+
+      if (activeDateType === 'docDate') {
+        document.getElementById('docDate').textContent = formatted;
+        const validUntil = new Date(pickedDate.getTime() + 14 * 24 * 60 * 60 * 1000);
+        document.getElementById('docValidUntil').textContent = formatDateDE(validUntil) + ' (14 Tage)';
+        document.getElementById('sigDateContractor').textContent = 'Manching, ' + formatted;
+        const clientSig = document.getElementById('clientSigLocationDate');
+        if (clientSig && clientSig.textContent.includes('Ort, Datum')) {
+          clientSig.textContent = 'Ingolstadt, ' + formatted;
+        }
+      } else if (activeDateType === 'validUntil') {
+        document.getElementById('docValidUntil').textContent = formatted + ' (14 Tage)';
+      } else if (activeDateType === 'contractorSig') {
+        document.getElementById('sigDateContractor').textContent = 'Manching, ' + formatted;
+      } else if (activeDateType === 'clientSig') {
+        const current = document.getElementById('clientSigLocationDate').textContent;
+        const loc = current.includes(',') ? current.split(',')[0].trim() : 'Ingolstadt';
+        document.getElementById('clientSigLocationDate').textContent = loc + ', ' + formatted;
+      } else if (activeDateField) {
+        activeDateField.textContent = formatted;
+      }
+    }
+
+    function toggleEditMode() {
+      document.body.classList.toggle('edit-mode');
+      const btn = document.getElementById('toggleEditBtn');
+      if (document.body.classList.contains('edit-mode')) {
+        btn.innerHTML = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="20 6 9 17 4 12"/></svg><span>Fertig</span>`;
+        btn.classList.add('tb-btn-accent');
+      } else {
+        btn.innerHTML = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg><span>Editieren</span>`;
+        btn.classList.remove('tb-btn-accent');
+      }
+    }
+
+    function addNewPosition() {
+      const tbody = document.getElementById('itemsTbody');
+      const rows = tbody.querySelectorAll('.item-row');
+      const nextNum = String(rows.length + 1).padStart(2, '0');
+
+      const tr = document.createElement('tr');
+      tr.className = 'item-row';
+      tr.innerHTML = `
+        <td class="item-pos">${nextNum}</td>
+        <td>
+          <div class="item-title" contenteditable="true">Neue Zusatzleistung / Modul</div>
+          <div class="item-desc" contenteditable="true">Beschreibung der Leistung und Spezifikation...</div>
+        </td>
+        <td class="text-right" contenteditable="true">1 Psch.</td>
+        <td class="text-right item-price" contenteditable="true" oninput="calculateTotals()">350,00 €</td>
+        <td class="text-right font-mono item-total"><strong>350,00 €</strong></td>
+        <td class="item-action-col no-print" style="text-align: center; vertical-align: top; padding-top: 8px;">
+          <button type="button" class="btn-row-del" onclick="removeRow(this)" title="Position löschen" aria-label="Position löschen">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path><line x1="10" y1="11" x2="10" y2="17"></line><line x1="14" y1="11" x2="14" y2="17"></line></svg>
+          </button>
+        </td>
+      `;
+      tbody.appendChild(tr);
+      calculateTotals();
+    }
+
+    function removeRow(btn) {
+      const tr = btn.closest('tr');
+      tr.style.opacity = '0';
+      tr.style.transform = 'translateX(10px)';
+      setTimeout(() => {
+        tr.remove();
+        const rows = document.querySelectorAll('#itemsTbody .item-row');
+        rows.forEach((r, i) => {
+          r.querySelector('.item-pos').textContent = String(i + 1).padStart(2, '0');
+        });
+        calculateTotals();
+      }, 120);
+    }
+
+    function calculateTotals() {
+      const rows = document.querySelectorAll('#itemsTbody .item-row');
+      let totalOnce = 0;
+
+      rows.forEach((r) => {
+        const priceCell = r.querySelector('.item-price');
+        const totalCell = r.querySelector('.item-total');
+        const text = priceCell.textContent.replace('€', '').replace(/\./g, '').replace(',', '.').trim();
+        const num = parseFloat(text) || 0;
+        
+        const titleText = r.querySelector('.item-title').textContent.toLowerCase();
+        const isRecurring = titleText.includes('monat') || titleText.includes('hosting');
+
+        if (!isRecurring) {
+          totalOnce += num;
+          totalCell.innerHTML = `<strong>${formatNumberDE(num)} €</strong>`;
+        } else {
+          totalCell.innerHTML = `<strong>${formatNumberDE(num)} €*</strong>`;
+        }
+      });
+
+      document.getElementById('subtotalVal').textContent = formatNumberDE(totalOnce) + ' €';
+      document.getElementById('totalVal').textContent = formatNumberDE(totalOnce) + ' €';
+    }
+
+    function formatNumberDE(n) {
+      return n.toLocaleString('de-DE', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+    }
+
+    let currentSigTarget = 'client';
+    let currentSigMode = 'draw';
+    let canvas, ctx, isDrawing = false, hasDrawn = false;
+
+    function initCanvas() {
+      canvas = document.getElementById('sigCanvas');
+      ctx = canvas.getContext('2d');
+      const rect = canvas.parentElement.getBoundingClientRect();
+      canvas.width = rect.width * 2;
+      canvas.height = 150 * 2;
+      ctx.scale(2, 2);
+      ctx.strokeStyle = '#050508';
+      ctx.lineWidth = 2.5;
+      ctx.lineCap = 'round';
+      ctx.lineJoin = 'round';
+
+      function getPos(e) {
+        const r = canvas.getBoundingClientRect();
+        return {
+          x: (e.touches ? e.touches[0].clientX : e.clientX) - r.left,
+          y: (e.touches ? e.touches[0].clientY : e.clientY) - r.top
+        };
+      }
+
+      function startDraw(e) {
+        isDrawing = true; hasDrawn = true;
+        const p = getPos(e);
+        ctx.beginPath(); ctx.moveTo(p.x, p.y);
+      }
+      function moveDraw(e) {
+        if (!isDrawing) return;
+        const p = getPos(e);
+        ctx.lineTo(p.x, p.y); ctx.stroke();
+      }
+      function stopDraw() { isDrawing = false; }
+
+      canvas.addEventListener('mousedown', startDraw);
+      canvas.addEventListener('mousemove', moveDraw);
+      window.addEventListener('mouseup', stopDraw);
+      canvas.addEventListener('touchstart', (e) => { e.preventDefault(); startDraw(e); }, { passive: false });
+      canvas.addEventListener('touchmove', (e) => { e.preventDefault(); moveDraw(e); }, { passive: false });
+      window.addEventListener('touchend', stopDraw);
+    }
+
+    function openSignatureModal(target) {
+      currentSigTarget = target;
+      document.getElementById('sigModal').classList.add('active');
+      setTimeout(initCanvas, 50);
+    }
+
+    function closeSignatureModal() {
+      document.getElementById('sigModal').classList.remove('active');
+    }
+
+    function clearCanvas() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      hasDrawn = false;
+    }
+
+    function switchSigTab(mode) {
+      currentSigMode = mode;
+      document.getElementById('tabDraw').classList.toggle('active', mode === 'draw');
+      document.getElementById('tabType').classList.toggle('active', mode === 'type');
+      document.getElementById('drawPanel').style.display = mode === 'draw' ? 'block' : 'none';
+      document.getElementById('typePanel').classList.toggle('active', mode === 'type');
+    }
+
+    function updateTypedSigPreview(val) {
+      document.getElementById('typedSigPreview').textContent = val || 'Hier tippen...';
+    }
+
+    function applySignature() {
+      const display = document.getElementById('clientSigDisplay');
+      display.innerHTML = '';
+
+      if (currentSigMode === 'draw' && hasDrawn) {
+        const img = document.createElement('img');
+        img.src = canvas.toDataURL('image/png');
+        img.className = 'sig-image';
+        display.appendChild(img);
+      } else {
+        const val = document.getElementById('typeSigInput').value || document.getElementById('typedSigPreview').textContent;
+        const span = document.createElement('span');
+        span.className = 'sig-typed';
+        span.textContent = val;
+        display.appendChild(span);
+      }
+      closeSignatureModal();
+    }
+
+    window.addEventListener('DOMContentLoaded', initDates);
+  </script>
+  <script src="../assets/nexbot-client-sync.js"></script>
+</body>
+</html>

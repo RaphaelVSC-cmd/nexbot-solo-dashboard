@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nexbot – EÜR Rechner &amp; Buchhaltung 2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Sora:wght@400;600;700;800&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-black: #050508;
+      --bg-card: rgba(16, 16, 24, 0.85);
+      --border-subtle: rgba(255, 255, 255, 0.1);
+      --border-focus: #38bdf8;
+      --text-pure: #ffffff;
+      --text-silver: #c8c8d4;
+      --text-muted: #727282;
+      --font-display: 'Sora', sans-serif;
+      --font-mono: 'Space Mono', monospace;
+      --font-sans: 'Inter', sans-serif;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: var(--bg-black);
+      color: var(--text-pure);
+      font-family: var(--font-sans);
+      min-height: 100vh;
+      padding: 30px 16px;
+    }
+
+    .container { max-width: 1200px; margin: 0 auto; }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 24px;
+      border-bottom: 1px solid var(--border-subtle);
+      margin-bottom: 30px;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .brand { display: flex; align-items: center; gap: 14px; }
+    .logo-svg { width: 44px; height: 44px; flex-shrink: 0; }
+    .brand-text h1 { font-family: var(--font-display); font-size: 18px; font-weight: 800; }
+    .brand-text p { font-family: var(--font-mono); font-size: 11px; color: var(--text-muted); }
+
+    .badge-year {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      background: rgba(56, 189, 248, 0.1);
+      border: 1px solid #0284c7;
+      color: #38bdf8;
+      padding: 5px 12px;
+      border-radius: 6px;
+    }
+
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+
+    .kpi-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: 12px;
+      padding: 20px;
+      backdrop-filter: blur(10px);
+    }
+    .kpi-title {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      margin-bottom: 8px;
+      display: flex;
+      justify-content: space-between;
+    }
+    .kpi-val { font-family: var(--font-display); font-size: 24px; font-weight: 800; }
+    .kpi-val.income { color: #34d399; }
+    .kpi-val.expense { color: #f87171; }
+    .kpi-val.profit { color: #38bdf8; }
+    .kpi-sub { font-size: 11px; color: var(--text-muted); margin-top: 5px; }
+
+    /* Radar Section */
+    .radar-box {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: 12px;
+      padding: 16px 20px;
+      margin-bottom: 30px;
+    }
+    .radar-header {
+      display: flex;
+      justify-content: space-between;
+      font-family: var(--font-mono);
+      font-size: 11.5px;
+      margin-bottom: 8px;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .radar-bar-bg {
+      width: 100%;
+      height: 10px;
+      background: #1e1e2d;
+      border-radius: 5px;
+      overflow: hidden;
+      margin-bottom: 6px;
+    }
+    .radar-bar-fill {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, #38bdf8, #10b981);
+      transition: width 0.5s ease;
+    }
+    .radar-note { font-size: 11px; color: var(--text-muted); }
+
+    /* Workspace */
+    .workspace-grid {
+      display: grid;
+      grid-template-columns: 350px 1fr;
+      gap: 25px;
+    }
+    @media (max-width: 900px) {
+      .workspace-grid { grid-template-columns: 1fr; }
+    }
+
+    .booking-panel {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: 12px;
+      padding: 22px;
+      height: fit-content;
+    }
+    .panel-title { font-family: var(--font-display); font-size: 15px; font-weight: 700; margin-bottom: 14px; }
+    .form-group { margin-bottom: 12px; }
+    .form-group label { display: block; font-family: var(--font-mono); font-size: 10.5px; color: var(--text-silver); margin-bottom: 4px; }
+    .form-control {
+      width: 100%;
+      padding: 9px 11px;
+      background: #0d0d14;
+      border: 1px solid #272738;
+      border-radius: 8px;
+      color: #ffffff;
+      font-family: var(--font-sans);
+      font-size: 13px;
+    }
+    .form-control:focus { outline: none; border-color: var(--border-focus); }
+    .btn-submit {
+      width: 100%;
+      padding: 11px;
+      background: #ffffff;
+      color: #050508;
+      border: none;
+      border-radius: 8px;
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 13.5px;
+      cursor: pointer;
+      margin-top: 8px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 7px;
+      transition: all 0.15s ease;
+    }
+    .btn-submit:hover { background: #e2e8f0; }
+
+    .table-panel {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: 12px;
+      padding: 22px;
+    }
+    .table-actions {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 16px;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .btn-action {
+      background: #1a1a27;
+      border: 1px solid #32324a;
+      color: #ffffff;
+      padding: 7px 12px;
+      border-radius: 6px;
+      font-family: var(--font-mono);
+      font-size: 11.5px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.15s ease;
+    }
+    .btn-action:hover { background: #252538; }
+
+    .records-table { width: 100%; border-collapse: collapse; font-size: 12.5px; }
+    .records-table th {
+      font-family: var(--font-mono);
+      font-size: 10.5px;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      text-align: left;
+      padding: 9px 10px;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+    .records-table td { padding: 10px 10px; border-bottom: 1px solid rgba(255, 255, 255, 0.05); vertical-align: middle; }
+    .tag-income { color: #34d399; background: rgba(16, 185, 129, 0.12); padding: 2px 6px; border-radius: 4px; font-family: var(--font-mono); font-size: 10.5px; }
+    .tag-expense { color: #f87171; background: rgba(244, 63, 94, 0.12); padding: 2px 6px; border-radius: 4px; font-family: var(--font-mono); font-size: 10.5px; }
+    .btn-delete { background: none; border: none; color: var(--text-muted); cursor: pointer; font-size: 13px; }
+    .btn-delete:hover { color: #f87171; }
+    .empty-state { text-align: center; padding: 35px 20px; color: var(--text-muted); font-size: 13px; }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <header class="header">
+      <div class="brand">
+        <svg class="brand-logo logo-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+          <rect width="100" height="100" rx="20" fill="#050508"/>
+          <rect x="3" y="3" width="94" height="94" rx="17" fill="none" stroke="#252535" stroke-width="2"/>
+          <path d="M28 72 V28 L72 72 V28" fill="none" stroke="#ffffff" stroke-width="11" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <div class="brand-text">
+          <h1>RAPHAEL NEUMEIER · NEXBOT</h1>
+          <p>EÜR BUCHHALTUNG 2026 (§ 4 ABS. 3 EStG · § 19 UStG)</p>
+        </div>
+      </div>
+      <div class="badge-year">REFORM-STAND 2026</div>
+    </header>
+
+    <div class="kpi-grid">
+      <div class="kpi-card">
+        <div class="kpi-title">
+          <span>Gesamteinnahmen (Netto)</span>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline><polyline points="17 6 23 6 23 12"></polyline></svg>
+        </div>
+        <div class="kpi-val income" id="kpiIncome">0,00 €</div>
+        <div class="kpi-sub">Kundenrechnungen 2026</div>
+      </div>
+
+      <div class="kpi-card">
+        <div class="kpi-title">
+          <span>Betriebsausgaben</span>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#f87171" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 18 13.5 8.5 8.5 13.5 1 6"></polyline><polyline points="17 18 23 18 23 12"></polyline></svg>
+        </div>
+        <div class="kpi-val expense" id="kpiExpense">0,00 €</div>
+        <div class="kpi-sub">Hosting, Software, Tools, Büro</div>
+      </div>
+
+      <div class="kpi-card">
+        <div class="kpi-title">
+          <span>Steuerlicher Reingewinn</span>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="6 3 18 3 22 9 12 22 2 9"></polygon><line x1="2" y1="9" x2="22" y2="9"></line><polyline points="10 3 6 9 12 22 18 9 14 3"></polyline></svg>
+        </div>
+        <div class="kpi-val profit" id="kpiProfit">0,00 €</div>
+        <div class="kpi-sub">Einnahmen minus Ausgaben</div>
+      </div>
+    </div>
+
+    <!-- 2026 Kleinunternehmer-Radar (25.000 € / 100.000 €) -->
+    <div class="radar-box">
+      <div class="radar-header">
+        <span>KLEINUNTERNEHMER-SCHWELLE (25.000 € VORJAHRESGRENZE FÜR FOLGEJAHR)</span>
+        <span id="radarPercent">0% (0,00 € / 25.000 €)</span>
+      </div>
+      <div class="radar-bar-bg">
+        <div class="radar-bar-fill" id="radarBar"></div>
+      </div>
+      <div class="radar-note">
+        <em>Gesetzliche Neuregelung ab 2025/2026:</em> Liegt der Umsatz unter 25.000 €, bleibt die Kleinunternehmerregelung im Folgejahr sicher erhalten. Der Höchstgrenzwert im laufenden Kalenderjahr beträgt 100.000 € (erst bei Überschreitung von 100.000 € greift der sofortige Wechsel zur Regelbesteuerung).
+      </div>
+    </div>
+
+    <div class="workspace-grid">
+      <div class="booking-panel">
+        <h3 class="panel-title" style="display: flex; align-items: center; gap: 7px;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+          <span>Buchung erfassen</span>
+        </h3>
+        <form id="bookingForm">
+          <div class="form-group">
+            <label>DATUM</label>
+            <input type="date" id="bookDate" class="form-control" required>
+          </div>
+          <div class="form-group">
+            <label>BUCHUNGS-TYP</label>
+            <select id="bookType" class="form-control" onchange="updateCategories()">
+              <option value="income">+ Einnahme (Kunde)</option>
+              <option value="expense">- Ausgabe (Betriebskosten)</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>KATEGORIE</label>
+            <select id="bookCategory" class="form-control"></select>
+          </div>
+          <div class="form-group">
+            <label>BELEG-NR. (z. B. RE-2026-001)</label>
+            <input type="text" id="bookBeleg" class="form-control" placeholder="RE-2026-001" required>
+          </div>
+          <div class="form-group">
+            <label>BESCHREIBUNG / KUNDE</label>
+            <input type="text" id="bookDesc" class="form-control" placeholder="Musterkunde GmbH – Webauftritt" required>
+          </div>
+          <div class="form-group">
+            <label>BETRAG IN €</label>
+            <input type="number" step="0.01" id="bookAmount" class="form-control" placeholder="1250.00" required>
+          </div>
+          <button type="submit" class="btn-submit">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"></path><polyline points="17 21 17 13 7 13 7 21"></polyline><polyline points="7 3 7 8 15 8"></polyline></svg>
+            <span>Buchung speichern</span>
+          </button>
+        </form>
+      </div>
+
+      <div class="table-panel">
+        <div class="table-actions">
+          <h3 class="panel-title" style="margin-bottom: 0; display: flex; align-items: center; gap: 7px;">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+            <span>Buchungsjournal 2026</span>
+          </h3>
+          <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+            <button class="btn-action" onclick="exportCSV()">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+              <span>CSV exportieren</span>
+            </button>
+            <button class="btn-action" onclick="loadSampleData()">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+              <span>Musterdaten laden</span>
+            </button>
+            <button class="btn-action" onclick="clearAllData()" style="color: #f87171; border-color: rgba(248, 113, 113, 0.3);">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg>
+              <span>Alle löschen</span>
+            </button>
+          </div>
+        </div>
+
+        <div style="overflow-x: auto;">
+          <table class="records-table">
+            <thead>
+              <tr>
+                <th>Datum</th>
+                <th>Typ</th>
+                <th>Beleg-Nr.</th>
+                <th>Kategorie</th>
+                <th>Beschreibung</th>
+                <th style="text-align: right;">Betrag</th>
+                <th style="text-align: center;">Aktion</th>
+              </tr>
+            </thead>
+            <tbody id="recordsTbody"></tbody>
+          </table>
+          <div id="emptyNotice" class="empty-state">
+            Noch keine Buchungen erfasst. Trage links deine erste Rechnung oder Betriebsausgabe ein!
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const STORAGE_KEY = 'nexbot_euer_records_2026';
+    const THRESHOLD_NEXT_YEAR = 25000;
+    const THRESHOLD_CURRENT_YEAR = 100000;
+
+    const incomeCategories = [
+      "Website-Erstellung (Festpreis)",
+      "Monatliche Betreuung & Hosting (49€)",
+      "Zusatzleistungen & Beratung (Stundensatz)",
+      "Sonstige betriebliche Einnahmen"
+    ];
+
+    const expenseCategories = [
+      "Domain & Webhosting (Vercel, Hetzner)",
+      "Software & Lizenzen (SaaS, Tools, KI)",
+      "Hardware & Arbeitsmittel (GWG)",
+      "Telekommunikation & Internet",
+      "Bürobedarf & Porto",
+      "Reise- & Fahrtkosten (0,30€/km)",
+      "Werbung & Marketing",
+      "Sonstige Betriebsausgaben"
+    ];
+
+    let records = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
+
+    function updateCategories() {
+      const type = document.getElementById('bookType').value;
+      const catSelect = document.getElementById('bookCategory');
+      catSelect.innerHTML = '';
+      const list = type === 'income' ? incomeCategories : expenseCategories;
+      list.forEach(c => {
+        const opt = document.createElement('option');
+        opt.value = c;
+        opt.textContent = c;
+        catSelect.appendChild(opt);
+      });
+    }
+
+    function render() {
+      const tbody = document.getElementById('recordsTbody');
+      const emptyNotice = document.getElementById('emptyNotice');
+      tbody.innerHTML = '';
+
+      let totalIncome = 0;
+      let totalExpense = 0;
+
+      records.sort((a, b) => new Date(b.date) - new Date(a.date));
+
+      if (records.length === 0) {
+        emptyNotice.style.display = 'block';
+      } else {
+        emptyNotice.style.display = 'none';
+        records.forEach((r, idx) => {
+          if (r.type === 'income') totalIncome += parseFloat(r.amount);
+          else totalExpense += parseFloat(r.amount);
+
+          const tr = document.createElement('tr');
+          tr.innerHTML = `
+            <td style="font-family: var(--font-mono); font-size: 11px;">${r.date}</td>
+            <td><span class="${r.type === 'income' ? 'tag-income' : 'tag-expense'}">${r.type === 'income' ? 'Einnahme' : 'Ausgabe'}</span></td>
+            <td style="font-family: var(--font-mono); font-weight: 600;">${escapeHtml(r.beleg)}</td>
+            <td style="color: var(--text-silver); font-size: 11.5px;">${escapeHtml(r.category)}</td>
+            <td><strong>${escapeHtml(r.desc)}</strong></td>
+            <td style="text-align: right; font-family: var(--font-mono); font-weight: 700; color: ${r.type === 'income' ? '#34d399' : '#f87171'};">
+              ${r.type === 'income' ? '+' : '-'}${formatEuro(r.amount)}
+            </td>
+            <td style="text-align: center;">
+              <button class="btn-delete" title="Löschen" onclick="deleteRecord(${idx})">✕</button>
+            </td>
+          `;
+          tbody.appendChild(tr);
+        });
+      }
+
+      const profit = totalIncome - totalExpense;
+      document.getElementById('kpiIncome').textContent = formatEuro(totalIncome);
+      document.getElementById('kpiExpense').textContent = formatEuro(totalExpense);
+      document.getElementById('kpiProfit').textContent = formatEuro(profit);
+
+      const percent = Math.min(100, Math.round((totalIncome / THRESHOLD_NEXT_YEAR) * 100));
+      document.getElementById('radarBar').style.width = percent + '%';
+      document.getElementById('radarPercent').textContent = `${percent}% (${formatEuro(totalIncome)} / 25.000 €)`;
+
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(records));
+    }
+
+    function formatEuro(num) {
+      return parseFloat(num).toLocaleString('de-DE', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + ' €';
+    }
+
+    function escapeHtml(str) {
+      return str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+    }
+
+    document.getElementById('bookingForm').addEventListener('submit', (e) => {
+      e.preventDefault();
+      records.push({
+        date: document.getElementById('bookDate').value,
+        type: document.getElementById('bookType').value,
+        category: document.getElementById('bookCategory').value,
+        beleg: document.getElementById('bookBeleg').value,
+        desc: document.getElementById('bookDesc').value,
+        amount: parseFloat(document.getElementById('bookAmount').value)
+      });
+      render();
+      document.getElementById('bookBeleg').value = '';
+      document.getElementById('bookDesc').value = '';
+      document.getElementById('bookAmount').value = '';
+    });
+
+    function deleteRecord(idx) {
+      if (confirm('Buchung löschen?')) { records.splice(idx, 1); render(); }
+    }
+
+    function clearAllData() {
+      if (confirm('Alle Buchungen für 2026 löschen?')) { records = []; render(); }
+    }
+
+    function loadSampleData() {
+      if (records.length > 0 && !confirm('Musterbuchungen hinzufügen?')) return;
+      records.push(
+        { date: '2026-01-15', type: 'expense', category: 'Domain & Webhosting (Vercel, Hetzner)', beleg: 'BELEG-001', desc: 'Hetzner Server Manching', amount: 35.50 },
+        { date: '2026-02-01', type: 'expense', category: 'Software & Lizenzen (SaaS, Tools, KI)', beleg: 'BELEG-002', desc: 'Vercel Pro Plan', amount: 20.00 },
+        { date: '2026-03-01', type: 'income', category: 'Website-Erstellung (Festpreis)', beleg: 'RE-2026-001', desc: 'Musterkunde GmbH – Webdesign Festpreis', amount: 1250.00 },
+        { date: '2026-03-01', type: 'income', category: 'Monatliche Betreuung & Hosting (49€)', beleg: 'RE-2026-002', desc: 'Musterkunde GmbH – Hosting 49€ Flat', amount: 49.00 }
+      );
+      render();
+    }
+
+    function exportCSV() {
+      if (records.length === 0) { alert('Keine Buchungen vorhanden.'); return; }
+      let csv = "Datum;Typ;Beleg-Nr;Kategorie;Beschreibung;Betrag (EUR)\r\n";
+      records.forEach(r => {
+        const sign = r.type === 'income' ? '' : '-';
+        csv += `${r.date};${r.type};${r.beleg};${r.category};"${r.desc.replace(/"/g, '""')}";${sign}${r.amount.toFixed(2).replace('.', ',')}\r\n`;
+      });
+      const blob = new Blob(["\uFEFF" + csv], { type: 'text/csv;charset=utf-8;' });
+      const link = document.createElement('a');
+      link.href = URL.createObjectURL(blob);
+      link.download = `Nexbot_EUER_Buchhaltung_2026_${new Date().toISOString().slice(0,10)}.csv`;
+      link.click();
+    }
+
+    document.getElementById('bookDate').value = new Date().toISOString().slice(0, 10);
+    updateCategories();
+    render();
+  </script>
+</body>
+</html>

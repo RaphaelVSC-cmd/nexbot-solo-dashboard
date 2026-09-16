@@ -66,7 +66,7 @@
         demoUrl: "https://saridis-shk.vercel.app",
         localDemoPath: "../saridis-shk/index.html",
         loomUrl: "https://loom.com/share/saridis-shk-demo-tour",
-        contractFile: "../../Nexbot Organisation/02_Verträge/01_Webdesign_Projektvertrag_BGB.html",
+        contractFile: "organisation/02_Vertraege/01_Webdesign_Projektvertrag_BGB.html",
         invoiceStatus: "noch_nicht_faellig",
         notes: "Sehr freundlich am Telefon. Chef ist abends ab 18:00 Uhr via WhatsApp erreichbar. Fokus: Badsanierung & Heizungs-Rechner.",
         createdAt: "2026-09-10",
@@ -89,7 +89,7 @@
         demoUrl: "https://bauspenglerei-pospisil.vercel.app",
         localDemoPath: "../bauspenglerei-pospisil/index.html",
         loomUrl: "https://loom.com/share/fuenfer-spenglerei-pitch",
-        contractFile: "../../Nexbot Organisation/02_Verträge/01_Webdesign_Projektvertrag_BGB.html",
+        contractFile: "organisation/02_Vertraege/01_Webdesign_Projektvertrag_BGB.html",
         invoiceStatus: "noch_nicht_faellig",
         notes: "Haben aktuell keine Website. War positiv überrascht, dass Entwurf bereits steht. BGB-Vertrag vorbereitet.",
         createdAt: "2026-09-11",
@@ -250,7 +250,7 @@
         demoUrl: "https://faschingbauer-haustechnik.vercel.app",
         localDemoPath: "../faschingbauer-haustechnik/index.html",
         loomUrl: "",
-        contractFile: "../../Nexbot Organisation/02_Verträge/01_Webdesign_Projektvertrag_BGB.html",
+        contractFile: "organisation/02_Vertraege/01_Webdesign_Projektvertrag_BGB.html",
         invoiceStatus: "noch_nicht_faellig",
         notes: "Hatte Bedenken wegen Zeitaufwand ('Baustelle voll'). Bumerang-Einwand erfolgreich: 'Arbeit ist schon getan!'",
         createdAt: "2026-09-12",
@@ -386,9 +386,9 @@
         dealValue: 1250,
         monthlyRetainer: 39,
         demoUrl: "https://nexbot.info",
-        localDemoPath: "../../Nexbot Organisation/INDEX_NEXBOT_ORGANISATION.html",
+        localDemoPath: "organisation/INDEX_NEXBOT_ORGANISATION.html",
         loomUrl: "https://loom.com/share/musterkunde-showcase",
-        contractFile: "../../Nexbot Organisation/02_Verträge/01_Webdesign_Projektvertrag_BGB.html",
+        contractFile: "organisation/02_Vertraege/01_Webdesign_Projektvertrag_BGB.html",
         invoiceStatus: "bezahlt",
         notes: "Erster erfolgreicher Abschluss nach Businessplan! 1.250 € erhalten, monatlicher Retainer 39 € per SEPA aktiv.",
         createdAt: "2026-03-01",
@@ -411,9 +411,9 @@
         status: "aktiv",
         supportBudgetMinutes: 30,
         usedMinutesThisMonth: 10,
-        contractFile: "../../Nexbot Organisation/02_Verträge/01_Webdesign_Projektvertrag_BGB.html",
-        avvFile: "../../Nexbot Organisation/02_Verträge/02_AVV_Datenschutz_DSGVO.html",
-        acceptanceFile: "../../Nexbot Organisation/02_Verträge/03_Abnahmeprotokoll_Webdesign_BGB.html",
+        contractFile: "organisation/02_Vertraege/01_Webdesign_Projektvertrag_BGB.html",
+        avvFile: "organisation/02_Vertraege/02_AVV_Datenschutz_DSGVO.html",
+        acceptanceFile: "organisation/02_Vertraege/03_Abnahmeprotokoll_Webdesign_BGB.html",
         latestInvoiceNumber: "RE-2026-001",
         invoiceStatus: "bezahlt"
       }
@@ -429,7 +429,7 @@
         amount: "1.250 € + 39 €/Mtl.",
         status: "angenommen",
         date: "2026-02-20",
-        filePath: "../../Nexbot Organisation/01_Angebote/Nexbot_Musterangebot_Webdesign.html",
+        filePath: "organisation/01_Angebote/Nexbot_Musterangebot_Webdesign.html",
         description: "Verbindliches Festpreisangebot mit 0 € Vorab-Risiko Klausel nach Businessplan."
       },
       {
@@ -441,7 +441,7 @@
         amount: "1.250 €",
         status: "unterzeichnet",
         date: "2026-02-28",
-        filePath: "../../Nexbot Organisation/02_Verträge/01_Webdesign_Projektvertrag_BGB.html",
+        filePath: "organisation/02_Vertraege/01_Webdesign_Projektvertrag_BGB.html",
         description: "Werkvertrag nach §§ 631 ff. BGB mit digitaler Signatur & Urheberrechtsklausel."
       },
       {
@@ -453,7 +453,7 @@
         amount: "Inklusive",
         status: "unterzeichnet",
         date: "2026-02-28",
-        filePath: "../../Nexbot Organisation/02_Verträge/02_AVV_Datenschutz_DSGVO.html",
+        filePath: "organisation/02_Vertraege/02_AVV_Datenschutz_DSGVO.html",
         description: "Rechtssicherer Datenschutz-Vertrag gem. Art. 28 DSGVO inklusive Bitkom TOM Anlage."
       },
       {
@@ -465,7 +465,7 @@
         amount: "Fälligkeit ausgelöst",
         status: "abgenommen",
         date: "2026-03-05",
-        filePath: "../../Nexbot Organisation/02_Verträge/03_Abnahmeprotokoll_Webdesign_BGB.html",
+        filePath: "organisation/02_Vertraege/03_Abnahmeprotokoll_Webdesign_BGB.html",
         description: "Rechtsverbindliche Abnahme nach § 640 BGB – löst Werklohnfälligkeit aus."
       },
       {
@@ -478,7 +478,7 @@
         status: "bezahlt",
         date: "2026-03-05",
         dueDate: "2026-03-19",
-        filePath: "../../Nexbot Organisation/03_Rechnungen/Nexbot_Kleinunternehmer_Rechnung.html",
+        filePath: "organisation/03_Rechnungen/Nexbot_Kleinunternehmer_Rechnung.html",
         description: "Rechnung nach §§ 14, 14a UStG i.V.m. § 19 UStG (14 Tage Zahlungsziel)."
       },
       {
@@ -491,7 +491,7 @@
         status: "bezahlt",
         date: "2026-03-15",
         dueDate: "2026-03-29",
-        filePath: "../../Nexbot Organisation/03_Rechnungen/Nexbot_Kleinunternehmer_Rechnung.html",
+        filePath: "organisation/03_Rechnungen/Nexbot_Kleinunternehmer_Rechnung.html",
         description: "Monatlicher Retainer für Vercel Edge Hosting, SSL & Wartungsservice."
       },
       {
@@ -503,7 +503,7 @@
         amount: "Übersicht",
         status: "aktiv",
         date: "2026-09-15",
-        filePath: "../../Nexbot Organisation/04_Buchhaltung_EÜR/Nexbot_EUER_Rechner_2026.html",
+        filePath: "organisation/04_Buchhaltung_EUER/Nexbot_EUER_Rechner_2026.html",
         description: "Interaktiver EÜR-Rechner mit Grenzwert-Radar für 25.000 € Kleinunternehmer-Reform."
       },
       {
@@ -515,7 +515,7 @@
         amount: "Amtlich",
         status: "bestätigt",
         date: "2026-09-15",
-        filePath: "../../Nexbot Organisation/05_Behörden_Unterlagen/Gewerbemeldung.pdf",
+        filePath: "organisation/05_Behoerden_Unterlagen/Gewerbemeldung.pdf",
         description: "Offizielle Gewerbeanmeldung für Nexbot Webdesign & Softwareentwicklung."
       },
       {
@@ -527,7 +527,7 @@
         amount: "Amtlich",
         status: "bestätigt",
         date: "2026-09-15",
-        filePath: "../../Nexbot Organisation/05_Behörden_Unterlagen/ELSTER-USt-IdNr.pdf",
+        filePath: "organisation/05_Behoerden_Unterlagen/ELSTER-USt-IdNr.pdf",
         description: "Umsatzsteuer-Identifikationsnummer & Fragebogen zur steuerlichen Erfassung."
       }
     ],
@@ -803,9 +803,9 @@
         status: 'aktiv',
         supportBudgetMinutes: 30,
         usedMinutesThisMonth: 0,
-        contractFile: '../../Nexbot Organisation/02_Verträge/01_Webdesign_Projektvertrag_BGB.html',
-        avvFile: '../../Nexbot Organisation/02_Verträge/02_AVV_Datenschutz_DSGVO.html',
-        acceptanceFile: '../../Nexbot Organisation/02_Verträge/03_Abnahmeprotokoll_Webdesign_BGB.html',
+        contractFile: 'organisation/02_Vertraege/01_Webdesign_Projektvertrag_BGB.html',
+        avvFile: 'organisation/02_Vertraege/02_AVV_Datenschutz_DSGVO.html',
+        acceptanceFile: 'organisation/02_Vertraege/03_Abnahmeprotokoll_Webdesign_BGB.html',
         latestInvoiceNumber: 'RE-2026-00' + (this.state.clients.length + 1),
         invoiceStatus: 'bezahlt'
       };
@@ -820,7 +820,7 @@
         amount: `${lead.dealValue || 1250} €`,
         status: 'unterzeichnet',
         date: new Date().toISOString().split('T')[0],
-        filePath: '../../Nexbot Organisation/02_Verträge/01_Webdesign_Projektvertrag_BGB.html',
+        filePath: 'organisation/02_Vertraege/01_Webdesign_Projektvertrag_BGB.html',
         description: 'BGB Werkvertrag nach §§ 631 ff. mit digitaler Signatur.'
       });
 
@@ -1285,7 +1285,7 @@
                 <div class="table-cell-title" style="font-size:0.8rem;">01 Musterangebot Webdesign</div>
                 <div class="table-cell-sub">1.250 € Festpreis + 39 €/Mtl.</div>
               </div>
-              <button class="btn btn-secondary btn-sm" data-action="preview-doc" data-path="../../Nexbot Organisation/01_Angebote/Nexbot_Musterangebot_Webdesign.html" data-title="Musterangebot Webdesign">
+              <button class="btn btn-secondary btn-sm" data-action="preview-doc" data-path="organisation/01_Angebote/Nexbot_Musterangebot_Webdesign.html" data-title="Musterangebot Webdesign">
                 Vorschau
               </button>
             </div>
@@ -1295,7 +1295,7 @@
                 <div class="table-cell-title" style="font-size:0.8rem;">02 BGB-Projektvertrag & AVV</div>
                 <div class="table-cell-sub">§§ 631 ff. BGB + Art. 28 DSGVO</div>
               </div>
-              <button class="btn btn-secondary btn-sm" data-action="preview-doc" data-path="../../Nexbot Organisation/02_Verträge/01_Webdesign_Projektvertrag_BGB.html" data-title="BGB Werkvertrag">
+              <button class="btn btn-secondary btn-sm" data-action="preview-doc" data-path="organisation/02_Vertraege/01_Webdesign_Projektvertrag_BGB.html" data-title="BGB Werkvertrag">
                 Vorschau
               </button>
             </div>
@@ -1305,8 +1305,13 @@
                 <div class="table-cell-title" style="font-size:0.8rem;">03 Kleinunternehmer-Rechnung (§ 19 UStG)</div>
                 <div class="table-cell-sub">${lead.invoiceStatus === 'bezahlt' ? 'Status: Bezahlt' : 'Status: Offen / Fällig'}</div>
               </div>
-              <button class="btn btn-secondary btn-sm" data-action="preview-doc" data-path="../../Nexbot Organisation/03_Rechnungen/Nexbot_Kleinunternehmer_Rechnung.html" data-title="Rechnungsvorlage">
+              <button class="btn btn-secondary btn-sm" data-action="preview-doc" data-path="organisation/03_Rechnungen/Nexbot_Kleinunternehmer_Rechnung.html" data-title="Rechnungsvorlage">
                 Vorschau
+              </button>
+            </div>
+            <div style="margin-top:0.75rem;">
+              <button class="btn btn-primary btn-sm" id="btnLaunchWorkflowForLead" style="width:100%; justify-content:center;">
+                🚀 In Kunden-Workflow laden & starten
               </button>
             </div>
           </div>
@@ -1332,6 +1337,27 @@
         const text = document.getElementById('drawerNotesTextarea')?.value;
         state.updateLeadNotes(lead.id, text);
         showToast('✓ Notiz erfolgreich gespeichert!');
+      });
+
+      document.getElementById('btnLaunchWorkflowForLead')?.addEventListener('click', () => {
+        const current = getWorkflowClientData();
+        const updated = {
+          ...current,
+          clientName: lead.companyName,
+          clientContact: lead.ownerName ? `z. Hd. ${lead.ownerName}` : current.clientContact,
+          clientStreet: lead.street || current.clientStreet,
+          clientZipCity: lead.city ? `85055 ${lead.city}` : current.clientZipCity,
+          projectTitle: `Nexbot Modern Webauftritt – ${lead.companyName}`,
+          projectId: `NEX-${lead.id.toUpperCase()}`,
+          projectPrice: `${lead.dealValue || 1250}`,
+          hostingPrice: `${lead.monthlyRetainer || 39}`,
+          stagingUrl: lead.demoUrl || current.stagingUrl
+        };
+        saveWorkflowClientData(updated);
+        drawer.close();
+        window.location.hash = 'workflow';
+        navigateTo('workflow');
+        showToast(`✓ „${lead.companyName}“ in Workflow geladen!`);
       });
 
       body.querySelectorAll('[data-action="preview-doc"]').forEach(btn => {
@@ -2051,6 +2077,665 @@
     });
   }
 
+  
+  /* ─── 5.7 KUNDEN-WORKFLOW & NEXBOT ORGANISATION PIPELINE ───────────── */
+  let currentWorkflowStep = 1; // 1 bis 5
+  let currentWorkflowTab = 'stepper'; // 'stepper' | 'overview' | 'hub'
+  let clientFormExpanded = false;
+
+  const WORKFLOW_STEPS = [
+    {
+      num: 1,
+      id: "01_angebot",
+      phase: "ANGEBOT",
+      title: "Angebot schreiben & per E-Mail senden",
+      shortDesc: "Verbindliches Festpreisangebot mit 0 € Vorab-Risiko Klausel",
+      detailDesc: "Erstelle das verbindliche Festpreisangebot (1.250 € + 49 € Hosting). Das Dokument wird mit 1 Klick als PDF gedruckt und zusammen mit der fertigen E-Mail-Vorlage an den Kunden gesendet.",
+      legalBasis: "§ 145 BGB (Bindung an den Antrag, 14 Tage Gültigkeit)",
+      statusLabel: "Angebot versendet & liegt dem Kunden vor",
+      docs: [
+        { title: "Musterangebot (HTML / Print)", path: "organisation/01_Angebote/Nexbot_Musterangebot_Webdesign.html", isPrimary: true },
+        { title: "Textfassung (Markdown)", path: "organisation/01_Angebote/Nexbot_Musterangebot_Webdesign.md", isPrimary: false }
+      ]
+    },
+    {
+      num: 2,
+      id: "02_vertrag",
+      phase: "VERTRAG",
+      title: "Projektvertrag & DSGVO-AVV einholen",
+      shortDesc: "BGB-Werkvertrag (§§ 631 ff.) und AVV (Art. 28 DSGVO) mit digitaler Signatur",
+      detailDesc: "Sobald der Kunde zusagt, übermittelst du den Werkvertrag nach §§ 631 ff. BGB und die AVV. Der Kunde kann direkt im Browser digital signieren oder das Dokument unterzeichnen.",
+      legalBasis: "eIDAS Art. 25 & §§ 126, 127 BGB (Formfreie elektronische Signatur)",
+      statusLabel: "Vertrag & AVV gegengezeichnet erhalten (Rechtsgültig)",
+      docs: [
+        { title: "01 Webdesign-Projektvertrag BGB", path: "organisation/02_Vertraege/01_Webdesign_Projektvertrag_BGB.html", isPrimary: true },
+        { title: "02 AVV Datenschutz (Art. 28 DSGVO)", path: "organisation/02_Vertraege/02_AVV_Datenschutz_DSGVO.html", isPrimary: false },
+        { title: "Rechtsgutachten: Digitale Signatur", path: "organisation/02_Vertraege/README_Rechtsgueltigkeit_Digitale_Signatur.md", isPrimary: false }
+      ]
+    },
+    {
+      num: 3,
+      id: "03_entwurf",
+      phase: "ENTWURF",
+      title: "Website-Entwurf zur Vorab-Prüfung übergeben",
+      shortDesc: "Preview auf Highspeed-Infrastruktur gemäß „0 € Vorab-Risiko“",
+      detailDesc: "Entwicklung auf Preview-Infrastruktur gemäß „0 € Vorab-Risiko“. Sende dem Kunden den Staging-Link zur Begutachtung (Korrekturschleife 1 von 2).",
+      legalBasis: "Korrekturschleife 1 von 2 nach vertraglicher Vereinbarung",
+      statusLabel: "Kundenfeedback erhalten & Korrekturen abgeschlossen",
+      docs: [
+        { title: "Staging / Preview-Link aufrufen ↗", isStaging: true, isPrimary: true }
+      ]
+    },
+    {
+      num: 4,
+      id: "04_abnahme",
+      phase: "ABNAHME",
+      title: "Formale Werkabnahme (§ 640 BGB) einholen",
+      shortDesc: "Bestätigung der Mängelfreiheit & Fälligkeit des Werklohns (§ 641 BGB)",
+      detailDesc: "Entscheidender Meilenstein: Mit der Abnahme bestätigt der Kunde die Mängelfreiheit und die Fälligkeit des Werklohns (§ 641 BGB) wird gesetzlich ausgelöst.",
+      legalBasis: "§ 640 BGB Abnahmepflicht & Fälligkeit Werklohn § 641 BGB",
+      statusLabel: "Abnahmeprotokoll gegengezeichnet & Go-Live freigegeben",
+      docs: [
+        { title: "03 Abnahmeprotokoll (§ 640 BGB)", path: "organisation/02_Vertraege/03_Abnahmeprotokoll_Webdesign_BGB.html", isPrimary: true }
+      ]
+    },
+    {
+      num: 5,
+      id: "05_rechnung",
+      phase: "RECHNUNG",
+      title: "Rechnung stellen, Geldeingang & EÜR verbuchen",
+      shortDesc: "Rechnung nach §§ 14, 14a UStG, 14 Tage Zahlungsziel & EÜR-App",
+      detailDesc: "Rechnung nach §§ 14, 14a UStG erstellen (14 Tage Zahlungsziel rein netto). Nach Geldeingang wird die Buchung direkt in der EÜR-App erfasst.",
+      legalBasis: "§§ 14, 14a UStG, § 19 UStG (25k/100k Reform), § 4 Abs. 3 EStG",
+      statusLabel: "Zahlung auf Bankkonto eingegangen & in EÜR erfasst",
+      docs: [
+        { title: "Rechnungsvorlage öffnen", path: "organisation/03_Rechnungen/Nexbot_Kleinunternehmer_Rechnung.html", isPrimary: true },
+        { title: "EÜR Rechner 2026 starten", path: "organisation/04_Buchhaltung_EUER/Nexbot_EUER_Rechner_2026.html", isPrimary: false },
+        { title: "Zahlungserinnerung / Mahnung", path: "organisation/03_Rechnungen/02_Zahlungserinnerung_Mahnung_B2B.html", isPrimary: false }
+      ]
+    }
+  ];
+
+  function getWorkflowClientData() {
+    let saved = null;
+    try {
+      const raw = localStorage.getItem('nexbot_active_client');
+      if (raw) saved = JSON.parse(raw);
+    } catch(e) {}
+
+    if (!saved) {
+      saved = {
+        clientName: 'Musterkunde Bayern GmbH',
+        clientContact: 'z. Hd. Herrn Max Mustermann',
+        clientStreet: 'Musterstraße 12',
+        clientZipCity: '85055 Ingolstadt',
+        clientEmail: 'kontakt@musterkunde.de',
+        projectTitle: 'Nexbot Business-Webauftritt (Handwerk & KMU Festpreis)',
+        projectId: 'NEX-WEB-042',
+        projectPrice: '1.250',
+        hostingPrice: '49',
+        invoiceNumber: 'RE-2026-001',
+        stagingUrl: 'https://staging.nexbot.info/demo',
+        steps: { 1: false, 2: false, 3: false, 4: false, 5: false }
+      };
+      localStorage.setItem('nexbot_active_client', JSON.stringify(saved));
+    }
+    if (!saved.steps) saved.steps = { 1: false, 2: false, 3: false, 4: false, 5: false };
+    return saved;
+  }
+
+  function saveWorkflowClientData(data) {
+    localStorage.setItem('nexbot_active_client', JSON.stringify(data));
+  }
+
+  function generateWorkflowEmail(stepNum, c) {
+    const contactName = (c.clientContact || '').replace(/^(z\.\s*Hd\.\s*Herrn|z\.\s*Hd\.\s*Frau|Herrn|Frau)\s*/i, '').trim();
+    const isFrau = (c.clientContact || '').toLowerCase().includes('frau');
+    const isHerr = (c.clientContact || '').toLowerCase().includes('herr');
+    const lastName = contactName ? contactName.split(' ').slice(-1)[0] : '';
+    const salutation = isFrau ? `Sehr geehrte Frau ${lastName}` : isHerr ? `Sehr geehrter Herr ${lastName}` : `Sehr geehrte Damen und Herren`;
+
+    let subject = '';
+    let body = '';
+
+    if (stepNum === 1) {
+      subject = `Angebot: Moderner Webauftritt & Infrastruktur – ${c.clientName}`;
+      body = `BETREFF: ${subject}\n\n${salutation},\n\nvielen Dank für das angenehme Gespräch und Ihr Interesse an einer zeitgemäßen, rechtssicheren und schnellen Website.\n\nWie besprochen erhalten Sie im Anhang mein verbindliches Angebot zu transparenten Festpreiskonditionen:\n\n• Leistung: ${c.projectTitle}\n• Investition Website: ${c.projectPrice},00 € (Festpreis)\n• Optionales Hosting & Wartung: ${c.hostingPrice},00 € / Monat (deutsche Highspeed-Server, SSL, Backups)\n• Vorab-Risiko für Sie: 0 € (Entwurf zur Vorab-Prüfung vor Rechnungsstellung)\n• Gültigkeit: 14 Tage\n\nSie können das Angebot ganz bequem digital gegenzeichnen oder unterzeichnet per E-Mail an mich zurücksenden.\n\nBei Fragen stehe ich Ihnen jederzeit gerne zur Verfügung!\n\nMit freundlichen Grüßen\nRaphael Neumeier\n\n--\nRaphael Neumeier – Nexbot Webdesign & Software-Entwicklung\nGrasweg 85 · 85077 Manching\nTel: +49 176 51270378 · E-Mail: raphael.m.neumeier@gmail.com\nWeb: https://nexbot.info`;
+    } else if (stepNum === 2) {
+      subject = `Projektvertrag & Datenschutzvereinbarung (AVV) – ${c.clientName} [${c.projectId}]`;
+      body = `BETREFF: ${subject}\n\n${salutation},\n\nherzlichen Dank für die Bestätigung meines Angebots! Ich freue mich sehr auf die Umsetzung Ihrer neuen Website.\n\nAnbei erhalten Sie die offiziellen Vertragsunterlagen zur gemeinsamen Absicherung:\n1. Webdesign-Projektvertrag nach BGB (§§ 631 ff.)\n2. Auftragsverarbeitungsvertrag (AVV gem. Art. 28 DSGVO) inklusive technischer und organisatorischer Maßnahmen (TOM)\n\nBeide Dokumente können Sie unkompliziert digital über den Link unterzeichnen oder als PDF gegenzeichnen und per Mail retournieren.\n\nIch starte nun vereinbarungsgemäß mit der Konzeption und dem ersten Entwurf.\n\nMit freundlichen Grüßen\nRaphael Neumeier\n\n--\nRaphael Neumeier – Nexbot Webdesign & Software-Entwicklung\nGrasweg 85 · 85077 Manching\nTel: +49 176 51270378 · Web: https://nexbot.info`;
+    } else if (stepNum === 3) {
+      const url = c.stagingUrl || 'https://staging.nexbot.info/demo';
+      subject = `Ihr Website-Entwurf steht zur Vorab-Prüfung bereit – ${c.clientName}`;
+      body = `BETREFF: ${subject}\n\n${salutation},\n\nIhr neuer Webauftritt ist fertig konzipiert und programmiert! Der vollständige Entwurf steht ab sofort auf unserer sicheren Preview-Infrastruktur für Sie bereit:\n\n👉 Website-Vorschau: ${url}\n\nBitte prüfen Sie den Entwurf in Ruhe auf:\n• Texte, Anschriften & Leistungsbeschreibungen\n• Design, Farbharmonie und responsive Darstellung auf Smartphone & PC\n• Kontaktformulare und Verlinkungen\n\nGeben Sie mir gerne Ihre gesammelten Änderungswünsche für unsere vereinbarte Korrekturschleife durch, damit wir die Feinjustierung vornehmen können.\n\nMit besten Grüßen\nRaphael Neumeier\n\n--\nRaphael Neumeier – Nexbot Webdesign & Software-Entwicklung\nTel: +49 176 51270378 · Web: https://nexbot.info`;
+    } else if (stepNum === 4) {
+      subject = `Erfolgreiche Fertigstellung & Abnahme gem. § 640 BGB – ${c.clientName}`;
+      body = `BETREFF: ${subject}\n\n${salutation},\n\nalle Korrektur- und Abstimmungspunkte wurden vollständig in Ihren neuen Webauftritt eingearbeitet. Die Website ist damit startklar für den offiziellen Live-Betrieb!\n\nAnbei erhalten Sie das kurze Abnahmeprotokoll gemäß § 640 BGB. Bitte zeichnen Sie dieses kurz digital oder per Scan gegen, damit wir die Domain final aufschalten und die Übergabe formal abschließen können.\n\nVielen Dank für die hervorragende und reibungslose Zusammenarbeit während der Umsetzung!\n\nHerzliche Grüße\nRaphael Neumeier\n\n--\nRaphael Neumeier – Nexbot Webdesign & Software-Entwicklung\nTel: +49 176 51270378 · Web: https://nexbot.info`;
+    } else if (stepNum === 5) {
+      const dueDate = new Date(Date.now() + 14 * 24 * 60 * 60 * 1000).toLocaleDateString('de-DE');
+      subject = `Rechnung ${c.invoiceNumber} – Erstellung Webauftritt – ${c.clientName}`;
+      body = `BETREFF: ${subject}\n\n${salutation},\n\nnach der erfolgreichen Abnahme Ihrer neuen Website erhalten Sie anbei die Rechnung ${c.invoiceNumber}.\n\n• Rechnungsbetrag: ${c.projectPrice},00 €\n• Steuerlicher Hinweis: Gemäß § 19 UStG wird keine Umsatzsteuer berechnet (Kleinunternehmerregelung)\n• Zahlungsziel: 14 Tage ohne Abzug rein netto bis zum ${dueDate}\n\nBitte überweisen Sie den Rechnungsbetrag auf das in der Rechnung angegebene Bankkonto.\n\nIch wünsche Ihnen viel Erfolg mit Ihrem neuen Webauftritt und stehe Ihnen für die laufende Betreuung und Pflege jederzeit gerne zur Seite!\n\nMit besten Grüßen\nRaphael Neumeier\n\n--\nRaphael Neumeier – Nexbot Webdesign & Software-Entwicklung\nGrasweg 85 · 85077 Manching\nTel: +49 176 51270378 · E-Mail: raphael.m.neumeier@gmail.com\nWeb: https://nexbot.info`;
+    }
+
+    return { subject, body };
+  }
+
+  function renderWorkflow() {
+    const client = getWorkflowClientData();
+    const leads = state.getLeads();
+    const activeStepObj = WORKFLOW_STEPS.find(s => s.num === currentWorkflowStep) || WORKFLOW_STEPS[0];
+    const emailData = generateWorkflowEmail(activeStepObj.num, client);
+    const completedCount = Object.values(client.steps || {}).filter(Boolean).length;
+    const pct = Math.round((completedCount / 5) * 100);
+
+    return `
+      <div class="section-header">
+        <div class="section-title-wrap">
+          <span class="section-tag">[ 07 // ORGANISATION & WORKFLOW ]</span>
+          <h1 class="section-title">Nexbot 5-Phasen Kunden-Workflow</h1>
+          <p class="section-desc">Rechtssichere Pipeline von Angebot über BGB-Werkvertrag und Staging-Prüfung bis Werkabnahme (§ 640 BGB) und Kleinunternehmer-Rechnung (§ 19 UStG).</p>
+        </div>
+        <div class="section-actions">
+          <a href="organisation/INDEX_NEXBOT_ORGANISATION.html" target="_blank" class="btn btn-secondary" title="Stand-Alone Index in neuem Tab öffnen">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+            [ HUB ÖFFNEN ↗ ]
+          </a>
+        </div>
+      </div>
+
+      <!-- WORKFLOW TABS -->
+      <div class="workflow-nav-tabs">
+        <button class="btn btn-sm ${currentWorkflowTab === 'stepper' ? 'btn-primary' : 'btn-secondary'}" data-workflow-tab="stepper">
+          1. SCHRITT-FÜR-SCHRITT DURCHKLICKEN
+        </button>
+        <button class="btn btn-sm ${currentWorkflowTab === 'overview' ? 'btn-primary' : 'btn-secondary'}" data-workflow-tab="overview">
+          2. GESAMT-PIPELINE (ALLE 5 SCHRITTE)
+        </button>
+        <button class="btn btn-sm ${currentWorkflowTab === 'hub' ? 'btn-primary' : 'btn-secondary'}" data-workflow-tab="hub">
+          3. VORLAGEN & DOKUMENTE (ORDNER 01-05)
+        </button>
+      </div>
+
+      <!-- AKTIVES KUNDEN-COCKPIT (LEAD-SWITCHER & SYNCHRONISIERUNG) -->
+      <div class="workflow-client-bar">
+        <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1rem;">
+          <div>
+            <div style="display:flex; align-items:center; gap:0.6rem;">
+              <span class="badge badge-emerald font-mono">AKTIVER KUNDE</span>
+              <h3 style="font-family:var(--font-display); font-size:1.05rem; font-weight:700;">${client.clientName}</h3>
+              <span style="color:var(--text-muted); font-size:0.8rem;">(${client.projectId})</span>
+            </div>
+            <p style="font-size:0.75rem; color:var(--text-silver); margin-top:0.2rem;">
+              ${client.clientContact} · ${client.clientZipCity} · ${client.projectPrice} € Festpreis · ${client.hostingPrice} €/Mt.
+            </p>
+          </div>
+
+          <div style="display:flex; gap:0.6rem; align-items:center; flex-wrap:wrap;">
+            <select id="selectPipelineLead" class="form-select" style="max-width:240px; font-size:0.75rem;">
+              <option value="">-- Lead aus Pipeline wählen --</option>
+              ${leads.map(l => `<option value="${l.id}">${l.companyName} (${l.city})</option>`).join('')}
+            </select>
+            <button class="btn btn-secondary btn-sm" id="btnToggleClientForm">
+              ${clientFormExpanded ? 'Formular einklappen ▲' : 'Kundendaten anpassen ▼'}
+            </button>
+          </div>
+        </div>
+
+        <!-- Aufklappbares Formular -->
+        <div id="clientFormBox" style="${clientFormExpanded ? 'display:block;' : 'display:none;'} margin-top:1.25rem; padding-top:1.25rem; border-top:1px solid rgba(255,255,255,0.08);">
+          <form id="workflowClientForm">
+            <div class="client-form-grid">
+              <div>
+                <label class="form-label">Firmenname</label>
+                <input type="text" id="wClientName" class="form-input" value="${client.clientName}">
+              </div>
+              <div>
+                <label class="form-label">Ansprechpartner</label>
+                <input type="text" id="wClientContact" class="form-input" value="${client.clientContact}">
+              </div>
+              <div>
+                <label class="form-label">Straße & Hausnr.</label>
+                <input type="text" id="wClientStreet" class="form-input" value="${client.clientStreet}">
+              </div>
+              <div>
+                <label class="form-label">PLZ & Ort</label>
+                <input type="text" id="wClientZipCity" class="form-input" value="${client.clientZipCity}">
+              </div>
+              <div>
+                <label class="form-label">E-Mail</label>
+                <input type="email" id="wClientEmail" class="form-input" value="${client.clientEmail}">
+              </div>
+              <div>
+                <label class="form-label">Projekt-Titel</label>
+                <input type="text" id="wProjectTitle" class="form-input" value="${client.projectTitle}">
+              </div>
+              <div>
+                <label class="form-label">Projekt-ID</label>
+                <input type="text" id="wProjectId" class="form-input" value="${client.projectId}">
+              </div>
+              <div>
+                <label class="form-label">Festpreis Website (€)</label>
+                <input type="text" id="wProjectPrice" class="form-input" value="${client.projectPrice}">
+              </div>
+              <div>
+                <label class="form-label">Hosting (€ / Mt.)</label>
+                <input type="text" id="wHostingPrice" class="form-input" value="${client.hostingPrice}">
+              </div>
+              <div>
+                <label class="form-label">Rechnungsnummer</label>
+                <input type="text" id="wInvoiceNumber" class="form-input" value="${client.invoiceNumber}">
+              </div>
+              <div>
+                <label class="form-label">Staging / Preview-Link</label>
+                <input type="text" id="wStagingUrl" class="form-input" value="${client.stagingUrl || 'https://staging.nexbot.info/demo'}">
+              </div>
+            </div>
+            <div style="display:flex; justify-content:flex-end; gap:0.6rem; margin-top:1rem;">
+              <button type="submit" class="btn btn-primary btn-sm">Kundendaten synchronisieren</button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      ${currentWorkflowTab === 'stepper' ? `
+        <!-- ─── 5-STEP INTERACTIVE STEPPER ─────────────────────────────────── -->
+        <div class="workflow-stepper">
+          ${WORKFLOW_STEPS.map(st => {
+            const isCompleted = !!(client.steps && client.steps[st.num]);
+            const isActive = st.num === currentWorkflowStep;
+            return `
+              <div class="step-card-btn ${isActive ? 'is-active' : ''} ${isCompleted ? 'is-completed' : ''}" data-goto-step="${st.num}">
+                <div class="step-card-header">
+                  <span class="step-card-num">0${st.num}</span>
+                  <span class="step-card-phase">${st.phase}</span>
+                </div>
+                <div class="step-card-title">${st.title.split('&')[0]}</div>
+                <div class="step-card-footer">
+                  <span class="step-status-tag ${isCompleted ? 'badge badge-emerald' : 'badge badge-blue'}">
+                    ${isCompleted ? '✓ ERLEDIGT' : isActive ? '● AKTIV' : 'OFFEN'}
+                  </span>
+                </div>
+              </div>
+            `;
+          }).join('')}
+        </div>
+
+        <!-- ─── AKTIVER SCHRITT DETAIL-VIEW ───────────────────────────────── -->
+        <div class="workflow-detail-grid">
+          <!-- Linke Spalte: Anleitung, Checkbox & Dokumente -->
+          <div class="workflow-card">
+            <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:1rem; flex-wrap:wrap; gap:0.6rem;">
+              <div>
+                <span class="badge badge-purple font-mono" style="margin-bottom:0.4rem; display:inline-block;">
+                  SCHRITT 0${activeStepObj.num} // ${activeStepObj.phase}
+                </span>
+                <h2 style="font-family:var(--font-display); font-size:1.25rem; font-weight:700;">${activeStepObj.title}</h2>
+              </div>
+              <span class="badge badge-amber font-mono" style="font-size:0.7rem;">
+                ${activeStepObj.legalBasis}
+              </span>
+            </div>
+
+            <p style="font-size:0.85rem; color:var(--text-silver); line-height:1.55; margin-bottom:1.25rem;">
+              ${activeStepObj.detailDesc}
+            </p>
+
+            <!-- Status Checkbox -->
+            <div style="background:rgba(255,255,255,0.03); border:1px solid var(--border-subtle); border-radius:var(--radius-md); padding:0.9rem 1.1rem; margin-bottom:1.25rem;">
+              <label style="display:flex; align-items:center; gap:0.6rem; cursor:pointer; font-family:var(--font-mono); font-size:0.8rem; color:var(--text-pure);">
+                <input type="checkbox" id="checkWorkflowStepDone" ${client.steps && client.steps[activeStepObj.num] ? 'checked' : ''} style="width:17px; height:17px; accent-color:var(--status-emerald); cursor:pointer;">
+                <span>${activeStepObj.statusLabel}</span>
+              </label>
+            </div>
+
+            <!-- Dokument-Aktionen -->
+            <div style="margin-bottom:1.5rem;">
+              <div style="font-family:var(--font-mono); font-size:0.72rem; color:var(--text-muted); text-transform:uppercase; margin-bottom:0.6rem;">
+                Zugehörige Vorlagen & Werkzeuge:
+              </div>
+              <div style="display:flex; gap:0.6rem; flex-wrap:wrap;">
+                ${activeStepObj.docs.map(d => {
+                  if (d.isStaging) {
+                    const stUrl = client.stagingUrl || 'https://staging.nexbot.info/demo';
+                    return `
+                      <a href="${stUrl}" target="_blank" class="btn btn-primary btn-sm">
+                        ${d.title}
+                      </a>
+                    `;
+                  }
+                  return `
+                    <a href="${d.path}" target="_blank" class="btn ${d.isPrimary ? 'btn-primary' : 'btn-secondary'} btn-sm">
+                      ${d.title} ↗
+                    </a>
+                    <button class="btn btn-secondary btn-sm" data-action="preview-doc" data-path="${d.path}" data-title="${d.title}">
+                      Vorschau
+                    </button>
+                  `;
+                }).join('')}
+              </div>
+            </div>
+
+            <!-- Vorheriger / Nächster Schritt Navigation -->
+            <div style="display:flex; justify-content:space-between; align-items:center; padding-top:1rem; border-top:1px solid rgba(255,255,255,0.06);">
+              <button class="btn btn-secondary btn-sm" id="btnPrevStep" ${activeStepObj.num === 1 ? 'disabled style="opacity:0.4; cursor:not-allowed;"' : ''}>
+                ← Vorheriger Schritt
+              </button>
+              <span style="font-family:var(--font-mono); font-size:0.75rem; color:var(--text-muted);">
+                Schritt ${activeStepObj.num} von 5
+              </span>
+              <button class="btn btn-primary btn-sm" id="btnNextStep" ${activeStepObj.num === 5 ? 'disabled style="opacity:0.4; cursor:not-allowed;"' : ''}>
+                Nächster Schritt →
+              </button>
+            </div>
+          </div>
+
+          <!-- Rechte Spalte: Live-generierte E-Mail-Vorlage -->
+          <div class="workflow-card">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.75rem;">
+              <div>
+                <span class="badge badge-blue font-mono" style="font-size:0.68rem;">1-KLICK E-MAIL VORLAGE</span>
+                <div style="font-size:0.8rem; font-weight:600; color:var(--text-pure); margin-top:0.2rem;">
+                  ${emailData.subject}
+                </div>
+              </div>
+              <div style="display:flex; gap:0.4rem;">
+                <button class="btn btn-primary btn-sm" id="btnCopyEmailText">
+                  [ 📋 Kopieren ]
+                </button>
+                <a href="mailto:${client.clientEmail}?subject=${encodeURIComponent(emailData.subject)}&body=${encodeURIComponent(emailData.body)}" class="btn btn-secondary btn-sm" title="Im E-Mail-Programm öffnen">
+                  ✉️ Mailto
+                </a>
+              </div>
+            </div>
+
+            <div class="email-preview-box" id="emailPreviewBox">${emailData.body}</div>
+          </div>
+        </div>
+      ` : currentWorkflowTab === 'overview' ? `
+        <!-- ─── TAB 2: GESAMT-PIPELINE (ALLE 5 SCHRITTE) ──────────────────── -->
+        <div style="display:flex; flex-direction:column; gap:1rem;">
+          ${WORKFLOW_STEPS.map(st => {
+            const isCompleted = !!(client.steps && client.steps[st.num]);
+            return `
+              <div class="workflow-card" style="padding:1.25rem 1.5rem; ${isCompleted ? 'border-color:rgba(16,185,129,0.35); background:rgba(16,185,129,0.03);' : ''}">
+                <div style="display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:0.8rem;">
+                  <div style="display:flex; gap:1rem; align-items:center;">
+                    <div style="width:48px; height:48px; border-radius:8px; background:rgba(255,255,255,0.04); border:1px solid ${isCompleted ? 'rgba(16,185,129,0.4)' : 'var(--border-subtle)'}; display:flex; flex-direction:column; align-items:center; justify-content:center;">
+                      <span style="font-family:var(--font-display); font-size:1.1rem; font-weight:800; color:${isCompleted ? 'var(--status-emerald)' : '#fff'};">0${st.num}</span>
+                      <span style="font-family:var(--font-mono); font-size:0.55rem; color:var(--text-muted);">${st.phase}</span>
+                    </div>
+                    <div>
+                      <h3 style="font-family:var(--font-display); font-size:1.05rem; font-weight:700; margin-bottom:0.2rem;">${st.title}</h3>
+                      <p style="font-size:0.78rem; color:var(--text-silver);">${st.detailDesc}</p>
+                    </div>
+                  </div>
+
+                  <div style="display:flex; gap:0.6rem; align-items:center;">
+                    <label style="display:flex; align-items:center; gap:0.5rem; cursor:pointer; font-family:var(--font-mono); font-size:0.75rem;">
+                      <input type="checkbox" data-toggle-step="${st.num}" ${isCompleted ? 'checked' : ''} style="width:16px; height:16px; accent-color:var(--status-emerald);">
+                      <span>Erledigt</span>
+                    </label>
+                    <button class="btn btn-secondary btn-sm" data-goto-step="${st.num}">
+                      Schritt öffnen →
+                    </button>
+                  </div>
+                </div>
+              </div>
+            `;
+          }).join('')}
+        </div>
+      ` : `
+        <!-- ─── TAB 3: VORLAGEN & DOKUMENTE HUB (ORDNER 01-05) ─────────────── -->
+        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(320px, 1fr)); gap:1.25rem;">
+          <div class="task-card" style="padding:1.25rem;">
+            <div class="task-card-header">
+              <span class="badge badge-blue font-mono">ORDNER 01</span>
+              <span class="badge badge-emerald font-mono">ANGEBOTE</span>
+            </div>
+            <h3 class="table-cell-title" style="margin-bottom:0.4rem;">01_Angebote</h3>
+            <p style="font-size:0.78rem; color:var(--text-silver); margin-bottom:1rem;">
+              Verbindliches Musterangebot mit 1.250 € Festpreis, 49 € Hosting, dynamischem Rechner und Signaturfeld.
+            </p>
+            <div style="display:flex; flex-direction:column; gap:0.5rem;">
+              <a href="organisation/01_Angebote/Nexbot_Musterangebot_Webdesign.html" target="_blank" class="btn btn-secondary btn-sm" style="justify-content:space-between;">
+                <span>Musterangebot öffnen</span> <span>HTML ↗</span>
+              </a>
+              <a href="organisation/01_Angebote/Nexbot_Musterangebot_Webdesign.md" target="_blank" class="btn btn-secondary btn-sm" style="justify-content:space-between;">
+                <span>Textfassung (Markdown)</span> <span>MD ↗</span>
+              </a>
+            </div>
+          </div>
+
+          <div class="task-card" style="padding:1.25rem;">
+            <div class="task-card-header">
+              <span class="badge badge-purple font-mono">ORDNER 02</span>
+              <span class="badge badge-emerald font-mono">VERTRÄGE & AVV</span>
+            </div>
+            <h3 class="table-cell-title" style="margin-bottom:0.4rem;">02_Verträge</h3>
+            <p style="font-size:0.78rem; color:var(--text-silver); margin-bottom:1rem;">
+              BGB-Werkvertrag (§§ 631 ff.), DSGVO-AVV (Art. 28) und Abnahmeprotokoll (§ 640 BGB) mit digitaler Signatur.
+            </p>
+            <div style="display:flex; flex-direction:column; gap:0.5rem;">
+              <a href="organisation/02_Vertraege/01_Webdesign_Projektvertrag_BGB.html" target="_blank" class="btn btn-secondary btn-sm" style="justify-content:space-between;">
+                <span>01 BGB Projektvertrag</span> <span>HTML ↗</span>
+              </a>
+              <a href="organisation/02_Vertraege/02_AVV_Datenschutz_DSGVO.html" target="_blank" class="btn btn-secondary btn-sm" style="justify-content:space-between;">
+                <span>02 AVV (Art. 28 DSGVO)</span> <span>HTML ↗</span>
+              </a>
+              <a href="organisation/02_Vertraege/03_Abnahmeprotokoll_Webdesign_BGB.html" target="_blank" class="btn btn-secondary btn-sm" style="justify-content:space-between;">
+                <span>03 Abnahmeprotokoll</span> <span>HTML ↗</span>
+              </a>
+            </div>
+          </div>
+
+          <div class="task-card" style="padding:1.25rem;">
+            <div class="task-card-header">
+              <span class="badge badge-amber font-mono">ORDNER 03</span>
+              <span class="badge badge-emerald font-mono">RECHNUNGEN</span>
+            </div>
+            <h3 class="table-cell-title" style="margin-bottom:0.4rem;">03_Rechnungen</h3>
+            <p style="font-size:0.78rem; color:var(--text-silver); margin-bottom:1rem;">
+              Kleinunternehmer-Rechnung nach §§ 14, 14a UStG, Mahnwesen & 25k/100k Leitfaden.
+            </p>
+            <div style="display:flex; flex-direction:column; gap:0.5rem;">
+              <a href="organisation/03_Rechnungen/Nexbot_Kleinunternehmer_Rechnung.html" target="_blank" class="btn btn-secondary btn-sm" style="justify-content:space-between;">
+                <span>Rechnungsvorlage öffnen</span> <span>HTML ↗</span>
+              </a>
+              <a href="organisation/03_Rechnungen/02_Zahlungserinnerung_Mahnung_B2B.html" target="_blank" class="btn btn-secondary btn-sm" style="justify-content:space-between;">
+                <span>Zahlungserinnerung / Mahnung</span> <span>HTML ↗</span>
+              </a>
+              <a href="organisation/03_Rechnungen/README_Rechnungsstellung_Leitfaden.md" target="_blank" class="btn btn-secondary btn-sm" style="justify-content:space-between;">
+                <span>Rechnungs-Leitfaden</span> <span>MD ↗</span>
+              </a>
+            </div>
+          </div>
+
+          <div class="task-card" style="padding:1.25rem;">
+            <div class="task-card-header">
+              <span class="badge badge-purple font-mono">ORDNER 04</span>
+              <span class="badge badge-emerald font-mono">EÜR 2026</span>
+            </div>
+            <h3 class="table-cell-title" style="margin-bottom:0.4rem;">04_Buchhaltung_EÜR</h3>
+            <p style="font-size:0.78rem; color:var(--text-silver); margin-bottom:1rem;">
+              EÜR-Web-App (§ 4 Abs. 3 EStG) mit Radar für 25k/100k Reformgrenzwerte und CSV-Export.
+            </p>
+            <div style="display:flex; flex-direction:column; gap:0.5rem;">
+              <a href="organisation/04_Buchhaltung_EUER/Nexbot_EUER_Rechner_2026.html" target="_blank" class="btn btn-primary btn-sm" style="justify-content:space-between;">
+                <span>EÜR Rechner 2026 starten</span> <span>APP ↗</span>
+              </a>
+              <a href="organisation/04_Buchhaltung_EUER/README_Buchhaltung_Anleitung.md" target="_blank" class="btn btn-secondary btn-sm" style="justify-content:space-between;">
+                <span>Buchhaltungs-Anleitung</span> <span>MD ↗</span>
+              </a>
+            </div>
+          </div>
+
+          <div class="task-card" style="padding:1.25rem;">
+            <div class="task-card-header">
+              <span class="badge badge-blue font-mono">ORDNER 05</span>
+              <span class="badge badge-emerald font-mono">BEHÖRDEN</span>
+            </div>
+            <h3 class="table-cell-title" style="margin-bottom:0.4rem;">05_Behörden_Unterlagen</h3>
+            <p style="font-size:0.78rem; color:var(--text-silver); margin-bottom:1rem;">
+              Sichere Ablage der Manching Originalnachweise (Gewerbemeldung, ELSTER USt-IdNr, VBG).
+            </p>
+            <div style="display:flex; flex-direction:column; gap:0.5rem;">
+              <a href="organisation/05_Behoerden_Unterlagen/README_Behoerden_Checkliste_Manching.md" target="_blank" class="btn btn-secondary btn-sm" style="justify-content:space-between;">
+                <span>Behörden-Checkliste</span> <span>MD ↗</span>
+              </a>
+              <a href="organisation/05_Behoerden_Unterlagen/Gewerbemeldung.pdf" target="_blank" class="btn btn-secondary btn-sm" style="justify-content:space-between;">
+                <span>Gewerbemeldung Manching</span> <span>PDF ↗</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      `}
+    `;
+  }
+
+  function initWorkflowEvents(container) {
+    // 1. Step click
+    container.querySelectorAll('[data-goto-step]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        currentWorkflowStep = parseInt(btn.getAttribute('data-goto-step'), 10);
+        currentWorkflowTab = 'stepper';
+        container.innerHTML = renderWorkflow();
+        initWorkflowEvents(container);
+      });
+    });
+
+    // 2. Tab switch
+    container.querySelectorAll('[data-workflow-tab]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        currentWorkflowTab = btn.getAttribute('data-workflow-tab');
+        container.innerHTML = renderWorkflow();
+        initWorkflowEvents(container);
+      });
+    });
+
+    // 3. Toggle Client Form
+    container.querySelector('#btnToggleClientForm')?.addEventListener('click', () => {
+      clientFormExpanded = !clientFormExpanded;
+      const box = container.querySelector('#clientFormBox');
+      if (box) box.style.display = clientFormExpanded ? 'block' : 'none';
+      const btn = container.querySelector('#btnToggleClientForm');
+      if (btn) btn.textContent = clientFormExpanded ? 'Formular einklappen ▲' : 'Kundendaten anpassen ▼';
+    });
+
+    // 4. Client Form Submit
+    container.querySelector('#workflowClientForm')?.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const current = getWorkflowClientData();
+      const updated = {
+        ...current,
+        clientName: container.querySelector('#wClientName')?.value.trim() || current.clientName,
+        clientContact: container.querySelector('#wClientContact')?.value.trim() || current.clientContact,
+        clientStreet: container.querySelector('#wClientStreet')?.value.trim() || current.clientStreet,
+        clientZipCity: container.querySelector('#wClientZipCity')?.value.trim() || current.clientZipCity,
+        clientEmail: container.querySelector('#wClientEmail')?.value.trim() || current.clientEmail,
+        projectTitle: container.querySelector('#wProjectTitle')?.value.trim() || current.projectTitle,
+        projectId: container.querySelector('#wProjectId')?.value.trim() || current.projectId,
+        projectPrice: container.querySelector('#wProjectPrice')?.value.trim() || current.projectPrice,
+        hostingPrice: container.querySelector('#wHostingPrice')?.value.trim() || current.hostingPrice,
+        invoiceNumber: container.querySelector('#wInvoiceNumber')?.value.trim() || current.invoiceNumber,
+        stagingUrl: container.querySelector('#wStagingUrl')?.value.trim() || current.stagingUrl
+      };
+      saveWorkflowClientData(updated);
+      showToast('✓ Kundendaten erfolgreich synchronisiert!');
+      container.innerHTML = renderWorkflow();
+      initWorkflowEvents(container);
+    });
+
+    // 5. Select pipeline lead
+    container.querySelector('#selectPipelineLead')?.addEventListener('change', (e) => {
+      const leadId = e.target.value;
+      if (!leadId) return;
+      const lead = state.getLeads().find(l => l.id === leadId);
+      if (lead) {
+        const current = getWorkflowClientData();
+        const updated = {
+          ...current,
+          clientName: lead.companyName,
+          clientContact: lead.ownerName ? `z. Hd. ${lead.ownerName}` : current.clientContact,
+          clientStreet: lead.street || current.clientStreet,
+          clientZipCity: lead.city ? `85055 ${lead.city}` : current.clientZipCity,
+          projectTitle: `Nexbot Modern Webauftritt – ${lead.companyName}`,
+          projectId: `NEX-${lead.id.toUpperCase()}`,
+          projectPrice: `${lead.dealValue || 1250}`,
+          hostingPrice: `${lead.monthlyRetainer || 39}`,
+          stagingUrl: lead.demoUrl || current.stagingUrl
+        };
+        saveWorkflowClientData(updated);
+        showToast(`✓ Lead „${lead.companyName}“ in Kunden-Workflow geladen!`);
+        container.innerHTML = renderWorkflow();
+        initWorkflowEvents(container);
+      }
+    });
+
+    // 6. Checkbox step done
+    container.querySelector('#checkWorkflowStepDone')?.addEventListener('change', (e) => {
+      const isChecked = e.target.checked;
+      const client = getWorkflowClientData();
+      if (!client.steps) client.steps = {};
+      client.steps[currentWorkflowStep] = isChecked;
+      saveWorkflowClientData(client);
+      showToast(isChecked ? `✓ Schritt 0${currentWorkflowStep} als erledigt markiert!` : `Schritt 0${currentWorkflowStep} wieder geöffnet`);
+      container.innerHTML = renderWorkflow();
+      initWorkflowEvents(container);
+    });
+
+    // 7. Checkboxes in Overview Tab
+    container.querySelectorAll('[data-toggle-step]').forEach(cb => {
+      cb.addEventListener('change', (e) => {
+        const stepNum = parseInt(cb.getAttribute('data-toggle-step'), 10);
+        const client = getWorkflowClientData();
+        if (!client.steps) client.steps = {};
+        client.steps[stepNum] = cb.checked;
+        saveWorkflowClientData(client);
+        showToast(cb.checked ? `✓ Schritt 0${stepNum} als erledigt markiert!` : `Schritt 0${stepNum} geöffnet`);
+        container.innerHTML = renderWorkflow();
+        initWorkflowEvents(container);
+      });
+    });
+
+    // 8. Prev / Next Step buttons
+    container.querySelector('#btnPrevStep')?.addEventListener('click', () => {
+      if (currentWorkflowStep > 1) {
+        currentWorkflowStep--;
+        container.innerHTML = renderWorkflow();
+        initWorkflowEvents(container);
+      }
+    });
+
+    container.querySelector('#btnNextStep')?.addEventListener('click', () => {
+      if (currentWorkflowStep < 5) {
+        currentWorkflowStep++;
+        container.innerHTML = renderWorkflow();
+        initWorkflowEvents(container);
+      }
+    });
+
+    // 9. Copy email text
+    container.querySelector('#btnCopyEmailText')?.addEventListener('click', () => {
+      const client = getWorkflowClientData();
+      const email = generateWorkflowEmail(currentWorkflowStep, client);
+      navigator.clipboard.writeText(email.body).then(() => {
+        showToast(`✓ E-Mail-Vorlage für Schritt 0${currentWorkflowStep} kopiert!`);
+      }).catch(() => {
+        prompt('E-Mail mit Strg+C kopieren:', email.body);
+      });
+    });
+
+    // 10. Doc preview in modal
+    container.querySelectorAll('[data-action="preview-doc"]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const path = btn.getAttribute('data-path');
+        const title = btn.getAttribute('data-title');
+        modal.openDocPreview(path, title);
+      });
+    });
+  }
+
+
   /* ─── 6. ROUTER & GLOBAL INITIALISIERUNG ───────────────────────────── */
   let currentRoute = 'cockpit';
 
@@ -2076,6 +2761,13 @@
 
     const countTasks = document.getElementById('cntTasks');
     if (countTasks) countTasks.textContent = state.getTasks().filter(t => t.status === 'offen').length;
+
+    const countWorkflow = document.getElementById('cntWorkflow');
+    if (countWorkflow) {
+      let client = getWorkflowClientData();
+      let done = Object.values(client.steps || {}).filter(Boolean).length;
+      countWorkflow.textContent = `${done}/5 STEPS`;
+    }
   }
 
   function navigateTo(route) {
@@ -2105,6 +2797,9 @@
     } else if (route === 'coldcall') {
       mainArea.innerHTML = renderColdCall();
       initColdCallEvents(mainArea);
+    } else if (route === 'workflow') {
+      mainArea.innerHTML = renderWorkflow();
+      initWorkflowEvents(mainArea);
     } else {
       mainArea.innerHTML = renderCockpit();
       initCockpitEvents(mainArea);
