@@ -2736,6 +2736,166 @@
   }
 
 
+  
+  /* ─── 0.5 AUTHENTICATION MANAGER & ACCESS CONTROL ──────────────────── */
+  async function computeSha256(str) {
+    if (window.crypto && window.crypto.subtle) {
+      try {
+        const buffer = new TextEncoder().encode(str);
+        const hash = await crypto.subtle.digest('SHA-256', buffer);
+        return Array.from(new Uint8Array(hash)).map(b => b.toString(16).padStart(2, '0')).join('');
+      } catch (e) {
+        return null;
+      }
+    }
+    return null;
+  }
+
+  const TARGET_AUTH = {
+    emailHash: '40d396c6e049f3b27c5ae573ce10f6db8c603419fa796ea697da6928f77e5987',
+    pwdHash: '403ba5c59dc09eb572c660ddcd14134e46cfa1c50f2093442ede28f3fb70f97e',
+    fallbackEmail: 'neumeierraphael342@gmail.com',
+    fallbackPwd: 'Raphael1?'
+  };
+
+  function lockSession() {
+    sessionStorage.removeItem('nexbot_auth_session');
+    localStorage.removeItem('nexbot_auth_session');
+    document.body.classList.add('auth-locked');
+    const overlay = document.getElementById('authGateOverlay');
+    if (overlay) {
+      overlay.classList.remove('is-hidden');
+    }
+    const pwdInput = document.getElementById('authPassword');
+    if (pwdInput) {
+      pwdInput.value = '';
+      pwdInput.focus();
+    }
+    const errBox = document.getElementById('authErrorMessage');
+    if (errBox) errBox.style.display = 'none';
+    showToast('🔒 Sitzung gesperrt.');
+  }
+
+  function initAuthGate() {
+    const overlay = document.getElementById('authGateOverlay');
+    const modalBox = document.getElementById('authGateModal');
+    const form = document.getElementById('authLoginForm');
+    const emailInput = document.getElementById('authEmail');
+    const pwdInput = document.getElementById('authPassword');
+    const toggleBtn = document.getElementById('btnTogglePasswordVisibility');
+    const eyeOpen = document.getElementById('pwdEyeOpen');
+    const eyeClosed = document.getElementById('pwdEyeClosed');
+    const rememberCb = document.getElementById('authRememberMe');
+    const errBox = document.getElementById('authErrorMessage');
+    const submitBtn = document.getElementById('btnSubmitAuth');
+
+    // Pre-fill remembered email
+    const savedEmail = localStorage.getItem('nexbot_auth_email');
+    if (savedEmail && emailInput) {
+      emailInput.value = savedEmail;
+    }
+
+    // Check existing valid session
+    const hasSession = sessionStorage.getItem('nexbot_auth_session') === 'true' ||
+      (localStorage.getItem('nexbot_auth_remember') === 'true' && localStorage.getItem('nexbot_auth_session') === 'true');
+
+    if (hasSession) {
+      document.body.classList.remove('auth-locked');
+      if (overlay) overlay.classList.add('is-hidden');
+    } else {
+      document.body.classList.add('auth-locked');
+      if (overlay) overlay.classList.remove('is-hidden');
+      setTimeout(() => {
+        if (emailInput && !emailInput.value) emailInput.focus();
+        else if (pwdInput) pwdInput.focus();
+      }, 100);
+    }
+
+    // Toggle Password Visibility
+    toggleBtn?.addEventListener('click', () => {
+      if (!pwdInput) return;
+      const isPwd = pwdInput.type === 'password';
+      pwdInput.type = isPwd ? 'text' : 'password';
+      if (eyeOpen) eyeOpen.style.display = isPwd ? 'none' : 'block';
+      if (eyeClosed) eyeClosed.style.display = isPwd ? 'block' : 'none';
+    });
+
+    // Form submit
+    form?.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const emailVal = (emailInput?.value || '').trim().toLowerCase();
+      const pwdVal = pwdInput?.value || '';
+
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = '<span>PRÜFE ZUGANG...</span>';
+      }
+
+      let isValid = false;
+      const eHash = await computeSha256(emailVal);
+      const pHash = await computeSha256(pwdVal);
+
+      if (eHash && pHash) {
+        if (eHash === TARGET_AUTH.emailHash && pHash === TARGET_AUTH.pwdHash) {
+          isValid = true;
+        }
+      }
+      
+      // Fallback check
+      if (!isValid && emailVal === TARGET_AUTH.fallbackEmail && pwdVal === TARGET_AUTH.fallbackPwd) {
+        isValid = true;
+      }
+
+      if (submitBtn) {
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = `<span>SICHER ANMELDEN</span><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>`;
+      }
+
+      if (isValid) {
+        if (errBox) errBox.style.display = 'none';
+        const remember = rememberCb?.checked;
+
+        if (remember) {
+          localStorage.setItem('nexbot_auth_session', 'true');
+          localStorage.setItem('nexbot_auth_remember', 'true');
+          localStorage.setItem('nexbot_auth_email', emailVal);
+        } else {
+          sessionStorage.setItem('nexbot_auth_session', 'true');
+          localStorage.removeItem('nexbot_auth_session');
+          localStorage.removeItem('nexbot_auth_remember');
+        }
+
+        if (overlay) overlay.classList.add('is-hidden');
+        document.body.classList.remove('auth-locked');
+        showToast('✓ Authentifizierung erfolgreich. Willkommen, Raphael!');
+      } else {
+        if (errBox) {
+          errBox.textContent = 'Zugriff verweigert: E-Mail oder Passwort ungültig.';
+          errBox.style.display = 'block';
+        }
+        if (modalBox) {
+          modalBox.classList.add('shake');
+          setTimeout(() => modalBox.classList.remove('shake'), 450);
+        }
+        if (pwdInput) {
+          pwdInput.select();
+        }
+      }
+    });
+
+    // Lock button handlers
+    document.getElementById('btnHeaderLock')?.addEventListener('click', (e) => {
+      e.preventDefault();
+      lockSession();
+    });
+
+    document.getElementById('btnSidebarLock')?.addEventListener('click', (e) => {
+      e.preventDefault();
+      lockSession();
+    });
+  }
+
+
   /* ─── 6. ROUTER & GLOBAL INITIALISIERUNG ───────────────────────────── */
   let currentRoute = 'cockpit';
 
@@ -2809,6 +2969,8 @@
   }
 
   function initApp() {
+    // 0. Auth Gate
+    initAuthGate();
     // 1. Clock
     const clockElem = document.getElementById('hudClock');
     if (clockElem) {
