@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="de" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nexbot Solo Cockpit — Raphael Neumeier | Webdesign Business OS</title>
+  <meta name="description" content="Solo-Business-Dashboard für Raphael Neumeier / Nexbot Webdesign. 5K-Umsatzziel-Tracking, Demo-First Pipeline, BGB-Verträge und Saxer-Kaltakquise-Zentrale.">
+  <meta name="robots" content="noindex, nofollow">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+
+  <!-- Web Fonts (Inter, Sora, Space Mono wie auf nexbot.info) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Sora:wght@600;700;800&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+  <!-- Stylesheets (Nexbot Design-Token System) -->
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/drawer.css">
+</head>
+<body>
+
+  <!-- Cyber Grid Background & Noise Overlay -->
+  <div class="cyber-grid-bg" aria-hidden="true"></div>
+  <div class="noise-overlay" aria-hidden="true"></div>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+     HUD TOP HEADER
+     ═══════════════════════════════════════════════════════════════════════ -->
+  <header class="hud-header" role="banner">
+    <div class="hud-header-left">
+      <a href="#cockpit" class="hud-brand" data-route="cockpit">
+        <div class="hud-logo-icon">
+          <svg width="18" height="18" viewBox="0 0 64 64" fill="none">
+            <path d="M16 48V16L34 36V16H48V48L30 28V48H16Z" fill="#ffffff"/>
+            <circle cx="48" cy="16" r="5" fill="#10b981"/>
+          </svg>
+        </div>
+        <div class="hud-brand-text">
+          <span class="hud-title">RAPHAEL NEUMEIER</span>
+          <span class="hud-subtitle">NEXBOT WEBDESIGN</span>
+        </div>
+      </a>
+      <span class="hud-badge-solo">SOLO-COCKPIT</span>
+    </div>
+
+    <!-- 5K GOAL PROGRESS BAR -->
+    <div class="hud-header-center">
+      <div class="kpi-tracker-bar">
+        <div class="kpi-tracker-meta">
+          <span class="kpi-tracker-label">Q4 ZIEL: 5.000 € UMSATZ</span>
+          <span class="kpi-tracker-val" id="kpiTrackerVal">1.250 € / 5.000 € (25%)</span>
+        </div>
+        <div class="kpi-progress-track">
+          <div class="kpi-progress-fill" id="kpiProgressFill" style="width: 25%;"></div>
+          <div class="kpi-milestones">
+            <div class="kpi-milestone-marker" style="left: 0%;" data-milestone="0€"></div>
+            <div class="kpi-milestone-marker" style="left: 25%;" data-milestone="1.250€"></div>
+            <div class="kpi-milestone-marker" style="left: 50%;" data-milestone="2.500€"></div>
+            <div class="kpi-milestone-marker" style="left: 75%;" data-milestone="3.750€"></div>
+            <div class="kpi-milestone-marker" style="left: 100%;" data-milestone="5.000€"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="hud-header-right">
+      <div class="hud-clock" id="hudClock">[ MANCHING 12:00:00 ]</div>
+      <button class="hud-quick-add-btn" id="btnHeaderQuickAdd">
+        + LEAD
+      </button>
+      <button class="hud-menu-btn" id="hudMenuBtn" aria-label="Menü">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+     APP LAYOUT: SIDEBAR + MAIN VIEW
+     ═══════════════════════════════════════════════════════════════════════ -->
+  <div class="app-layout">
+    <!-- Backdrop für mobile Navigation -->
+    <div class="sidebar-backdrop" id="sidebarBackdrop"></div>
+
+    <!-- Linke feste Sidebar Navigation -->
+    <aside class="app-sidebar" id="appSidebar">
+      <div class="sidebar-nav-group">
+        <div class="sidebar-heading">Navigation</div>
+        
+        <a href="#cockpit" class="sidebar-nav-item is-active" data-route="cockpit">
+          <div class="nav-label-box">
+            <span>[ 01 ]</span>
+            <span>COCKPIT</span>
+          </div>
+          <span class="nav-counter">LIVE</span>
+        </a>
+
+        <a href="#pipeline" class="sidebar-nav-item" data-route="pipeline">
+          <div class="nav-label-box">
+            <span>[ 02 ]</span>
+            <span>PIPELINE</span>
+          </div>
+          <span class="nav-counter" id="cntPipeline">14</span>
+        </a>
+
+        <a href="#clients" class="sidebar-nav-item" data-route="clients">
+          <div class="nav-label-box">
+            <span>[ 03 ]</span>
+            <span>KUNDEN & MRR</span>
+          </div>
+          <span class="nav-counter" id="cntClients">1</span>
+        </a>
+
+        <a href="#documents" class="sidebar-nav-item" data-route="documents">
+          <div class="nav-label-box">
+            <span>[ 04 ]</span>
+            <span>VERTRÄGE / RECHTLICHES</span>
+          </div>
+          <span class="nav-counter" id="cntDocs">9</span>
+        </a>
+
+        <a href="#tasks" class="sidebar-nav-item" data-route="tasks">
+          <div class="nav-label-box">
+            <span>[ 05 ]</span>
+            <span>SOLO-TASKS</span>
+          </div>
+          <span class="nav-counter" id="cntTasks">4</span>
+        </a>
+
+        <a href="#coldcall" class="sidebar-nav-item" data-route="coldcall">
+          <div class="nav-label-box">
+            <span>[ 06 ]</span>
+            <span>CALL-TRAINER</span>
+          </div>
+          <span class="nav-counter" style="color:var(--status-emerald);">SAXER</span>
+        </a>
+      </div>
+
+      <!-- Profil & Schnell-Links -->
+      <div class="sidebar-footer">
+        <div class="solo-profile-card">
+          <div class="solo-avatar">RN</div>
+          <div class="solo-info">
+            <span class="solo-name">Raphael Neumeier</span>
+            <span class="solo-role">Inhaber & Entwickler</span>
+          </div>
+        </div>
+
+        <div class="sidebar-action-links">
+          <a href="https://nexbot.info" target="_blank" class="sidebar-small-btn">
+            nexbot.info ↗
+          </a>
+          <a href="#" id="btnResetData" class="sidebar-small-btn" title="Setzt Leads und Aufgaben auf den Original-Bestand zurück">
+            Reset State
+          </a>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Hauptarbeitsbereich -->
+    <main class="app-main" id="appMainArea">
+      <!-- Wird dynamisch durch die Module befüllt -->
+    </main>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+     SLIDE-OVER DRAWER (LEAD- & KUNDEN DETAILAKTE)
+     ═══════════════════════════════════════════════════════════════════════ -->
+  <div class="drawer-backdrop" id="drawerBackdrop">
+    <div class="drawer-panel" id="drawerPanel" role="dialog" aria-modal="true" aria-labelledby="drawerCompanyName">
+      <div class="drawer-header">
+        <div class="drawer-title-group">
+          <span class="drawer-tag" id="drawerTag">[ LEAD-DETAILAKTE ]</span>
+          <h2 class="drawer-company-name" id="drawerCompanyName">Betriebsname</h2>
+        </div>
+        <button class="drawer-close-btn" id="drawerCloseBtn" aria-label="Schließen">[ ✕ SCHLIESSEN ]</button>
+      </div>
+
+      <div class="drawer-body" id="drawerBody">
+        <!-- Dynamischer Inhalt via drawer.js -->
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+     MODAL PREVIEW & DIALOG SHELL
+     ═══════════════════════════════════════════════════════════════════════ -->
+  <div class="modal-backdrop" id="modalBackdrop">
+    <div class="modal-box" id="modalBox" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <div class="modal-header">
+        <h3 class="modal-title" id="modalTitle">Vorschau</h3>
+        <button class="drawer-close-btn" id="modalCloseBtn" aria-label="Schließen">[ ✕ ]</button>
+      </div>
+      <div class="modal-body" id="modalBody">
+        <!-- Iframe oder dynamisches Formular -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification Container -->
+  <div class="toast-container" id="toastContainer"></div>
+
+  <!-- ES6+ Module Application Entrypoint -->
+  <script type="module" src="js/app.js"></script>
+
+</body>
+</html>
