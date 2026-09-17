@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nexbot – Kunden-Anpassungsfragebogen (Korrekturschleife)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Inter:wght@300;400;500;600;700&family=Sora:wght@400;600;700;800&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-screen: #06060a;
+      --paper-bg: #ffffff;
+      --text-main: #111827;
+      --text-muted: #4b5563;
+      --border-color: #e5e7eb;
+      --border-dark: #0f172a;
+      --accent-cyan: #38bdf8;
+      --accent-emerald: #10b981;
+      --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-display: 'Sora', sans-serif;
+      --font-mono: 'Space Mono', monospace;
+      --font-sig: 'Caveat', cursive;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background-color: var(--bg-screen);
+      font-family: var(--font-sans);
+      color: var(--text-main);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 24px 16px 40px 16px;
+      line-height: 1.5;
+      min-height: 100vh;
+    }
+
+    /* ─── TOOLBAR ─────────────────────────────────────────────────────── */
+    .toolbar-wrapper {
+      position: sticky;
+      top: 14px;
+      z-index: 1000;
+      width: 100%;
+      max-width: 860px;
+      margin-bottom: 24px;
+    }
+
+    .toolbar {
+      background: rgba(13, 13, 20, 0.92);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 10px;
+      padding: 8px 14px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.55), 0 2px 6px rgba(255, 255, 255, 0.05) inset;
+    }
+
+    .toolbar-brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-family: var(--font-display);
+      font-size: 13px;
+      font-weight: 700;
+      color: #ffffff;
+      white-space: nowrap;
+    }
+
+    .toolbar-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #f59e0b;
+      box-shadow: 0 0 8px #f59e0b;
+    }
+
+    .toolbar-tag {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      color: #94a3b8;
+      background: rgba(255, 255, 255, 0.06);
+      padding: 2px 7px;
+      border-radius: 4px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .toolbar-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .tb-btn {
+      height: 33px;
+      padding: 0 12px;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.2px;
+      border-radius: 6px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.18s ease;
+      text-decoration: none;
+      white-space: nowrap;
+      border: 1px solid transparent;
+    }
+
+    .tb-btn svg { width: 13px; height: 13px; stroke-width: 1.8; flex-shrink: 0; }
+
+    .tb-btn-secondary {
+      background: #14141f;
+      color: #cbd5e1;
+      border-color: rgba(255, 255, 255, 0.12);
+    }
+    .tb-btn-secondary:hover {
+      background: #1e1e2d;
+      color: #ffffff;
+      border-color: rgba(255, 255, 255, 0.25);
+    }
+
+    .tb-btn-primary {
+      background: #ffffff;
+      color: #050508;
+      font-weight: 700;
+      border-color: #ffffff;
+      box-shadow: 0 2px 10px rgba(255, 255, 255, 0.15);
+    }
+    .tb-btn-primary:hover {
+      background: #e2e8f0;
+      transform: translateY(-1px);
+    }
+
+    @media screen and (max-width: 740px) {
+      .toolbar { flex-direction: column; align-items: stretch; gap: 10px; padding: 10px; }
+      .toolbar-brand { justify-content: center; }
+      .toolbar-actions { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 6px; }
+      .tb-btn { justify-content: center; width: 100%; }
+    }
+
+    /* ─── SHEET ──────────────────────────────────────────────────────── */
+    .sheet {
+      background: var(--paper-bg);
+      width: 100%;
+      max-width: 210mm;
+      min-height: 297mm;
+      padding: 16mm 18mm 16mm 18mm;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.55);
+      position: relative;
+      color: #111827;
+      font-size: 8.6pt;
+      margin-bottom: 25px;
+      border-radius: 4px;
+      display: flex;
+      flex-direction: column;
+      box-sizing: border-box;
+    }
+
+    .doc-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      border-bottom: 2px solid var(--border-dark);
+      padding-bottom: 12px;
+      margin-bottom: 12px;
+    }
+
+    .logo-container { display: flex; align-items: center; gap: 12px; }
+    .logo-svg { width: 36px; height: 36px; flex-shrink: 0; }
+    .logo-text h1 { font-family: var(--font-display); font-size: 13.5pt; font-weight: 800; color: #050508; line-height: 1.1; }
+    .logo-text p { font-family: var(--font-mono); font-size: 6.8pt; color: #64748b; letter-spacing: 1.2px; text-transform: uppercase; }
+
+    .header-doc-id {
+      font-family: var(--font-mono);
+      font-size: 7.2pt;
+      color: #64748b;
+      text-align: right;
+      line-height: 1.35;
+    }
+
+    .meta-box {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 6px;
+      padding: 10px 14px;
+      margin-bottom: 12px;
+      font-size: 8.2pt;
+    }
+
+    .title-block { text-align: center; margin-bottom: 12px; }
+    .title-badge {
+      display: inline-block;
+      font-family: var(--font-mono);
+      font-size: 7pt;
+      font-weight: 700;
+      background: #d97706;
+      color: #ffffff;
+      padding: 2px 7px;
+      border-radius: 4px;
+      margin-bottom: 3px;
+      letter-spacing: 0.8px;
+    }
+    .title-block h2 { font-family: var(--font-display); font-size: 13pt; font-weight: 800; color: #050508; }
+    .title-subtitle { font-size: 7.8pt; color: #64748b; margin-top: 1px; }
+
+    .section-headline {
+      font-family: var(--font-display);
+      font-size: 9pt;
+      font-weight: 700;
+      color: var(--border-dark);
+      border-bottom: 1px solid #e2e8f0;
+      padding-bottom: 2px;
+      margin-bottom: 6px;
+      margin-top: 10px;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-bottom: 6px;
+    }
+
+    .input-field-block {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 5px;
+      padding: 6px 10px;
+    }
+    .input-label {
+      font-family: var(--font-mono);
+      font-size: 7pt;
+      color: #64748b;
+      text-transform: uppercase;
+      margin-bottom: 2px;
+    }
+    .input-value {
+      font-size: 8.3pt;
+      color: #0f172a;
+      min-height: 18px;
+      outline: none;
+    }
+    .input-value:focus {
+      background: #ffffff;
+      border-radius: 3px;
+    }
+
+    .check-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 6px;
+      margin-bottom: 4px;
+      font-size: 8.2pt;
+      color: #334155;
+    }
+    .check-item input {
+      accent-color: #d97706;
+      margin-top: 2px;
+      cursor: pointer;
+    }
+
+    .highlight-banner {
+      background: #fffbeb;
+      border-left: 3px solid #f59e0b;
+      padding: 6px 10px;
+      margin: 8px 0;
+      font-size: 8pt;
+      color: #92400e;
+      border-radius: 0 4px 4px 0;
+    }
+
+    .signatures-block { margin-top: auto; padding-top: 10px; }
+    .signatures-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14mm; margin-top: 6px; }
+    .sig-slot { border-top: 1px solid var(--border-dark); padding-top: 4px; }
+    .sig-location { font-family: var(--font-mono); font-size: 7pt; color: #64748b; margin-bottom: 2px; }
+    .sig-name { font-weight: 700; font-size: 8.3pt; color: var(--border-dark); }
+    .sig-sub { font-size: 7pt; color: #64748b; }
+
+    .doc-footer {
+      border-top: 1px solid #e2e8f0;
+      margin-top: 12px;
+      padding-top: 5px;
+      display: flex;
+      justify-content: space-between;
+      font-family: var(--font-mono);
+      font-size: 6.8pt;
+      color: #94a3b8;
+    }
+
+    /* Print */
+    @page {
+      size: A4 portrait;
+      margin: 10mm 14mm 10mm 14mm;
+    }
+    @media print {
+      body { background: #fff !important; padding: 0 !important; }
+      .toolbar-wrapper { display: none !important; }
+      .sheet { box-shadow: none !important; padding: 6mm 0 !important; width: 100% !important; max-width: none !important; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- TOOLBAR -->
+  <div class="toolbar-wrapper">
+    <div class="toolbar">
+      <div class="toolbar-brand">
+        <div class="toolbar-dot"></div>
+        <span>NEXBOT // ANPASSUNGSBOGEN</span>
+        <span class="toolbar-tag">KORREKTURSCHLEIFE</span>
+      </div>
+      <div class="toolbar-actions">
+        <a href="../INDEX_NEXBOT_ORGANISATION.html" class="tb-btn tb-btn-secondary">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+          <span>Hub</span>
+        </a>
+        <button type="button" class="tb-btn tb-btn-secondary" onclick="copyChecklistText()">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+          <span>Als Text kopieren</span>
+        </button>
+        <button type="button" class="tb-btn tb-btn-primary" onclick="window.print()">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+          <span>PDF drucken</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- SHEET -->
+  <div class="sheet">
+    <div class="doc-header">
+      <div class="logo-container">
+        <svg class="logo-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+          <rect width="100" height="100" rx="20" fill="#050508"/>
+          <rect x="3" y="3" width="94" height="94" rx="17" fill="none" stroke="#252535" stroke-width="2"/>
+          <path d="M28 72 V28 L72 72 V28" fill="none" stroke="#ffffff" stroke-width="11" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <div class="logo-text">
+          <h1>RAPHAEL NEUMEIER</h1>
+          <p>NEXBOT · WEBDESIGN &amp; SOFTWARE-ENTWICKLUNG</p>
+        </div>
+      </div>
+      <div class="header-doc-id">
+        <strong>DOKUMENT:</strong> FEEDBACK-FB-2026<br>
+        <strong>PROJEKT-ID:</strong> <span id="projectId">NEX-WEB-042</span><br>
+        <strong>KORREKTUR:</strong> Runde 1 von 2
+      </div>
+    </div>
+
+    <div class="meta-box">
+      <div>
+        <strong>Auftraggeber:</strong> <span id="clientNameDisplay">Musterkunde GmbH</span><br>
+        <strong>Ansprechpartner:</strong> <span id="clientContactDisplay">Max Mustermann</span><br>
+        <strong>E-Mail:</strong> <span id="clientEmailDisplay">kontakt@musterkunde.de</span>
+      </div>
+      <div>
+        <strong>Staging-Link:</strong> <span contenteditable="true" style="color:#0284c7;">https://staging.nexbot.info/demo</span><br>
+        <strong>Status:</strong> Vorlage zur Begutachtung &amp; Anpassung<br>
+        <strong>Rechtsgrundlage:</strong> § 3 Projektvertrag / AGB
+      </div>
+    </div>
+
+    <div class="title-block">
+      <span class="title-badge">KORREKTURSCHLEIFE 1 VON 2</span>
+      <h2>KUNDEN-ANPASSUNGS- &amp; FEEDBACKBOGEN</h2>
+      <div class="title-subtitle">Strukturierte Erfassung aller Text-, Bild- und Funktionsanpassungen vor dem finalen Go-Live</div>
+    </div>
+
+    <div class="highlight-banner">
+      💡 <strong>Hinweis zur Korrekturschleife:</strong> Trage hier alle Änderungswünsche gebündelt ein. Nach Einarbeitung dieser Runde erfolgt die Bereitstellung des finalen Auftritts zur förmlichen Abnahme (§ 640 BGB).
+    </div>
+
+    <!-- 1. Kontaktdaten & Basis -->
+    <div class="section-headline">1. Kontaktdaten &amp; Firmenangaben</div>
+    <div class="form-grid">
+      <div class="input-field-block">
+        <div class="input-label">Telefonnummer für Anruf-Buttons</div>
+        <div class="input-value" contenteditable="true">+49 (0) 123 456789</div>
+      </div>
+      <div class="input-field-block">
+        <div class="input-label">WhatsApp-Nummer für Direkt-Chat</div>
+        <div class="input-value" contenteditable="true">+49 170 1234567</div>
+      </div>
+      <div class="input-field-block">
+        <div class="input-label">E-Mail für Formularanfragen</div>
+        <div class="input-value" contenteditable="true">anfragen@musterkunde.de</div>
+      </div>
+      <div class="input-field-block">
+        <div class="input-label">Öffnungszeiten / Erreichbarkeit</div>
+        <div class="input-value" contenteditable="true">Mo–Fr: 07:30 – 17:00 Uhr</div>
+      </div>
+    </div>
+
+    <!-- 2. Text- & Inhaltsänderungen -->
+    <div class="section-headline">2. Text- &amp; Inhaltsanpassungen</div>
+    <div class="form-grid">
+      <div class="input-field-block">
+        <div class="input-label">Hauptüberschrift (Hero-Bereich)</div>
+        <div class="input-value" contenteditable="true">Ihr Meisterbetrieb für Bad &amp; Heizung in Ingolstadt</div>
+      </div>
+      <div class="input-field-block">
+        <div class="input-label">Unterüberschrift / Slogan</div>
+        <div class="input-value" contenteditable="true">Schnell vor Ort. 24/7 Notdienst. Über 25 Jahre Erfahrung.</div>
+      </div>
+      <div class="input-field-block" style="grid-column: span 2;">
+        <div class="input-label">Leistungsbereiche &amp; Kernangebote (Was soll ergänzt/gestrichen werden?)</div>
+        <div class="input-value" contenteditable="true">Wärmepumpen-Check und Fördermittelberatung prominenter hervorheben.</div>
+      </div>
+      <div class="input-field-block" style="grid-column: span 2;">
+        <div class="input-label">Über-uns / Firmengeschichte</div>
+        <div class="input-value" contenteditable="true">Gegründet 1998 durch Hans Mustermann, mittlerweile 12 Mitarbeiter im Einsatz.</div>
+      </div>
+    </div>
+
+    <!-- 3. Bildmaterial, Logo & Farben -->
+    <div class="section-headline">3. Bildmaterial, Logo &amp; Corporate Identity</div>
+    <div class="form-grid">
+      <div class="input-field-block">
+        <div class="input-label">Logo-Status</div>
+        <label class="check-item"><input type="checkbox" checked> Logo aus aktuellem Entwurf übernehmen</label>
+        <label class="check-item"><input type="checkbox"> Neues Vektorlogo wird per Mail/Drive gesendet</label>
+      </div>
+      <div class="input-field-block">
+        <div class="input-label">Farb- &amp; Stilanpassung</div>
+        <div class="input-value" contenteditable="true">Firmenfarben: Dunkelblau (#0f2b48) &amp; Akzent-Orange (#f26522)</div>
+      </div>
+    </div>
+
+    <!-- 4. Formulare & Sonderwünsche -->
+    <div class="section-headline">4. Formulare &amp; Sonderwünsche</div>
+    <div class="input-field-block" style="margin-bottom:10px;">
+      <label class="check-item"><input type="checkbox" checked> 60-Sekunden Online-Bewerbungsformular für Fachkräfte/Azubis aktivieren</label>
+      <label class="check-item"><input type="checkbox" checked> Schwebender WhatsApp-Support-Button (unten rechts)</label>
+      <label class="check-item"><input type="checkbox"> Google-Bewertungslink prominent als Sternerating einbinden</label>
+      <label class="check-item"><input type="checkbox"> Notdienst-Telefonnummer mit rotem Alarm-Banner oben fixieren</label>
+    </div>
+
+    <!-- Signatur / Freigabe -->
+    <div class="signatures-block">
+      <div class="signatures-grid">
+        <div class="sig-slot">
+          <div class="sig-location">Manching, den <span id="curDate">17.09.2026</span></div>
+          <div class="sig-name">Raphael Neumeier</div>
+          <div class="sig-sub">Nexbot Webdesign &amp; Software-Entwicklung</div>
+        </div>
+        <div class="sig-slot">
+          <div class="sig-location" id="clientSigLocationDate">[Ort], den ______________</div>
+          <div class="sig-name" id="clientSigCompanyName">Musterkunde GmbH</div>
+          <div class="sig-sub">Freigabe zur Einarbeitung der Korrekturschleife</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="doc-footer">
+      <span>NEXBOT // RAPHAEL NEUMEIER · KUNDEN-ANPASSUNGSFRAGEBOGEN</span>
+      <span>KORREKTURSCHLEIFE 1 VON 2</span>
+      <span>STAND: SEPTEMBER 2026</span>
+    </div>
+  </div>
+
+  <script>
+    function copyChecklistText() {
+      const text = `NEXBOT KUNDEN-FEEDBACK // KORREKTURSCHLEIFE
+Projekt: ${document.getElementById('projectId').textContent}
+Kunde: ${document.getElementById('clientNameDisplay').textContent}
+Datum: ${new Date().toLocaleDateString('de-DE')}
+
+Die gewünschten Anpassungen aus dem Bogen wurden zur Einarbeitung freigegeben.`;
+      navigator.clipboard.writeText(text);
+      alert('Feedback-Zusammenfassung in Zwischenablage kopiert!');
+    }
+  </script>
+  <script src="../assets/nexbot-client-sync.js"></script>
+</body>
+</html>

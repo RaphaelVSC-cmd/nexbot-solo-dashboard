@@ -493,6 +493,18 @@
         description: "Dienstvertrag nach §§ 611 ff. BGB über Highspeed-Hosting, wöchentliche Backups, 24h SLA und integriertes SEPA-Lastschriftmandat."
       },
       {
+        id: "doc-004c",
+        title: "06 Kunden-Anpassungsfragebogen",
+        category: "02_Verträge",
+        clientName: "Musterkunde Bayern GmbH",
+        leadId: "lead-015",
+        amount: "Workflow",
+        status: "aktiv",
+        date: "2026-03-05",
+        filePath: "organisation/02_Vertraege/06_Kunden_Anpassungsfragebogen.html",
+        description: "Standardisierter Korrekturbogen für Feedbackschleife 1 von 2 (Texte, Farben, Bilder, Struktur) gem. § 4 Abs. 3 Werkvertrag."
+      },
+      {
         id: "doc-005",
         title: "Kleinunternehmer-Rechnung RE-2026-001",
         category: "03_Rechnungen",
@@ -553,6 +565,18 @@
         date: "2026-09-15",
         filePath: "organisation/05_Behoerden_Unterlagen/ELSTER-USt-IdNr.pdf",
         description: "Umsatzsteuer-Identifikationsnummer & Fragebogen zur steuerlichen Erfassung."
+      },
+      {
+        id: "doc-010",
+        title: "DNS & Vercel Domain-Leitfaden",
+        category: "05_Behörden_Unterlagen",
+        clientName: "Nexbot Webdesign (SOP)",
+        leadId: null,
+        amount: "SOP",
+        status: "aktiv",
+        date: "2026-03-05",
+        filePath: "organisation/05_Behoerden_Unterlagen/Nexbot_DNS_und_Domain_Leitfaden.html",
+        description: "Technischer Leitfaden für A-Record (76.76.21.21), CNAME und schützende DNS-Konfiguration ohne Mail-Kollision."
       }
     ],
 

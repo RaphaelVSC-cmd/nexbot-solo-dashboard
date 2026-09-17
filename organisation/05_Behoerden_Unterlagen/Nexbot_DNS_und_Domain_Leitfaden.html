@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nexbot – Domainumzug &amp; DNS-Management Leitfaden</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Sora:wght@400;600;700;800&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-screen: #06060a;
+      --paper-bg: #ffffff;
+      --text-main: #111827;
+      --text-muted: #4b5563;
+      --border-color: #e5e7eb;
+      --border-dark: #0f172a;
+      --accent-blue: #38bdf8;
+      --accent-emerald: #10b981;
+      --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-display: 'Sora', sans-serif;
+      --font-mono: 'Space Mono', monospace;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background-color: var(--bg-screen);
+      font-family: var(--font-sans);
+      color: var(--text-main);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 24px 16px 40px 16px;
+      line-height: 1.5;
+      min-height: 100vh;
+    }
+
+    /* Toolbar */
+    .toolbar-wrapper {
+      position: sticky;
+      top: 14px;
+      z-index: 1000;
+      width: 100%;
+      max-width: 860px;
+      margin-bottom: 24px;
+    }
+
+    .toolbar {
+      background: rgba(13, 13, 20, 0.92);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 10px;
+      padding: 8px 14px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.55);
+    }
+
+    .toolbar-brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-family: var(--font-display);
+      font-size: 13px;
+      font-weight: 700;
+      color: #ffffff;
+    }
+
+    .toolbar-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--accent-blue);
+      box-shadow: 0 0 8px var(--accent-blue);
+    }
+
+    .tb-btn {
+      height: 33px;
+      padding: 0 12px;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 600;
+      border-radius: 6px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      text-decoration: none;
+      white-space: nowrap;
+      border: 1px solid transparent;
+      background: #14141f;
+      color: #cbd5e1;
+    }
+    .tb-btn:hover { background: #1e1e2d; color: #ffffff; }
+
+    .tb-btn-primary {
+      background: #ffffff;
+      color: #050508;
+      font-weight: 700;
+    }
+    .tb-btn-primary:hover { background: #e2e8f0; }
+
+    /* Sheet */
+    .sheet {
+      background: var(--paper-bg);
+      width: 100%;
+      max-width: 210mm;
+      min-height: 297mm;
+      padding: 16mm 18mm;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.55);
+      position: relative;
+      color: #111827;
+      font-size: 8.8pt;
+      margin-bottom: 25px;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+
+    .doc-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      border-bottom: 2px solid var(--border-dark);
+      padding-bottom: 12px;
+      margin-bottom: 14px;
+    }
+
+    .logo-container { display: flex; align-items: center; gap: 12px; }
+    .logo-svg { width: 36px; height: 36px; }
+    .logo-text h1 { font-family: var(--font-display); font-size: 13.5pt; font-weight: 800; color: #050508; line-height: 1.1; }
+    .logo-text p { font-family: var(--font-mono); font-size: 6.8pt; color: #64748b; letter-spacing: 1.2px; text-transform: uppercase; }
+
+    .header-doc-id {
+      font-family: var(--font-mono);
+      font-size: 7.2pt;
+      color: #64748b;
+      text-align: right;
+    }
+
+    .title-block { text-align: center; margin-bottom: 14px; }
+    .title-badge {
+      display: inline-block;
+      font-family: var(--font-mono);
+      font-size: 7pt;
+      font-weight: 700;
+      background: #0284c7;
+      color: #ffffff;
+      padding: 2px 7px;
+      border-radius: 4px;
+      margin-bottom: 3px;
+      letter-spacing: 0.8px;
+    }
+    .title-block h2 { font-family: var(--font-display); font-size: 13pt; font-weight: 800; color: #050508; }
+
+    .golden-rule-card {
+      background: #eff6ff;
+      border: 1px solid #bfdbfe;
+      border-left: 4px solid #0284c7;
+      border-radius: 6px;
+      padding: 10px 14px;
+      margin-bottom: 14px;
+      font-size: 8.3pt;
+      color: #1e3a8a;
+    }
+    .golden-rule-card strong { color: #1e40af; }
+
+    .section-title {
+      font-family: var(--font-display);
+      font-size: 9.5pt;
+      font-weight: 700;
+      color: var(--border-dark);
+      border-bottom: 1px solid #e2e8f0;
+      padding-bottom: 3px;
+      margin-bottom: 8px;
+      margin-top: 14px;
+    }
+
+    .dns-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 12px;
+      font-size: 8.2pt;
+    }
+    .dns-table th, .dns-table td {
+      border: 1px solid #e2e8f0;
+      padding: 6px 10px;
+      text-align: left;
+    }
+    .dns-table th { background: #f8fafc; font-family: var(--font-mono); font-size: 7.5pt; color: #475569; }
+    .dns-code { font-family: var(--font-mono); font-size: 8pt; background: #f1f5f9; padding: 2px 6px; border-radius: 4px; font-weight: 600; color: #0f172a; }
+
+    .code-box {
+      background: #f8fafc;
+      border: 1px solid #cbd5e1;
+      border-radius: 6px;
+      padding: 10px 12px;
+      font-family: var(--font-mono);
+      font-size: 7.5pt;
+      line-height: 1.45;
+      color: #334155;
+      white-space: pre-wrap;
+      margin-bottom: 14px;
+      position: relative;
+    }
+
+    .copy-btn {
+      position: absolute;
+      top: 8px;
+      right: 8px;
+      background: #ffffff;
+      border: 1px solid #cbd5e1;
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-size: 7pt;
+      font-family: var(--font-mono);
+      cursor: pointer;
+    }
+    .copy-btn:hover { background: #f1f5f9; }
+
+    .doc-footer {
+      border-top: 1px solid #e2e8f0;
+      margin-top: 18px;
+      padding-top: 5px;
+      display: flex;
+      justify-content: space-between;
+      font-family: var(--font-mono);
+      font-size: 6.8pt;
+      color: #94a3b8;
+    }
+
+    @media print {
+      body { background: #fff !important; padding: 0 !important; }
+      .toolbar-wrapper { display: none !important; }
+      .sheet { box-shadow: none !important; padding: 6mm 0 !important; width: 100% !important; max-width: none !important; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- TOOLBAR -->
+  <div class="toolbar-wrapper">
+    <div class="toolbar">
+      <div class="toolbar-brand">
+        <div class="toolbar-dot"></div>
+        <span>NEXBOT // DNS-MANAGEMENT LEITFADEN</span>
+      </div>
+      <div class="toolbar-actions">
+        <a href="../INDEX_NEXBOT_ORGANISATION.html" class="tb-btn">
+          <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+          <span>Hub</span>
+        </a>
+        <button type="button" class="tb-btn tb-btn-primary" onclick="window.print()">
+          <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+          <span>Drucken</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- SHEET -->
+  <div class="sheet">
+    <div class="doc-header">
+      <div class="logo-container">
+        <svg class="logo-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+          <rect width="100" height="100" rx="20" fill="#050508"/>
+          <rect x="3" y="3" width="94" height="94" rx="17" fill="none" stroke="#252535" stroke-width="2"/>
+          <path d="M28 72 V28 L72 72 V28" fill="none" stroke="#ffffff" stroke-width="11" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <div class="logo-text">
+          <h1>RAPHAEL NEUMEIER</h1>
+          <p>NEXBOT · WEBDESIGN &amp; SOFTWARE-ENTWICKLUNG</p>
+        </div>
+      </div>
+      <div class="header-doc-id">
+        <strong>LEITFADEN:</strong> SOP-DNS-2026<br>
+        <strong>HOSTING:</strong> Vercel Global Edge Network<br>
+        <strong>STAND:</strong> September 2026
+      </div>
+    </div>
+
+    <div class="title-block">
+      <span class="title-badge">STANDARD OPERATING PROCEDURE</span>
+      <h2>DOMAIN-UMZÜGE &amp; DNS-MANAGEMENT</h2>
+      <div style="font-size:8pt; color:#64748b;">Leitfaden zur fehlerfreien Aufschaltung von Kunden-Domains ohne E-Mail-Ausfälle</div>
+    </div>
+
+    <div class="golden-rule-card">
+      <strong>🚨 Die Goldene Regel: Website auf Vercel, E-Mails beim Provider lassen!</strong><br>
+      Ändere bei bestehenden Kundendomains <strong>nur A-Record und CNAME</strong>. Fasse die <strong>MX-, SPF- und DKIM-Einträge niemals an</strong>! So laufen Microsoft 365, Google Workspace oder Strato-Mailkonten der Kunden zu 100% unterbrechungsfrei weiter.
+    </div>
+
+    <div class="section-title">1. Standard-Aufschaltung (DNS A-Record &amp; CNAME)</div>
+    <p style="margin-bottom:8px; font-size:8.2pt; color:#334155;">
+      Der Kunde behält seinen Domain- und Mailvertrag bei seinem bisherigen Anbieter (z. B. Strato, 1&amp;1 IONOS, All-Inkl, Telekom). In der dortigen DNS-Verwaltung werden genau zwei Einträge hinterlegt:
+    </p>
+
+    <table class="dns-table">
+      <tr>
+        <th>Domain-Typ</th>
+        <th>Record-Typ</th>
+        <th>Host / Name</th>
+        <th>Ziel / Wert</th>
+        <th>Zweck</th>
+      </tr>
+      <tr>
+        <td>Hauptdomain (Apex)</td>
+        <td><span class="dns-code">A</span></td>
+        <td><span class="dns-code">@</span> (oder leer)</td>
+        <td><span class="dns-code">76.76.21.21</span></td>
+        <td>Routet Traffic zu Vercel Anycast IP</td>
+      </tr>
+      <tr>
+        <td>Subdomain www</td>
+        <td><span class="dns-code">CNAME</span></td>
+        <td><span class="dns-code">www</span></td>
+        <td><span class="dns-code">cname.vercel-dns.com</span></td>
+        <td>Routet www-Aufrufe mit Edge-Routing</td>
+      </tr>
+    </table>
+
+    <div class="section-title">2. Was UNBERÜHRT bleiben muss</div>
+    <ul style="margin-left:18px; margin-bottom:12px; font-size:8.2pt; color:#334155;">
+      <li><strong>MX-Records:</strong> Verantwortlich für Posteingang der Firmen-E-Mails. Nicht löschen oder verändern!</li>
+      <li><strong>TXT-Records (SPF &amp; DKIM):</strong> Verhindern, dass Kunden-E-Mails im Spam landen.</li>
+      <li><strong>Mail-Subdomains:</strong> <code>mail.</code>, <code>smtp.</code>, <code>imap.</code>, <code>autodiscover.</code></li>
+    </ul>
+
+    <div class="section-title">3. E-Mail-Vorlage an Kunden oder IT-Dienstleister</div>
+    <div class="code-box" id="emailCodeBox">
+<button type="button" class="copy-btn" onclick="copyEmailTemplate()">Text kopieren</button>
+Betreff: DNS-Einträge für Live-Schaltung der neuen Website [domain.de]
+
+Hallo Herr/Frau [Name],
+
+unsere neue Website ist fertiggestellt und bereit für den Livegang.
+Damit Ihre geschäftlichen E-Mails vollkommen unterbrechungsfrei weiterlaufen,
+stellen wir lediglich die Website-Verbindung um.
+
+Bitte hinterlegen Sie bei Ihrem Domain-Provider folgende zwei DNS-Einträge:
+
+1. Für die Hauptdomain ([domain.de]):
+   - Typ: A
+   - Name/Host: @
+   - Ziel/Wert: 76.76.21.21
+
+2. Für die Subdomain (www.[domain.de]):
+   - Typ: CNAME
+   - Name/Host: www
+   - Ziel/Wert: cname.vercel-dns.com
+
+Wichtig: Sämtliche MX-, Mail-, SPF- und TXT-Einträge bleiben vollständig unverändert.
+Das SSL-Zertifikat aktiviert sich nach Hinterlegung automatisch innerhalb von Minuten.
+
+Beste Grüße
+Raphael Neumeier (Nexbot Webdesign)
+    </div>
+
+    <div class="doc-footer">
+      <span>NEXBOT // RAPHAEL NEUMEIER · DOMAIN- &amp; DNS-LEITFADEN</span>
+      <span>SEITE 1 VON 1</span>
+      <span>STAND: SEPTEMBER 2026</span>
+    </div>
+  </div>
+
+  <script>
+    function copyEmailTemplate() {
+      const el = document.getElementById('emailCodeBox');
+      const text = el.innerText.replace('Text kopieren', '').trim();
+      navigator.clipboard.writeText(text);
+      alert('E-Mail-Vorlage in Zwischenablage kopiert!');
+    }
+  </script>
+</body>
+</html>
