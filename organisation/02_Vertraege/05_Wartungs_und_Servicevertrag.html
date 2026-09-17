@@ -1,0 +1,806 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nexbot – Wartungs- &amp; Servicevertrag (Dienstvertrag &amp; SLA nach §§ 611 ff. BGB)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Inter:wght@300;400;500;600;700&family=Sora:wght@400;600;700;800&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-screen: #06060a;
+      --paper-bg: #ffffff;
+      --text-main: #111827;
+      --text-muted: #4b5563;
+      --border-color: #e5e7eb;
+      --border-dark: #0f172a;
+      --accent-cyan: #38bdf8;
+      --accent-emerald: #10b981;
+      --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-display: 'Sora', sans-serif;
+      --font-mono: 'Space Mono', monospace;
+      --font-sig: 'Caveat', cursive;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background-color: var(--bg-screen);
+      font-family: var(--font-sans);
+      color: var(--text-main);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 24px 16px 40px 16px;
+      line-height: 1.5;
+      min-height: 100vh;
+    }
+
+    /* ─── TOOLBAR ─────────────────────────────────────────────────────── */
+    .toolbar-wrapper {
+      position: sticky;
+      top: 14px;
+      z-index: 1000;
+      width: 100%;
+      max-width: 860px;
+      margin-bottom: 24px;
+    }
+
+    .toolbar {
+      background: rgba(13, 13, 20, 0.92);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 10px;
+      padding: 8px 14px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.55), 0 2px 6px rgba(255, 255, 255, 0.05) inset;
+    }
+
+    .toolbar-brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-family: var(--font-display);
+      font-size: 13px;
+      font-weight: 700;
+      color: #ffffff;
+      white-space: nowrap;
+    }
+
+    .toolbar-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--accent-emerald);
+      box-shadow: 0 0 8px var(--accent-emerald);
+    }
+
+    .toolbar-tag {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      color: #94a3b8;
+      background: rgba(255, 255, 255, 0.06);
+      padding: 2px 7px;
+      border-radius: 4px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .toolbar-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .tb-btn {
+      height: 33px;
+      padding: 0 12px;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.2px;
+      border-radius: 6px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.18s ease;
+      text-decoration: none;
+      white-space: nowrap;
+      border: 1px solid transparent;
+    }
+
+    .tb-btn svg { width: 13px; height: 13px; stroke-width: 1.8; flex-shrink: 0; }
+
+    .tb-btn-secondary {
+      background: #14141f;
+      color: #cbd5e1;
+      border-color: rgba(255, 255, 255, 0.12);
+    }
+    .tb-btn-secondary:hover {
+      background: #1e1e2d;
+      color: #ffffff;
+      border-color: rgba(255, 255, 255, 0.25);
+    }
+
+    .tb-btn-accent {
+      background: rgba(16, 185, 129, 0.12);
+      color: #34d399;
+      border-color: rgba(16, 185, 129, 0.3);
+    }
+    .tb-btn-accent:hover {
+      background: rgba(16, 185, 129, 0.22);
+      border-color: #34d399;
+      color: #ffffff;
+    }
+
+    .tb-btn-primary {
+      background: #ffffff;
+      color: #050508;
+      font-weight: 700;
+      border-color: #ffffff;
+      box-shadow: 0 2px 10px rgba(255, 255, 255, 0.15);
+    }
+    .tb-btn-primary:hover {
+      background: #e2e8f0;
+      border-color: #e2e8f0;
+      transform: translateY(-1px);
+    }
+
+    @media screen and (max-width: 740px) {
+      .toolbar { flex-direction: column; align-items: stretch; gap: 10px; padding: 10px; }
+      .toolbar-brand { justify-content: center; }
+      .toolbar-actions { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 6px; }
+      .tb-btn { justify-content: center; width: 100%; }
+    }
+
+    /* ─── SHEET ──────────────────────────────────────────────────────── */
+    .sheet {
+      background: var(--paper-bg);
+      width: 100%;
+      max-width: 210mm;
+      min-height: 297mm;
+      padding: 16mm 18mm 16mm 18mm;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.55);
+      position: relative;
+      color: #111827;
+      font-size: 8.6pt;
+      margin-bottom: 25px;
+      border-radius: 4px;
+      display: flex;
+      flex-direction: column;
+      box-sizing: border-box;
+    }
+
+    .doc-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      border-bottom: 2px solid var(--border-dark);
+      padding-bottom: 12px;
+      margin-bottom: 12px;
+    }
+
+    .logo-container { display: flex; align-items: center; gap: 12px; }
+    .logo-svg { width: 36px; height: 36px; flex-shrink: 0; }
+    .logo-text h1 { font-family: var(--font-display); font-size: 13.5pt; font-weight: 800; color: #050508; line-height: 1.1; }
+    .logo-text p { font-family: var(--font-mono); font-size: 6.8pt; color: #64748b; letter-spacing: 1.2px; text-transform: uppercase; }
+
+    .header-doc-id {
+      font-family: var(--font-mono);
+      font-size: 7.2pt;
+      color: #64748b;
+      text-align: right;
+      line-height: 1.35;
+    }
+
+    .contract-parties {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10mm;
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 6px;
+      padding: 10px 14px;
+      margin-bottom: 12px;
+      font-size: 8.3pt;
+    }
+
+    .party-title {
+      font-family: var(--font-mono);
+      font-size: 7pt;
+      font-weight: 700;
+      color: var(--border-dark);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 3px;
+    }
+    .party-body { color: #334155; line-height: 1.38; word-break: break-word; }
+
+    .contract-title-block { text-align: center; margin-bottom: 12px; }
+    .contract-badge {
+      display: inline-block;
+      font-family: var(--font-mono);
+      font-size: 7pt;
+      font-weight: 700;
+      background: #0f766e;
+      color: #ffffff;
+      padding: 2px 7px;
+      border-radius: 4px;
+      margin-bottom: 3px;
+      letter-spacing: 0.8px;
+    }
+    .contract-title-block h2 { font-family: var(--font-display); font-size: 13pt; font-weight: 800; color: #050508; }
+    .contract-subtitle { font-size: 7.8pt; color: #64748b; margin-top: 1px; }
+
+    .contract-section { margin-bottom: 8px; }
+    .section-headline {
+      font-family: var(--font-display);
+      font-size: 9pt;
+      font-weight: 700;
+      color: var(--border-dark);
+      border-bottom: 1px solid #e2e8f0;
+      padding-bottom: 2px;
+      margin-bottom: 3px;
+    }
+    .section-content { font-size: 8.1pt; color: #334155; line-height: 1.36; text-align: justify; }
+    .section-content ul { margin-left: 16px; margin-top: 2px; margin-bottom: 2px; }
+    .section-content li { margin-bottom: 2px; }
+
+    .highlight-clause {
+      background: #f1f5f9;
+      border-left: 3px solid var(--border-dark);
+      padding: 4px 8px;
+      margin: 3px 0;
+      border-radius: 0 4px 4px 0;
+      font-size: 8pt;
+    }
+
+    .sepa-box {
+      background: #f8fafc;
+      border: 1px solid #cbd5e1;
+      border-radius: 6px;
+      padding: 8px 12px;
+      margin: 4px 0;
+      font-size: 8pt;
+    }
+    .sepa-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      margin-top: 4px;
+    }
+    .sepa-field {
+      border-bottom: 1px dotted #94a3b8;
+      padding: 2px 0;
+      font-family: var(--font-mono);
+      font-size: 8pt;
+    }
+
+    .signatures-block { margin-top: 12px; }
+    .signatures-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14mm; margin-top: 6px; }
+    .sig-slot { border-top: 1px solid var(--border-dark); padding-top: 4px; }
+    .sig-location { font-family: var(--font-mono); font-size: 7pt; color: #64748b; margin-bottom: 2px; }
+    .sig-name { font-weight: 700; font-size: 8.3pt; color: var(--border-dark); }
+    .sig-sub { font-size: 7pt; color: #64748b; }
+
+    .sig-display-container {
+      height: 36px;
+      display: flex;
+      align-items: flex-end;
+      margin-bottom: 4px;
+    }
+    .sig-image { max-height: 36px; max-width: 100%; object-fit: contain; }
+    .sig-typed { font-family: var(--font-sig); font-size: 22pt; color: #0f172a; line-height: 1; }
+
+    .sig-trigger-btn {
+      font-size: 9.5px;
+      font-family: var(--font-mono);
+      background: #e2e8f0;
+      border: 1px solid #cbd5e1;
+      padding: 2px 6px;
+      border-radius: 4px;
+      cursor: pointer;
+      color: #0f172a;
+      display: inline-block;
+      margin-top: 2px;
+    }
+    .sig-trigger-btn:hover { background: #cbd5e1; }
+
+    .doc-footer {
+      border-top: 1px solid #e2e8f0;
+      margin-top: auto;
+      padding-top: 5px;
+      display: flex;
+      justify-content: space-between;
+      font-family: var(--font-mono);
+      font-size: 6.8pt;
+      color: #94a3b8;
+    }
+
+    /* Modal */
+    .sig-modal-backdrop {
+      display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(5, 5, 8, 0.75); backdrop-filter: blur(6px);
+      z-index: 2000; align-items: center; justify-content: center; padding: 16px;
+    }
+    .sig-modal-backdrop.active { display: flex; }
+    .sig-modal { background: #fff; color: #0f172a; border-radius: 12px; width: 100%; max-width: 480px; padding: 20px; box-shadow: 0 20px 50px rgba(0,0,0,0.4); }
+    .sig-modal-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; border-bottom: 1px solid #e2e8f0; padding-bottom: 8px; }
+    .sig-modal-title { font-family: var(--font-display); font-weight: 700; font-size: 13pt; }
+    .sig-tab-bar { display: flex; gap: 8px; margin-bottom: 12px; }
+    .sig-tab { padding: 6px 12px; font-size: 11px; font-family: var(--font-mono); font-weight: 600; border: 1px solid #cbd5e1; background: #f8fafc; border-radius: 6px; cursor: pointer; }
+    .sig-tab.active { background: #0f172a; color: #ffffff; border-color: #0f172a; }
+    .canvas-container { border: 1px solid #cbd5e1; border-radius: 8px; background: #f8fafc; touch-action: none; margin-bottom: 10px; }
+    #sigCanvas { width: 100%; height: 150px; display: block; cursor: crosshair; }
+    .typed-sig-container { display: none; margin-bottom: 12px; }
+    .typed-sig-container.active { display: block; }
+    .typed-sig-input { width: 100%; padding: 8px 10px; border: 1px solid #cbd5e1; border-radius: 6px; font-size: 13px; margin-bottom: 8px; }
+    .typed-sig-preview { font-family: var(--font-sig); font-size: 30pt; color: #0f172a; padding: 8px; border: 1px dashed #cbd5e1; border-radius: 6px; background: #f8fafc; min-height: 60px; display: flex; align-items: center; }
+    .sig-modal-footer { display: flex; justify-content: space-between; align-items: center; margin-top: 12px; }
+
+    .date-field-btn {
+      cursor: pointer;
+      border-bottom: 1.5px dashed rgba(56, 189, 248, 0.5);
+      border-radius: 2px;
+      padding: 1px 3px;
+      transition: all 0.15s ease;
+    }
+    .date-field-btn:hover {
+      background: rgba(56, 189, 248, 0.12);
+      border-bottom-color: #0284c7;
+      color: #0284c7;
+    }
+
+    /* ─── PRINT STYLES ───────────────────────────────────────────────── */
+    @page {
+      size: A4 portrait;
+      margin: 10mm 14mm 10mm 14mm;
+    }
+
+    @media print {
+      html, body {
+        background: #ffffff !important;
+        color: #111827 !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        font-size: 8.3pt !important;
+      }
+
+      .toolbar-wrapper, .sig-trigger-btn, .sig-modal-backdrop, .no-print { display: none !important; }
+
+      .sheet {
+        box-shadow: none !important;
+        margin: 0 !important;
+        width: 100% !important;
+        max-width: none !important;
+        min-height: auto !important;
+        height: auto !important;
+        padding: 6mm 0 6mm 0 !important;
+        border: none !important;
+        border-radius: 0 !important;
+        overflow: visible !important;
+        page-break-after: always;
+        break-after: page;
+      }
+      .sheet:last-child {
+        page-break-after: avoid;
+        break-after: avoid;
+      }
+
+      .contract-section { page-break-inside: avoid; break-inside: avoid; }
+    }
+
+    .page-break-indicator {
+      text-align: center;
+      margin: 15px 0;
+      font-family: var(--font-mono);
+      font-size: 10px;
+      color: #64748b;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      width: 100%;
+      max-width: 860px;
+    }
+    .page-break-indicator::before, .page-break-indicator::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: rgba(255, 255, 255, 0.1);
+    }
+    @media print {
+      .page-break-indicator { display: none !important; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- STICKY TOOLBAR -->
+  <div class="toolbar-wrapper">
+    <div class="toolbar">
+      <div class="toolbar-brand">
+        <div class="toolbar-dot"></div>
+        <span>NEXBOT // WARTUNGSVERTRAG</span>
+        <span class="toolbar-tag">SLA &amp; HOSTING</span>
+      </div>
+      <div class="toolbar-actions">
+        <a href="../INDEX_NEXBOT_ORGANISATION.html" class="tb-btn tb-btn-secondary">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+          <span>Hub</span>
+        </a>
+        <button type="button" class="tb-btn tb-btn-secondary" onclick="updateDatesToday()">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          <span>Heute</span>
+        </button>
+        <button type="button" class="tb-btn tb-btn-secondary" id="editToggleBtn" onclick="toggleEdit()">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+          <span>Editieren</span>
+        </button>
+        <button type="button" class="tb-btn tb-btn-accent" onclick="openSigModal('client')">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+          <span>Unterschreiben</span>
+        </button>
+        <button type="button" class="tb-btn tb-btn-primary" onclick="window.print()">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+          <span>PDF drucken</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- SEITE 1: VERTRAGSBESTANDTEILE & SLA LEISTUNGEN -->
+  <div class="sheet" id="sheetPage1">
+    <div class="doc-header">
+      <div class="logo-container">
+        <svg class="logo-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+          <rect width="100" height="100" rx="20" fill="#050508"/>
+          <rect x="3" y="3" width="94" height="94" rx="17" fill="none" stroke="#252535" stroke-width="2"/>
+          <path d="M28 72 V28 L72 72 V28" fill="none" stroke="#ffffff" stroke-width="11" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <div class="logo-text">
+          <h1>RAPHAEL NEUMEIER</h1>
+          <p>NEXBOT · WEBDESIGN &amp; SOFTWARE-ENTWICKLUNG</p>
+        </div>
+      </div>
+      <div class="header-doc-id">
+        <strong>VERTRAGS-NR:</strong> SLA-2026-001<br>
+        <strong>DATUM:</strong> <span class="date-field-btn" onclick="promptEditDate(this)" title="Klicken zum Bearbeiten">16.09.2026</span><br>
+        <strong>RECHTSFORM:</strong> §§ 611 ff. BGB Dienstvertrag / SLA
+      </div>
+    </div>
+
+    <!-- PARTIES -->
+    <div class="contract-parties">
+      <div class="party-col">
+        <div class="party-title">Dienstleister (Auftragnehmer)</div>
+        <div class="party-body">
+          <strong>Raphael Neumeier</strong><br>
+          Nexbot Webdesign &amp; Software-Entwicklung<br>
+          Grasweg 85 · 85077 Manching<br>
+          E-Mail: raphael.m.neumeier@gmail.com · Tel: +49 176 51270378<br>
+          – nachfolgend <em>„Dienstleister“</em> genannt –
+        </div>
+      </div>
+      <div class="party-col">
+        <div class="party-title">Kunde (Auftraggeber)</div>
+        <div class="party-body" contenteditable="true">
+          <strong>Musterkunde GmbH</strong><br>
+          z. Hd. Herrn Max Mustermann<br>
+          Musterstraße 12, 85055 Ingolstadt<br>
+          E-Mail: kontakt@musterkunde.de<br>
+          – nachfolgend <em>„Auftraggeber“</em> genannt –
+        </div>
+      </div>
+    </div>
+
+    <div class="contract-title-block">
+      <span class="contract-badge">SERVICE LEVEL AGREEMENT (SLA)</span>
+      <h2>WARTUNGS- &amp; SERVICEVERTRAG WEBAUFTRITT</h2>
+      <div class="contract-subtitle">Dienstvertrag über Highspeed-Hosting, SSL, Backups, technisches Monitoring &amp; laufenden Support</div>
+    </div>
+
+    <!-- § 1 -->
+    <div class="contract-section">
+      <div class="section-headline">§ 1 Vertragsgegenstand &amp; Rechtsnatur (§§ 611 ff. BGB)</div>
+      <div class="section-content" contenteditable="false">
+        (1) Der Dienstleister erbringt für den Auftraggeber die fortlaufende technische Administration, das Webhosting sowie die präventive Instandhaltung der erstellten Internetpräsenz.<br>
+        (2) Bei diesem Vertrag handelt es sich um einen <strong>Dienstvertrag im Sinne der §§ 611 ff. BGB</strong>. Der Dienstleister schuldet das sorgfältige, fachgerechte Erbringen der nachfolgend vereinbarten Dienstleistungen nach dem aktuellen Stand der Technik, jedoch keinen werkvertraglichen Erfolg oder eine lückenlos störungsfreie Verfügbarkeit von Netzinfrastrukturen Dritter.
+      </div>
+    </div>
+
+    <!-- § 2 -->
+    <div class="contract-section">
+      <div class="section-headline">§ 2 Leistungsumfang des Servicepakets</div>
+      <div class="section-content" contenteditable="false">
+        Das vereinbarte Service- und Hostingpaket umfasst fortlaufend folgende Leistungsbestandteile:
+        <ul>
+          <li><strong>Highspeed-Cloud-Hosting:</strong> Bereitstellung des Webspace auf performanten, redundanten Edge-Servern (Vercel Inc. / Hetzner) mit Ausfallsicherheit und DDoS-Schutz.</li>
+          <li><strong>SSL/TLS-Verschlüsselung:</strong> Kontinuierliche Bereitstellung, Verlängerung und Überwachung moderner Sicherheitszertifikate (HTTPS-Erzwingung).</li>
+          <li><strong>Automatisierte Backups:</strong> Wöchentlich versionierte Sicherung des Quellcodes und aller Projektdateien zur unverzüglichen Wiederherstellung im Störungsfall.</li>
+          <li><strong>Sicherheits- &amp; Script-Updates:</strong> Laufende Überprüfung aller genutzten Bibliotheken und Skripte auf Schwachstellen und Einspielen notwendiger technischer Patches.</li>
+          <li><strong>Inklusiv-Content-Support:</strong> Bis zu <strong>30 Minuten Arbeitszeit pro Monat</strong> für redaktionelle Kleinanpassungen (z. B. Aktualisierung von Texten, Öffnungszeiten, Kontaktdaten oder Austausch von Bildern). Nicht beanspruchte Kontingente verfallen zum Monatsende.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- § 3 -->
+    <div class="contract-section">
+      <div class="section-headline">§ 3 Zusatzleistungen &amp; Abrechnung von Mehraufwand</div>
+      <div class="section-content" contenteditable="false">
+        (1) Leistungen, die über die in § 2 definierten Umfänge hinausgehen (z. B. umfassende Design-Relaunches, das Hinzufügen neuer Unterseiten, individuelle Programmierungen oder die Behebung von Fehlern, die durch Eingriffe des Auftraggebers entstanden sind), sind nicht durch die monatliche Pauschale abgegolten.<br>
+        (2) Derartige Zusatzleistungen werden nach vorheriger Freigabe durch den Auftraggeber zum Regie-Stundensatz von <strong>85,00 € netto pro Stunde</strong> nach tatsächlichem Aufwand abgerechnet.
+      </div>
+    </div>
+
+    <!-- § 4 -->
+    <div class="contract-section">
+      <div class="section-headline">§ 4 Support-Kanäle &amp; Reaktionszeiten (SLA)</div>
+      <div class="section-content" contenteditable="false">
+        (1) Supportanfragen können per E-Mail (`raphael.m.neumeier@gmail.com`) oder per Messenger/Telefon eingereicht werden.<br>
+        (2) An Werktagen (Mo–Fr, 09:00 bis 17:00 Uhr) gelten folgende Reaktionszeiten ab Eingang der Meldung:
+        <ul>
+          <li><strong>Kritische Störungen (Website komplett offline):</strong> Reaktionszeit &amp; Aufnahme der Entstörung innerhalb von <strong>12 Stunden</strong>.</li>
+          <li><strong>Standard-Anfragen &amp; Textpflege:</strong> Bearbeitung oder Rückmeldung innerhalb von <strong>24 bis 48 Stunden</strong>.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="doc-footer">
+      <span>NEXBOT // RAPHAEL NEUMEIER · WARTUNGS- &amp; SERVICEVERTRAG (SLA)</span>
+      <span>SEITE 1 VON 2</span>
+      <span>STAND: SEPTEMBER 2026</span>
+    </div>
+  </div>
+
+  <div class="page-break-indicator">─── SEITENUMBRUCH DIN A4 (DRUCKSEITE 2) ───</div>
+
+  <!-- SEITE 2: VERGÜTUNG, SEPA-MANDAT, LAUFZEIT & UNTERSCHRIFTEN -->
+  <div class="sheet" id="sheetPage2">
+    <div class="doc-header">
+      <div class="logo-container">
+        <svg class="logo-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+          <rect width="100" height="100" rx="20" fill="#050508"/>
+          <rect x="3" y="3" width="94" height="94" rx="17" fill="none" stroke="#252535" stroke-width="2"/>
+          <path d="M28 72 V28 L72 72 V28" fill="none" stroke="#ffffff" stroke-width="11" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <div class="logo-text">
+          <h1>RAPHAEL NEUMEIER</h1>
+          <p>NEXBOT · WEBDESIGN &amp; SOFTWARE-ENTWICKLUNG</p>
+        </div>
+      </div>
+      <div class="header-doc-id">
+        <strong>VERTRAGS-NR:</strong> SLA-2026-001<br>
+        <strong>ABSCHNITT:</strong> § 5 bis § 10 &amp; SEPA<br>
+        <strong>RECHTSFORM:</strong> §§ 611 ff. BGB Dienstvertrag / SLA
+      </div>
+    </div>
+
+    <!-- § 5 -->
+    <div class="contract-section">
+      <div class="section-headline">§ 5 Vergütung &amp; Zahlungsbedingungen</div>
+      <div class="section-content" contenteditable="false">
+        (1) Das monatliche Entgelt für das Hosting- und Servicepaket beträgt pauschal <strong><span id="hostingPriceDisplay">49,00 €</span></strong> rein netto.<br>
+        (2) Gemäß § 19 UStG wird keine Umsatzsteuer erhoben (Kleinunternehmerregelung).<br>
+        (3) Die Vergütung ist jeweils zum 1. eines jeden Kalendermonats im Voraus fällig. Die Zahlung erfolgt wahlweise per monatlicher Überweisung oder per SEPA-Basislastschrift.
+      </div>
+    </div>
+
+    <!-- § 6 SEPA MANDAT -->
+    <div class="contract-section">
+      <div class="section-headline">§ 6 SEPA-Basislastschriftmandat (Optional / Empfohlen)</div>
+      <div class="section-content" contenteditable="false">
+        Der Auftraggeber ermächtigt Raphael Neumeier (Nexbot), Zahlungen für diesen Wartungsvertrag von seinem Konto mittels SEPA-Basislastschrift einzuziehen. Zugleich weist er sein Kreditinstitut an, die gezogenen Lastschriften einzulösen.
+        <div class="sepa-box">
+          <div style="font-weight:700; margin-bottom:4px; font-size:8.2pt;">SEPA-LASTSCHRIFTMANDAT // DATEN</div>
+          <div class="sepa-grid">
+            <div><strong>Gläubiger-ID:</strong> DE42ZZZ00002891234</div>
+            <div><strong>Mandatsreferenz:</strong> SLA-2026-001-M</div>
+            <div class="sepa-field" contenteditable="true"><strong>IBAN:</strong> DE__ ____ ____ ____ ____ __</div>
+            <div class="sepa-field" contenteditable="true"><strong>BIC / Bank:</strong> ___________</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- § 7 -->
+    <div class="contract-section">
+      <div class="section-headline">§ 7 Mindestvertragslaufzeit &amp; Kündigung</div>
+      <div class="section-content" contenteditable="false">
+        (1) Dieser Wartungsvertrag wird für eine **Mindestvertragslaufzeit von zwölf (12) Monaten** ab Onlinestellung der Website geschlossen.<br>
+        (2) Er verlängert sich automatisch um jeweils weitere **zwölf (12) Monate**, sofern er nicht von einer Partei mit einer Frist von **einem (1) Monat zum Ende der Laufzeit** in Textform gekündigt wird.<br>
+        (3) Das Recht zur außerordentlichen Kündigung aus wichtigem Grund (§ 314 BGB) bleibt unberührt.
+      </div>
+    </div>
+
+    <!-- § 8 -->
+    <div class="contract-section">
+      <div class="section-headline">§ 8 Datenschutz &amp; Auftragsverarbeitungsvertrag (AVV)</div>
+      <div class="section-content" contenteditable="false">
+        Für die im Rahmen der Serverbereitstellung verarbeiteten personenbezogenen Daten gilt der zwischen den Parteien geschlossene **Auftragsverarbeitungsvertrag (AVV nach Art. 28 DSGVO)**.
+      </div>
+    </div>
+
+    <!-- § 9 & 10 -->
+    <div class="contract-section">
+      <div class="section-headline">§ 9 Haftung &amp; Schlussbestimmungen</div>
+      <div class="section-content" contenteditable="false">
+        (1) Der Dienstleister haftet bei Vorsatz und grober Fahrlässigkeit unbeschränkt. Bei leichter Fahrlässigkeit ist die Haftung auf die Höhe der für das jeweilige Kalenderjahr vereinbarten Jahrespauschale dieses Vertrags beschränkt.<br>
+        (2) Es gilt das Recht der Bundesrepublik Deutschland. Gerichtsstand für Kaufleute ist **Ingolstadt**.
+      </div>
+    </div>
+
+    <!-- UNTERSCHRIFTEN -->
+    <div class="signatures-block">
+      <div class="signatures-grid">
+        <div class="sig-slot">
+          <div class="sig-location">Manching, den <span class="date-display">16.09.2026</span></div>
+          <div class="sig-display-container">
+            <span class="sig-typed">Raphael Neumeier</span>
+          </div>
+          <div class="sig-name">Raphael Neumeier</div>
+          <div class="sig-sub">Dienstleister · Nexbot Webdesign &amp; Software</div>
+        </div>
+        <div class="sig-slot">
+          <div class="sig-location" id="clientSigLocationDate">Ingolstadt, den <span class="date-display">16.09.2026</span></div>
+          <div class="sig-display-container" id="clientSigDisplay">
+            <button type="button" class="sig-trigger-btn no-print" onclick="openSigModal('client')">Hier digital signieren</button>
+          </div>
+          <div class="sig-name" id="clientSigCompanyName">Musterkunde GmbH</div>
+          <div class="sig-sub">Rechtsverbindliche Auftragserteilung (SLA)</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="doc-footer">
+      <span>NEXBOT // RAPHAEL NEUMEIER · WARTUNGS- &amp; SERVICEVERTRAG (SLA)</span>
+      <span>SEITE 2 VON 2</span>
+      <span>STAND: SEPTEMBER 2026</span>
+    </div>
+  </div>
+
+  <!-- DIGITAL SIGNATURE MODAL -->
+  <div class="sig-modal-backdrop" id="sigModal">
+    <div class="sig-modal">
+      <div class="sig-modal-header">
+        <div class="sig-modal-title">Digitale Signatur</div>
+        <button type="button" class="tb-btn tb-btn-secondary" onclick="closeSigModal()">✕</button>
+      </div>
+      <div class="sig-tab-bar">
+        <button type="button" class="sig-tab active" id="tabDraw" onclick="switchTab('draw')">Zeichnen (Touch / Maus)</button>
+        <button type="button" class="sig-tab" id="tabType" onclick="switchTab('type')">Tippen (Name)</button>
+      </div>
+      <div id="drawPanel">
+        <div class="canvas-container">
+          <canvas id="sigCanvas"></canvas>
+        </div>
+        <button type="button" class="tb-btn tb-btn-secondary" style="margin-bottom:10px;" onclick="clearCanvas()">Neu zeichnen</button>
+      </div>
+      <div id="typePanel" class="typed-sig-container">
+        <input type="text" class="typed-sig-input" id="typeSigInput" placeholder="Name für Signatur eingeben..." value="Max Mustermann" oninput="document.getElementById('typedSigPreview').textContent = this.value || 'Max Mustermann'">
+        <div class="typed-sig-preview" id="typedSigPreview">Max Mustermann</div>
+      </div>
+      <div class="sig-modal-footer">
+        <button type="button" class="tb-btn tb-btn-secondary" onclick="closeSigModal()">Abbrechen</button>
+        <button type="button" class="tb-btn tb-btn-primary" onclick="applySignature()">Signatur übernehmen</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    let isEditing = false;
+
+    function initDate() {
+      const now = new Date();
+      const formatted = now.toLocaleDateString('de-DE', { day: '2-digit', month: '2-digit', year: 'numeric' });
+      document.querySelectorAll('.date-display').forEach(el => {
+        if (el.textContent.includes('16.09.2026')) el.textContent = formatted;
+      });
+    }
+
+    function updateDatesToday() {
+      const now = new Date();
+      const formatted = now.toLocaleDateString('de-DE', { day: '2-digit', month: '2-digit', year: 'numeric' });
+      document.querySelectorAll('.date-field-btn, .date-display').forEach(el => el.textContent = formatted);
+    }
+
+    function promptEditDate(btn) {
+      const current = btn.textContent.trim();
+      const next = prompt("Datum im Format TT.MM.JJJJ eingeben:", current);
+      if (next && next.trim()) btn.textContent = next.trim();
+    }
+
+    function toggleEdit() {
+      isEditing = !isEditing;
+      const editables = document.querySelectorAll('.section-content, .party-body, .sepa-box');
+      editables.forEach(el => {
+        el.contentEditable = isEditing ? 'true' : 'false';
+        el.style.outline = isEditing ? '1px dashed #10b981' : 'none';
+        el.style.background = isEditing ? 'rgba(16, 185, 129, 0.03)' : 'transparent';
+      });
+      const btn = document.getElementById('editToggleBtn');
+      if (isEditing) {
+        btn.innerHTML = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="20 6 9 17 4 12"/></svg><span>Fertig</span>`;
+        btn.classList.add('tb-btn-accent');
+      } else {
+        btn.innerHTML = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg><span>Editieren</span>`;
+        btn.classList.remove('tb-btn-accent');
+      }
+    }
+
+    let canvas, ctx, isDrawing = false, hasDrawn = false, currentMode = 'draw';
+
+    function initCanvas() {
+      canvas = document.getElementById('sigCanvas');
+      ctx = canvas.getContext('2d');
+      const rect = canvas.parentElement.getBoundingClientRect();
+      canvas.width = rect.width * 2;
+      canvas.height = 150 * 2;
+      ctx.scale(2, 2);
+      ctx.strokeStyle = '#050508';
+      ctx.lineWidth = 2.5;
+      ctx.lineCap = 'round';
+
+      function getPos(e) {
+        const r = canvas.getBoundingClientRect();
+        return {
+          x: (e.touches ? e.touches[0].clientX : e.clientX) - r.left,
+          y: (e.touches ? e.touches[0].clientY : e.clientY) - r.top
+        };
+      }
+      function start(e) { isDrawing = true; hasDrawn = true; const p = getPos(e); ctx.beginPath(); ctx.moveTo(p.x, p.y); }
+      function move(e) { if (!isDrawing) return; const p = getPos(e); ctx.lineTo(p.x, p.y); ctx.stroke(); }
+      function end() { isDrawing = false; }
+
+      canvas.addEventListener('mousedown', start);
+      canvas.addEventListener('mousemove', move);
+      window.addEventListener('mouseup', end);
+      canvas.addEventListener('touchstart', (e) => { e.preventDefault(); start(e); }, { passive: false });
+      canvas.addEventListener('touchmove', (e) => { e.preventDefault(); move(e); }, { passive: false });
+      window.addEventListener('touchend', end);
+    }
+
+    function openSigModal(target) {
+      document.getElementById('sigModal').classList.add('active');
+      setTimeout(initCanvas, 50);
+    }
+    function closeSigModal() { document.getElementById('sigModal').classList.remove('active'); }
+    function clearCanvas() { ctx.clearRect(0, 0, canvas.width, canvas.height); hasDrawn = false; }
+
+    function switchTab(mode) {
+      currentMode = mode;
+      document.getElementById('tabDraw').classList.toggle('active', mode === 'draw');
+      document.getElementById('tabType').classList.toggle('active', mode === 'type');
+      document.getElementById('drawPanel').style.display = mode === 'draw' ? 'block' : 'none';
+      document.getElementById('typePanel').classList.toggle('active', mode === 'type');
+    }
+
+    function applySignature() {
+      const display = document.getElementById('clientSigDisplay');
+      display.innerHTML = '';
+      if (currentMode === 'draw' && hasDrawn) {
+        const img = document.createElement('img');
+        img.src = canvas.toDataURL('image/png');
+        img.className = 'sig-image';
+        display.appendChild(img);
+      } else {
+        const val = document.getElementById('typeSigInput').value || document.getElementById('typedSigPreview').textContent;
+        const span = document.createElement('span');
+        span.className = 'sig-typed';
+        span.textContent = val;
+        display.appendChild(span);
+      }
+      closeSigModal();
+    }
+
+    window.addEventListener('DOMContentLoaded', initDate);
+  </script>
+  <script src="../assets/nexbot-client-sync.js"></script>
+</body>
+</html>

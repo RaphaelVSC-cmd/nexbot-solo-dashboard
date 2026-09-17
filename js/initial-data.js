@@ -465,6 +465,30 @@ export const INITIAL_DATA = {
       description: "Rechtsverbindliche Abnahme nach § 640 BGB – löst Werklohnfälligkeit aus."
     },
     {
+      id: "doc-004a",
+      title: "04 Standard Agentur-AGB (B2B)",
+      category: "02_Verträge",
+      clientName: "Musterkunde Bayern GmbH",
+      leadId: "lead-015",
+      amount: "Rechtsstandard",
+      status: "vorhanden",
+      date: "2026-03-05",
+      filePath: "../../Nexbot Organisation/02_Verträge/04_Agentur_AGB_BGB.html",
+      description: "Rechtssichere B2B-AGB gem. §§ 305 ff. BGB mit Verzugszinsen, Urheberrechtsklausel & Abnahmefiktion."
+    },
+    {
+      id: "doc-004b",
+      title: "05 Wartungs- & Servicevertrag (SLA)",
+      category: "02_Verträge",
+      clientName: "Musterkunde Bayern GmbH",
+      leadId: "lead-015",
+      amount: "49,00 € / Mt.",
+      status: "aktiv",
+      date: "2026-03-05",
+      filePath: "../../Nexbot Organisation/02_Verträge/05_Wartungs_und_Servicevertrag.html",
+      description: "Dienstvertrag nach §§ 611 ff. BGB über Highspeed-Hosting, wöchentliche Backups, 24h SLA und integriertes SEPA-Lastschriftmandat."
+    },
+    {
       id: "doc-005",
       title: "Kleinunternehmer-Rechnung RE-2026-001",
       category: "03_Rechnungen",

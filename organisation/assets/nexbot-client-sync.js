@@ -71,6 +71,12 @@
         if (typeof window.calculateTotals === 'function') window.calculateTotals();
       }
 
+      // 6b. Hosting Price Display in SLA / Wartungsvertrag
+      const hostingPriceDisplay = document.getElementById('hostingPriceDisplay');
+      if (hostingPriceDisplay && c.hostingPrice) {
+        hostingPriceDisplay.textContent = hostingPrice;
+      }
+
       // 7. Inject visual sync pill into Toolbar
       const tbBrand = document.querySelector('.toolbar-brand');
       if (tbBrand && !document.getElementById('syncPill')) {
