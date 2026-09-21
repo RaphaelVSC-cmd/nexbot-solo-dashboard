@@ -12,7 +12,7 @@
 Raphael Neumeier  
 Nexbot Webdesign & Software-Entwicklung  
 Grasweg 85, 85077 Manching  
-E-Mail: raphael.m.neumeier@gmail.com · Tel: +49 176 51270378  
+E-Mail: kontakt@nexbot.info · Tel: +49 176 51270378  
 *(nachfolgend „Dienstleister“ oder „Nexbot“)*  
 
 **Auftraggeber (Kunde):**  
@@ -47,7 +47,7 @@ Der Dienstleister erbringt fortlaufend folgende Kernleistungen:
 ---
 
 ### § 4 Erreichbarkeit, Reaktionszeiten & Service Level (SLA)
-(1) Support-Anfragen können per E-Mail an `raphael.m.neumeier@gmail.com` oder telefonisch / per Messenger eingereicht werden.  
+(1) Support-Anfragen können per E-Mail an `kontakt@nexbot.info` oder telefonisch / per Messenger eingereicht werden.  
 (2) Der Dienstleister gewährleistet an Werktagen (Montag bis Freitag, 09:00 bis 17:00 Uhr, ausgenommen bayerische gesetzliche Feiertage) folgende maximale Reaktionszeiten:
 - **Kritische Störungen (Website komplett offline):** Reaktionszeit innerhalb von maximal **12 Stunden** nach Störungsmeldung.
 - **Normale Störungen / Inhaltsänderungen:** Bearbeitung oder Rückmeldung innerhalb von maximal **24 bis 48 Stunden**.

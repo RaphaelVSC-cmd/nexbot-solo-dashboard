@@ -2248,7 +2248,7 @@
 
     if (stepNum === 1) {
       subject = `Angebot: Moderner Webauftritt & Infrastruktur – ${c.clientName}`;
-      body = `BETREFF: ${subject}\n\n${salutation},\n\nvielen Dank für das angenehme Gespräch und Ihr Interesse an einer zeitgemäßen, rechtssicheren und schnellen Website.\n\nWie besprochen erhalten Sie im Anhang mein verbindliches Angebot zu transparenten Festpreiskonditionen:\n\n• Leistung: ${c.projectTitle}\n• Investition Website: ${c.projectPrice},00 € (Festpreis)\n• Optionales Hosting & Wartung: ${c.hostingPrice},00 € / Monat (deutsche Highspeed-Server, SSL, Backups)\n• Vorab-Risiko für Sie: 0 € (Entwurf zur Vorab-Prüfung vor Rechnungsstellung)\n• Gültigkeit: 14 Tage\n\nSie können das Angebot ganz bequem digital gegenzeichnen oder unterzeichnet per E-Mail an mich zurücksenden.\n\nBei Fragen stehe ich Ihnen jederzeit gerne zur Verfügung!\n\nMit freundlichen Grüßen\nRaphael Neumeier\n\n--\nRaphael Neumeier – Nexbot Webdesign & Software-Entwicklung\nGrasweg 85 · 85077 Manching\nTel: +49 176 51270378 · E-Mail: raphael.m.neumeier@gmail.com\nWeb: https://nexbot.info`;
+      body = `BETREFF: ${subject}\n\n${salutation},\n\nvielen Dank für das angenehme Gespräch und Ihr Interesse an einer zeitgemäßen, rechtssicheren und schnellen Website.\n\nWie besprochen erhalten Sie im Anhang mein verbindliches Angebot zu transparenten Festpreiskonditionen:\n\n• Leistung: ${c.projectTitle}\n• Investition Website: ${c.projectPrice},00 € (Festpreis)\n• Optionales Hosting & Wartung: ${c.hostingPrice},00 € / Monat (deutsche Highspeed-Server, SSL, Backups)\n• Vorab-Risiko für Sie: 0 € (Entwurf zur Vorab-Prüfung vor Rechnungsstellung)\n• Gültigkeit: 14 Tage\n\nSie können das Angebot ganz bequem digital gegenzeichnen oder unterzeichnet per E-Mail an mich zurücksenden.\n\nBei Fragen stehe ich Ihnen jederzeit gerne zur Verfügung!\n\nMit freundlichen Grüßen\nRaphael Neumeier\n\n--\nRaphael Neumeier – Nexbot Webdesign & Software-Entwicklung\nGrasweg 85 · 85077 Manching\nTel: +49 176 51270378 · E-Mail: kontakt@nexbot.info\nWeb: https://nexbot.info`;
     } else if (stepNum === 2) {
       subject = `Projektvertrag & Datenschutzvereinbarung (AVV) – ${c.clientName} [${c.projectId}]`;
       body = `BETREFF: ${subject}\n\n${salutation},\n\nherzlichen Dank für die Bestätigung meines Angebots! Ich freue mich sehr auf die Umsetzung Ihrer neuen Website.\n\nAnbei erhalten Sie die offiziellen Vertragsunterlagen zur gemeinsamen Absicherung:\n1. Webdesign-Projektvertrag nach BGB (§§ 631 ff.)\n2. Auftragsverarbeitungsvertrag (AVV gem. Art. 28 DSGVO) inklusive technischer und organisatorischer Maßnahmen (TOM)\n\nBeide Dokumente können Sie unkompliziert digital über den Link unterzeichnen oder als PDF gegenzeichnen und per Mail retournieren.\n\nIch starte nun vereinbarungsgemäß mit der Konzeption und dem ersten Entwurf.\n\nMit freundlichen Grüßen\nRaphael Neumeier\n\n--\nRaphael Neumeier – Nexbot Webdesign & Software-Entwicklung\nGrasweg 85 · 85077 Manching\nTel: +49 176 51270378 · Web: https://nexbot.info`;
@@ -2262,7 +2262,7 @@
     } else if (stepNum === 5) {
       const dueDate = new Date(Date.now() + 14 * 24 * 60 * 60 * 1000).toLocaleDateString('de-DE');
       subject = `Rechnung ${c.invoiceNumber} – Erstellung Webauftritt – ${c.clientName}`;
-      body = `BETREFF: ${subject}\n\n${salutation},\n\nnach der erfolgreichen Abnahme Ihrer neuen Website erhalten Sie anbei die Rechnung ${c.invoiceNumber}.\n\n• Rechnungsbetrag: ${c.projectPrice},00 €\n• Steuerlicher Hinweis: Gemäß § 19 UStG wird keine Umsatzsteuer berechnet (Kleinunternehmerregelung)\n• Zahlungsziel: 14 Tage ohne Abzug rein netto bis zum ${dueDate}\n\nBitte überweisen Sie den Rechnungsbetrag auf das in der Rechnung angegebene Bankkonto.\n\nIch wünsche Ihnen viel Erfolg mit Ihrem neuen Webauftritt und stehe Ihnen für die laufende Betreuung und Pflege jederzeit gerne zur Seite!\n\nMit besten Grüßen\nRaphael Neumeier\n\n--\nRaphael Neumeier – Nexbot Webdesign & Software-Entwicklung\nGrasweg 85 · 85077 Manching\nTel: +49 176 51270378 · E-Mail: raphael.m.neumeier@gmail.com\nWeb: https://nexbot.info`;
+      body = `BETREFF: ${subject}\n\n${salutation},\n\nnach der erfolgreichen Abnahme Ihrer neuen Website erhalten Sie anbei die Rechnung ${c.invoiceNumber}.\n\n• Rechnungsbetrag: ${c.projectPrice},00 €\n• Steuerlicher Hinweis: Gemäß § 19 UStG wird keine Umsatzsteuer berechnet (Kleinunternehmerregelung)\n• Zahlungsziel: 14 Tage ohne Abzug rein netto bis zum ${dueDate}\n\nBitte überweisen Sie den Rechnungsbetrag auf das in der Rechnung angegebene Bankkonto.\n\nIch wünsche Ihnen viel Erfolg mit Ihrem neuen Webauftritt und stehe Ihnen für die laufende Betreuung und Pflege jederzeit gerne zur Seite!\n\nMit besten Grüßen\nRaphael Neumeier\n\n--\nRaphael Neumeier – Nexbot Webdesign & Software-Entwicklung\nGrasweg 85 · 85077 Manching\nTel: +49 176 51270378 · E-Mail: kontakt@nexbot.info\nWeb: https://nexbot.info`;
     }
 
     return { subject, body };
@@ -2800,9 +2800,11 @@
   }
 
   const TARGET_AUTH = {
-    emailHash: '40d396c6e049f3b27c5ae573ce10f6db8c603419fa796ea697da6928f77e5987',
+    emailHash: 'f8f2725b700ffa23ef6b02819b181a17d0c16a2bdcb9214e0f70f5adeac7d00a',
+    oldEmailHash: '40d396c6e049f3b27c5ae573ce10f6db8c603419fa796ea697da6928f77e5987',
     pwdHash: '403ba5c59dc09eb572c660ddcd14134e46cfa1c50f2093442ede28f3fb70f97e',
-    fallbackEmail: 'neumeierraphael342@gmail.com',
+    fallbackEmail: 'kontakt@nexbot.info',
+    fallbackEmailOld: 'kontakt@nexbot.info',
     fallbackPwd: 'Raphael1?'
   };
 
@@ -2884,13 +2886,13 @@
       const pHash = await computeSha256(pwdVal);
 
       if (eHash && pHash) {
-        if (eHash === TARGET_AUTH.emailHash && pHash === TARGET_AUTH.pwdHash) {
+        if ((eHash === TARGET_AUTH.emailHash || eHash === TARGET_AUTH.oldEmailHash) && pHash === TARGET_AUTH.pwdHash) {
           isValid = true;
         }
       }
       
       // Fallback check
-      if (!isValid && emailVal === TARGET_AUTH.fallbackEmail && pwdVal === TARGET_AUTH.fallbackPwd) {
+      if (!isValid && (emailVal === TARGET_AUTH.fallbackEmail || emailVal === TARGET_AUTH.fallbackEmailOld) && pwdVal === TARGET_AUTH.fallbackPwd) {
         isValid = true;
       }
 

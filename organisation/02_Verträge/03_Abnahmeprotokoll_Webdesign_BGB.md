@@ -12,7 +12,7 @@
 Raphael Neumeier  
 Nexbot Webdesign & Software-Entwicklung  
 Grasweg 85 · 85077 Manching  
-E-Mail: raphael.m.neumeier@gmail.com · Tel: +49 176 51270378  
+E-Mail: kontakt@nexbot.info · Tel: +49 176 51270378  
 Web: https://nexbot.info  
 
 **Auftraggeber:**  
