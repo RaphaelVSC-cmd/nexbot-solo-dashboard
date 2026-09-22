@@ -1,6 +1,6 @@
 /* ═══════════════════════════════════════════════════════════════════════
    NEXBOT SOLO BUSINESS DASHBOARD — CLIENTS & RETAINER MODULE
-   Kunden- & MRR-Verwaltung, 39 € Monatsverträge & 30-Minuten Service-Budget
+   Kunden- & MRR-Verwaltung, 49 € Monatsverträge & 30-Minuten Service-Budget
    ═══════════════════════════════════════════════════════════════════════ */
 
 import { state } from '../state.js';
@@ -9,7 +9,7 @@ export function renderClients() {
   const clients = state.getClients();
   const metrics = state.getMetrics();
 
-  const totalMRR = clients.reduce((sum, c) => sum + (Number(c.monthlyRetainer) || 39), 0);
+  const totalMRR = clients.reduce((sum, c) => sum + (Number(c.monthlyRetainer) || 49), 0);
   const totalARR = totalMRR * 12;
 
   const html = `
@@ -17,7 +17,7 @@ export function renderClients() {
       <div class="section-title-wrap">
         <span class="section-tag">[ 03 // CLIENTS & MRR ]</span>
         <h1 class="section-title">Kunden & Retainer-Manager</h1>
-        <p class="section-desc">Verwaltung gewonnener Handwerkskunden, monatlicher 39-€-Serviceverträge und 30-Minuten-Supportzeit-Budgets</p>
+        <p class="section-desc">Verwaltung gewonnener Handwerkskunden, monatlicher 49-€-Serviceverträge und 30-Minuten-Supportzeit-Budgets</p>
       </div>
       <div class="section-actions">
         <div class="badge badge-emerald font-mono">

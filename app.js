@@ -11,8 +11,8 @@
     metrics: {
       revenueTarget: 5000,
       currentRevenue: 1250,
-      targetMRR: 156,
-      currentMRR: 39,
+      targetMRR: 196,
+      currentMRR: 49,
       targetDealsCount: 4,
       closedDealsCount: 1,
       pipelineValue: 13750,
@@ -62,7 +62,7 @@
         topReviewQuote: "Schnellster Notdienst und saubere Arbeit beim Heizungstausch.",
         status: "pitch_versendet",
         dealValue: 1250,
-        monthlyRetainer: 39,
+        monthlyRetainer: 49,
         demoUrl: "https://saridis-shk.vercel.app",
         localDemoPath: "../saridis-shk/index.html",
         loomUrl: "https://loom.com/share/saridis-shk-demo-tour",
@@ -85,7 +85,7 @@
         topReviewQuote: "Zuverlässiger Spenglermeister. Schnelle Reparatur am Dach nach Sturm.",
         status: "verhandlung",
         dealValue: 1250,
-        monthlyRetainer: 39,
+        monthlyRetainer: 49,
         demoUrl: "https://bauspenglerei-pospisil.vercel.app",
         localDemoPath: "../bauspenglerei-pospisil/index.html",
         loomUrl: "https://loom.com/share/fuenfer-spenglerei-pitch",
@@ -108,7 +108,7 @@
         topReviewQuote: "Präzise Spenglerarbeiten und faire Festpreise.",
         status: "demo_live",
         dealValue: 1250,
-        monthlyRetainer: 39,
+        monthlyRetainer: 49,
         demoUrl: "https://bauspenglerei-pospisil.vercel.app",
         localDemoPath: "../bauspenglerei-pospisil/index.html",
         loomUrl: "",
@@ -131,7 +131,7 @@
         topReviewQuote: "Solides Handwerk, termingerechte Fertigstellung der Sanierung.",
         status: "demo_live",
         dealValue: 1250,
-        monthlyRetainer: 39,
+        monthlyRetainer: 49,
         demoUrl: "https://bauhandwerk-stey.vercel.app",
         localDemoPath: "../bauhandwerk-stey/index.html",
         loomUrl: "",
@@ -154,7 +154,7 @@
         topReviewQuote: "Sehr gute Dachneueindeckung, eingespieltes Team.",
         status: "recherchiert",
         dealValue: 1250,
-        monthlyRetainer: 39,
+        monthlyRetainer: 49,
         demoUrl: "",
         localDemoPath: "",
         loomUrl: "",
@@ -177,7 +177,7 @@
         topReviewQuote: "Exzellente Rohbauarbeiten, saubere Baustelle.",
         status: "demo_in_produktion",
         dealValue: 1250,
-        monthlyRetainer: 39,
+        monthlyRetainer: 49,
         demoUrl: "",
         localDemoPath: "",
         loomUrl: "",
@@ -200,7 +200,7 @@
         topReviewQuote: "Perfekt verlegtes Parkett, termintreu und sauber.",
         status: "recherchiert",
         dealValue: 1250,
-        monthlyRetainer: 39,
+        monthlyRetainer: 49,
         demoUrl: "",
         localDemoPath: "",
         loomUrl: "",
@@ -223,7 +223,7 @@
         topReviewQuote: "Gartenumgestaltung und Pflasterung auf höchstem Niveau.",
         status: "demo_live",
         dealValue: 1250,
-        monthlyRetainer: 39,
+        monthlyRetainer: 49,
         demoUrl: "https://gaertnerei-josef-brunner.vercel.app",
         localDemoPath: "../gaertnerei-josef-brunner/index.html",
         loomUrl: "",
@@ -246,7 +246,7 @@
         topReviewQuote: "Gute Beratung beim Heizungstausch.",
         status: "verhandlung",
         dealValue: 1250,
-        monthlyRetainer: 39,
+        monthlyRetainer: 49,
         demoUrl: "https://faschingbauer-haustechnik.vercel.app",
         localDemoPath: "../faschingbauer-haustechnik/index.html",
         loomUrl: "",
@@ -269,7 +269,7 @@
         topReviewQuote: "Schnelle Hilfe als die Heizung im Winter ausfiel.",
         status: "pitch_versendet",
         dealValue: 1250,
-        monthlyRetainer: 39,
+        monthlyRetainer: 49,
         demoUrl: "https://heizung-mantsch.vercel.app",
         localDemoPath: "../heizung-mantsch/index.html",
         loomUrl: "https://loom.com/share/heizung-mantsch-tour",
@@ -292,7 +292,7 @@
         topReviewQuote: "Sehr freundlicher Kundendienst.",
         status: "demo_live",
         dealValue: 1250,
-        monthlyRetainer: 39,
+        monthlyRetainer: 49,
         demoUrl: "https://mhg-heiztechnik.vercel.app",
         localDemoPath: "../mhg-heiztechnik/index.html",
         loomUrl: "",
@@ -315,7 +315,7 @@
         topReviewQuote: "Zuverlässiger Meister, prompte Abwicklung.",
         status: "pitch_versendet",
         dealValue: 1250,
-        monthlyRetainer: 39,
+        monthlyRetainer: 49,
         demoUrl: "https://ulrich-pokorny-sanitaertechnik.vercel.app",
         localDemoPath: "../ulrich-pokorny-sanitaertechnik/index.html",
         loomUrl: "https://loom.com/share/pokorny-sanitaer",
@@ -338,7 +338,7 @@
         topReviewQuote: "Fassadenanstrich sieht fantastisch aus. Pünktlich und sauber.",
         status: "demo_live",
         dealValue: 1250,
-        monthlyRetainer: 39,
+        monthlyRetainer: 49,
         demoUrl: "https://weidlich-malermeister.vercel.app",
         localDemoPath: "../weidlich-malermeister/index.html",
         loomUrl: "",
@@ -361,7 +361,7 @@
         topReviewQuote: "Echtes bayerisches Handwerk, ehrlich und schnell.",
         status: "demo_live",
         dealValue: 1250,
-        monthlyRetainer: 39,
+        monthlyRetainer: 49,
         demoUrl: "https://wilhelm-lippl-handwerk.vercel.app",
         localDemoPath: "../wilhelm-lippl-handwerk/index.html",
         loomUrl: "",
@@ -384,13 +384,13 @@
         topReviewQuote: "Ausgezeichnete Zusammenarbeit mit Nexbot Webdesign. Ladezeit unter 1s!",
         status: "gewonnen",
         dealValue: 1250,
-        monthlyRetainer: 39,
+        monthlyRetainer: 49,
         demoUrl: "https://nexbot.info",
         localDemoPath: "organisation/INDEX_NEXBOT_ORGANISATION.html",
         loomUrl: "https://loom.com/share/musterkunde-showcase",
         contractFile: "organisation/02_Vertraege/01_Webdesign_Projektvertrag_BGB.html",
         invoiceStatus: "bezahlt",
-        notes: "Erster erfolgreicher Abschluss nach Businessplan! 1.250 € erhalten, monatlicher Retainer 39 € per SEPA aktiv.",
+        notes: "Erster erfolgreicher Abschluss nach Businessplan! 1.250 € erhalten, monatlicher Retainer 49 € per SEPA aktiv.",
         createdAt: "2026-03-01",
         lastContactAt: "2026-09-01"
       }
@@ -406,7 +406,7 @@
         startDate: "2026-03-01",
         contractType: "Modern UI Pro Webdesign + Care Retainer",
         oneTimePrice: 1250,
-        monthlyRetainer: 39,
+        monthlyRetainer: 49,
         paymentMethod: "SEPA-Lastschrift",
         status: "aktiv",
         supportBudgetMinutes: 30,
@@ -426,7 +426,7 @@
         category: "01_Angebote",
         clientName: "Musterkunde Bayern GmbH",
         leadId: "lead-015",
-        amount: "1.250 € + 39 €/Mtl.",
+        amount: "1.250 € + 49 €/Mtl.",
         status: "angenommen",
         date: "2026-02-20",
         filePath: "organisation/01_Angebote/Nexbot_Musterangebot_Webdesign.html",
@@ -523,7 +523,7 @@
         category: "03_Rechnungen",
         clientName: "Musterkunde Bayern GmbH",
         leadId: "lead-015",
-        amount: "39,00 €",
+        amount: "49,00 €",
         status: "bezahlt",
         date: "2026-03-15",
         dueDate: "2026-03-29",
@@ -752,7 +752,7 @@
       const closedRevenue = closedLeads.reduce((sum, l) => sum + (Number(l.dealValue) || 1250), 0);
 
       const activeClients = clients.filter(c => c.status === 'aktiv');
-      const totalMRR = activeClients.reduce((sum, c) => sum + (Number(c.monthlyRetainer) || 39), 0);
+      const totalMRR = activeClients.reduce((sum, c) => sum + (Number(c.monthlyRetainer) || 49), 0);
 
       const pipelineLeads = leads.filter(l => l.status !== 'gewonnen');
       const pipeValue = pipelineLeads.reduce((sum, l) => sum + (Number(l.dealValue) || 1250), 0);
@@ -816,7 +816,7 @@
         topReviewQuote: newLead.topReviewQuote || '',
         status: newLead.status || 'recherchiert',
         dealValue: Number(newLead.dealValue) || 1250,
-        monthlyRetainer: Number(newLead.monthlyRetainer) || 39,
+        monthlyRetainer: Number(newLead.monthlyRetainer) || 49,
         demoUrl: newLead.demoUrl || '',
         localDemoPath: newLead.localDemoPath || '',
         loomUrl: newLead.loomUrl || '',
@@ -846,7 +846,7 @@
         startDate: new Date().toISOString().split('T')[0],
         contractType: 'Modern UI Pro Webdesign + Care Retainer',
         oneTimePrice: lead.dealValue || 1250,
-        monthlyRetainer: lead.monthlyRetainer || 39,
+        monthlyRetainer: lead.monthlyRetainer || 49,
         paymentMethod: 'SEPA-Lastschrift',
         status: 'aktiv',
         supportBudgetMinutes: 30,
@@ -1088,7 +1088,7 @@
               </div>
               <div>
                 <label class="form-label">Monatlicher Retainer (€):</label>
-                <input type="number" id="nlRetainer" class="form-input" value="39">
+                <input type="number" id="nlRetainer" class="form-input" value="49">
               </div>
             </div>
             <div style="display:flex; justify-content:flex-end; gap:0.5rem; margin-top:0.5rem;">
@@ -1111,7 +1111,7 @@
           reviewCount: parseInt(document.getElementById('nlReviews').value) || 1,
           topReviewQuote: document.getElementById('nlQuote').value.trim(),
           dealValue: parseFloat(document.getElementById('nlDeal').value) || 1250,
-          monthlyRetainer: parseFloat(document.getElementById('nlRetainer').value) || 39,
+          monthlyRetainer: parseFloat(document.getElementById('nlRetainer').value) || 49,
           status: 'recherchiert'
         };
         state.addLead(newLead);
@@ -1398,7 +1398,7 @@
           projectTitle: `Nexbot Modern Webauftritt – ${lead.companyName}`,
           projectId: `NEX-${lead.id.toUpperCase()}`,
           projectPrice: `${lead.dealValue || 1250}`,
-          hostingPrice: `${lead.monthlyRetainer || 39}`,
+          hostingPrice: `${lead.monthlyRetainer || 49}`,
           stagingUrl: lead.demoUrl || current.stagingUrl
         };
         saveWorkflowClientData(updated);
@@ -1771,13 +1771,13 @@
   // 5.3 KUNDEN & MRR
   function renderClients() {
     const clients = state.getClients();
-    const totalMRR = clients.reduce((sum, c) => sum + (Number(c.monthlyRetainer) || 39), 0);
+    const totalMRR = clients.reduce((sum, c) => sum + (Number(c.monthlyRetainer) || 49), 0);
     return `
       <div class="section-header">
         <div class="section-title-wrap">
           <span class="section-tag">[ 03 // CLIENTS & MRR ]</span>
           <h1 class="section-title">Kunden & Retainer-Manager</h1>
-          <p class="section-desc">Verwaltung gewonnener Handwerkskunden, monatlicher 39-€-Serviceverträge und 30-Minuten-Supportzeit-Budgets</p>
+          <p class="section-desc">Verwaltung gewonnener Handwerkskunden, monatlicher 49-€-Serviceverträge und 30-Minuten-Supportzeit-Budgets</p>
         </div>
         <div class="section-actions">
           <div class="badge badge-emerald font-mono">MRR: ${totalMRR} € / Monat (ARR: ${(totalMRR * 12).toLocaleString('de-DE')} €)</div>
@@ -2709,7 +2709,7 @@
           projectTitle: `Nexbot Modern Webauftritt – ${lead.companyName}`,
           projectId: `NEX-${lead.id.toUpperCase()}`,
           projectPrice: `${lead.dealValue || 1250}`,
-          hostingPrice: `${lead.monthlyRetainer || 39}`,
+          hostingPrice: `${lead.monthlyRetainer || 49}`,
           stagingUrl: lead.demoUrl || current.stagingUrl
         };
         saveWorkflowClientData(updated);

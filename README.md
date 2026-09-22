@@ -12,7 +12,7 @@ Dieses Dashboard ist die eigenständige operative Steuerungszentrale für das So
 2. **Autonome KI-Website-Produktion** (unter 45–60 Min auf Vercel Edge)
 3. **Demo-First Sales-Pipeline** nach der Saxer-Methode (WhatsApp-Link mit Micro-Commitment & Loom-Video)
 4. **Verträge & Rechnungsstellung** (Lückenlose Verknüpfung der Dokumente aus `Nexbot Organisation`)
-5. **Retainer- & Supportzeit-Management** (39 € / Monat, 30 Min monatliches Service-Budget)
+5. **Retainer- & Supportzeit-Management** (49 € / Monat, 30 Min monatliches Service-Budget)
 6. **Persönliche Solo-Tageshebel** (Fokus auf die 3 wichtigsten Hebel des Tages)
 
 ---
@@ -37,7 +37,7 @@ Dieses Dashboard ist die eigenständige operative Steuerungszentrale für das So
 
 1. **Cockpit (Executive Overview):**
    - 5.000-€-Q4-Umsatzziel-Tracker mit 4 Meilenstein-Markern (4 Kunden à 1.250 €)
-   - 156-€-MRR-Tracker (4 Kunden à 39 € / Monat)
+   - 156-€-MRR-Tracker (4 Kunden à 49 € / Monat)
    - Pipeline-Potenzial & Conversion-Quote
    - "Top 3 Hebel heute" (Interaktive Prioritätenliste für Raphael Solo)
 2. **Sales-Pipeline (Demo-First Kanban):**

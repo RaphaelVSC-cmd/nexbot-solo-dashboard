@@ -168,7 +168,7 @@ class DrawerManager {
           <div style="background:rgba(255,255,255,0.025); border:1px solid var(--border-subtle); padding:0.6rem 0.85rem; border-radius:var(--radius-xs); display:flex; justify-content:space-between; align-items:center;">
             <div>
               <div class="table-cell-title" style="font-size:0.8rem;">01 Musterangebot Webdesign</div>
-              <div class="table-cell-sub">1.250 € Festpreis + 39 €/Mtl.</div>
+              <div class="table-cell-sub">1.250 € Festpreis + 49 €/Mtl.</div>
             </div>
             <button class="btn btn-secondary btn-sm" data-action="preview-doc" data-path="../../Nexbot Organisation/01_Angebote/Nexbot_Musterangebot_Webdesign.html" data-title="Musterangebot Webdesign">
               Vorschau

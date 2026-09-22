@@ -173,7 +173,7 @@ class ModalManager {
             </div>
             <div>
               <label class="form-label">Monatlicher Retainer (€):</label>
-              <input type="number" id="nlRetainer" class="form-input" value="39">
+              <input type="number" id="nlRetainer" class="form-input" value="49">
             </div>
           </div>
 
@@ -198,7 +198,7 @@ class ModalManager {
         reviewCount: parseInt(document.getElementById('nlReviews').value) || 1,
         topReviewQuote: document.getElementById('nlQuote').value.trim(),
         dealValue: parseFloat(document.getElementById('nlDeal').value) || 1250,
-        monthlyRetainer: parseFloat(document.getElementById('nlRetainer').value) || 39,
+        monthlyRetainer: parseFloat(document.getElementById('nlRetainer').value) || 49,
         status: 'recherchiert'
       };
 

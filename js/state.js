@@ -76,7 +76,7 @@ class StateManager {
 
     // Aktive Retainer
     const activeClients = clients.filter(c => c.status === 'aktiv');
-    const totalMRR = activeClients.reduce((sum, c) => sum + (Number(c.monthlyRetainer) || 39), 0);
+    const totalMRR = activeClients.reduce((sum, c) => sum + (Number(c.monthlyRetainer) || 49), 0);
 
     // Pipeline-Wert (alle nicht gewonnenen oder verlorenen)
     const pipelineLeads = leads.filter(l => l.status !== 'gewonnen');
@@ -184,7 +184,7 @@ class StateManager {
       topReviewQuote: newLead.topReviewQuote || '',
       status: newLead.status || 'recherchiert',
       dealValue: Number(newLead.dealValue) || 1250,
-      monthlyRetainer: Number(newLead.monthlyRetainer) || 39,
+      monthlyRetainer: Number(newLead.monthlyRetainer) || 49,
       demoUrl: newLead.demoUrl || '',
       localDemoPath: newLead.localDemoPath || '',
       loomUrl: newLead.loomUrl || '',
@@ -215,7 +215,7 @@ class StateManager {
       startDate: new Date().toISOString().split('T')[0],
       contractType: 'Modern UI Pro Webdesign + Care Retainer',
       oneTimePrice: lead.dealValue || 1250,
-      monthlyRetainer: lead.monthlyRetainer || 39,
+      monthlyRetainer: lead.monthlyRetainer || 49,
       paymentMethod: 'SEPA-Lastschrift',
       status: 'aktiv',
       supportBudgetMinutes: 30,

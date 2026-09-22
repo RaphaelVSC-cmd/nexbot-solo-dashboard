@@ -11,7 +11,7 @@ export const PIPELINE_COLUMNS = [
   { id: 'demo_live', title: '3. Demo Live', desc: 'Vercel Edge geprüft' },
   { id: 'pitch_versendet', title: '4. Pitch raus', desc: 'Loom-Video & WhatsApp' },
   { id: 'verhandlung', title: '5. Verhandlung', desc: 'Saxer Follow-Up & Einwände' },
-  { id: 'gewonnen', title: '6. Gewonnen 🎉', desc: '1.250 € + 39 € Retainer' }
+  { id: 'gewonnen', title: '6. Gewonnen 🎉', desc: '1.250 € + 49 € Retainer' }
 ];
 
 export function renderPipeline(filterQuery = '', filterCategory = 'all', filterCity = 'all') {
