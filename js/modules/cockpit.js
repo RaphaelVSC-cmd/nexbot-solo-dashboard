@@ -65,7 +65,7 @@ export function renderCockpit() {
         </div>
         <div class="metric-val-wrap">
           <span class="metric-val">${metrics.currentMRR} €</span>
-          <span class="metric-target-sub">/ 156 € mtl.</span>
+          <span class="metric-target-sub">/ 196 € mtl.</span>
         </div>
         <div class="metric-bottom">
           <span>${clients.length} aktive Service-Verträge</span>

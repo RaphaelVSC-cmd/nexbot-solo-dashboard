@@ -39,7 +39,7 @@ export function renderClients() {
         <span class="metric-label">Monatlicher Cashflow (MRR)</span>
         <div class="metric-val-wrap">
           <span class="metric-val">${totalMRR} €</span>
-          <span class="metric-target-sub">/ 156 € Ziel</span>
+          <span class="metric-target-sub">/ 196 € Ziel</span>
         </div>
       </div>
       <div class="metric-card">

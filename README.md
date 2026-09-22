@@ -37,7 +37,7 @@ Dieses Dashboard ist die eigenständige operative Steuerungszentrale für das So
 
 1. **Cockpit (Executive Overview):**
    - 5.000-€-Q4-Umsatzziel-Tracker mit 4 Meilenstein-Markern (4 Kunden à 1.250 €)
-   - 156-€-MRR-Tracker (4 Kunden à 49 € / Monat)
+   - 196-€-MRR-Tracker (4 Kunden à 49 € / Monat)
    - Pipeline-Potenzial & Conversion-Quote
    - "Top 3 Hebel heute" (Interaktive Prioritätenliste für Raphael Solo)
 2. **Sales-Pipeline (Demo-First Kanban):**
