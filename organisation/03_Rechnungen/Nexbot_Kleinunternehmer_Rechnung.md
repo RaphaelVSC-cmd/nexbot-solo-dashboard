@@ -3,7 +3,7 @@
 **Raphael Neumeier – Nexbot Webdesign & Software-Entwicklung**  
 Grasweg 85 · 85077 Manching  
 Telefon: +49 176 51270378 · E-Mail: kontakt@nexbot.info  
-Finanzamt Ingolstadt / Pfaffenhofen · Steuernummer: 124/XXX/XXXXX  
+- **Finanzamt:** Pfaffenhofen · **Steuernummer:** Beantragt (wird nachgereicht)
 
 ---
 
@@ -49,8 +49,9 @@ vielen Dank für Ihren Auftrag. Für die vertragsgemäß erbrachten Leistungen e
 Bitte überweisen Sie den Betrag von **1.250,00 €** innerhalb von **14 Tagen ohne Abzug bis zum 30.09.2026** auf folgendes Geschäftskonto:
 
 - **Kontoinhaber:** Raphael Neumeier
-- **IBAN:** DE00 0000 0000 0000 0000 00
-- **BIC:** XXXXXXXXXXX
+- **Bank:** N26 Bank
+- **IBAN:** DE81 1001 1001 2380 7234 82
+- **BIC:** NTSBDEB1XXX
 - **Verwendungszweck:** RE-2026-001 [Kundenname]
 
 Vielen Dank für Ihr Vertrauen und die partnerschaftliche Zusammenarbeit!
