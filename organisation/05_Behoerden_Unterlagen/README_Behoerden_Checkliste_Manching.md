@@ -11,19 +11,21 @@ Dieser Ordner dient als sichere, zentrale Ablage für deine amtlichen Originalbe
 |---|---|---|
 | **Gemeinde Manching** (Gewerbeamt) | [`Gewerbemeldung.pdf`](file:///g:/Meine%20Ablage/Personal/BusinessWebsites/Nexbot%20Organisation/05_Beh%C3%B6rden_Unterlagen/Gewerbemeldung.pdf) / [`GewA_Empfang20260915065536.pdf`](file:///g:/Meine%20Ablage/Personal/BusinessWebsites/Nexbot%20Organisation/05_Beh%C3%B6rden_Unterlagen/GewA_Empfang20260915065536.pdf) | ✅ **Vorhanden** (Eingereicht am 15.09.2026) |
 | **Finanzamt / ELSTER** | [`Versand-ELTSER.pdf`](file:///g:/Meine%20Ablage/Personal/BusinessWebsites/Nexbot%20Organisation/05_Beh%C3%B6rden_Unterlagen/Versand-ELTSER.pdf) | ✅ **Vorhanden** (Fragebogen zur steuerlichen Erfassung versendet) |
-| **Bundeszentralamt für Steuern** | [`ELSTER-USt-IdNr.pdf`](file:///g:/Meine%20Ablage/Personal/BusinessWebsites/Nexbot%20Organisation/05_Beh%C3%B6rden_Unterlagen/ELSTER-USt-IdNr.pdf) | ✅ **Vorhanden** (USt-IdNr. Antrag) |
-| **Unternehmensanmeldung** | [`Unternehmensanmeldung.pdf`](file:///g:/Meine%20Ablage/Personal/BusinessWebsites/Nexbot%20Organisation/05_Beh%C3%B6rden_Unterlagen/Unternehmensanmeldung.pdf) | ✅ **Vorhanden** |
+| **Bundeszentralamt für Steuern** | `Mitteilung_der_Wirtschafts-Identifikationsnummer__W-IdNr.__9154025490319.pdf` | ✅ **Erteilt (22.09.2026)** (W-IdNr. `DE465235282-00001` & USt-IdNr. `DE465235282`) |
+| **Finanzamt Pfaffenhofen / Ingolstadt** | `Mitteilung_der_Wirtschafts-Identifikationsnummer__W-IdNr.__9154025490319.pdf` | ✅ **Zugeordnet (22.09.2026)** (Steuernummer: `154/254/90319`) |
+| **Unternehmensanmeldung** | `Unternehmensanmeldung.pdf` | ✅ **Vorhanden** |
 | **VBG Berufsgenossenschaft** | `VBG_Bestaetigung.pdf` | ⏳ **In Bearbeitung** (Kommt per Post/Portal) |
-| **Finanzamt Steuernummer** | `Finanzamt_Steuernummer.pdf` | ⏳ **In Bearbeitung** (Bescheid mit Steuernummer folgt) |
 
 ---
 
 ## 📋 Nächste Schritte & wichtige Fristen
 
-### 1. Steuernummer vom Finanzamt Pfaffenhofen / Ingolstadt
-- Sobald der schriftliche Bescheid vom Finanzamt mit deiner neuen **betrieblichen Steuernummer** per Post eintrifft:
-  1. Den Brief als `Finanzamt_Steuernummer.pdf` hier in diesen Ordner einscannen.
-  2. Die Steuernummer in deinen Rechnungen (`03_Rechnungen/Nexbot_Kleinunternehmer_Rechnung.html`) und im Impressum deiner Website hinterlegen.
+### 1. Steuernummer & W-IdNr. / USt-IdNr. eingepflegt ✅
+- Am 22.09.2026 offiziell vom Bundeszentralamt für Steuern erteilt:
+  - **W-IdNr.:** `DE465235282` (Unterscheidungsmerkmal `00001`)
+  - **USt-IdNr. (§ 27a UStG):** `DE465235282`
+  - **Steuernummer:** `154/254/90319`
+- In allen Rechnungen, Angeboten, Verträgen, Dashboards und im Impressum der Website hinterlegt.
 
 ### 2. Verwaltungs-Berufsgenossenschaft (VBG)
 - Zuständige gesetzliche Unfallversicherung für IT-, Design- und Medienbetriebe.

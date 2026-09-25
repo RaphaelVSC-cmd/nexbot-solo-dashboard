@@ -13,6 +13,7 @@ Raphael Neumeier
 Nexbot Webdesign & Software-Entwicklung  
 Grasweg 85, 85077 Manching  
 E-Mail: kontakt@nexbot.info  
+W-IdNr. / USt-IdNr.: DE465235282 · Steuernummer: 154/254/90319  
 
 **Verantwortlicher (Auftraggeber):**  
 [Kunden-Firma]  

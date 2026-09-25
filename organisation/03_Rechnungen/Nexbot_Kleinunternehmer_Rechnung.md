@@ -3,7 +3,7 @@
 **Raphael Neumeier – Nexbot Webdesign & Software-Entwicklung**  
 Grasweg 85 · 85077 Manching  
 Telefon: +49 176 51270378 · E-Mail: kontakt@nexbot.info  
-- **Finanzamt:** Pfaffenhofen · **Steuernummer:** Beantragt (wird nachgereicht)
+- **Finanzamt:** Pfaffenhofen · **Steuernummer:** 154/254/90319 · **W-IdNr. / USt-IdNr.:** DE465235282 (Unterscheidungsmerkmal: 00001)
 
 ---
 

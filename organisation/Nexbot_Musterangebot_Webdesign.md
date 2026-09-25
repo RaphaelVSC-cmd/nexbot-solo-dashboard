@@ -48,7 +48,7 @@ vielen Dank für das angenehme Gespräch und Ihr Interesse an einer modernen Web
 - **Bank:** N26 Bank
 - **IBAN:** DE81 1001 1001 2380 7234 82
 - **BIC:** NTSBDEB1XXX
-- **Finanzamt:** Pfaffenhofen · **Steuernummer:** Beantragt (wird nachgereicht)
+- **Finanzamt:** Pfaffenhofen · **Steuernummer:** 154/254/90319 · **W-IdNr. / USt-IdNr.:** DE465235282
 
 ---
 

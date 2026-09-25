@@ -53,7 +53,7 @@ Dieses Dashboard ist die eigenständige operative Steuerungszentrale für das So
      - 02_Verträge: `01_Webdesign_Projektvertrag_BGB.html`, `02_AVV_Datenschutz_DSGVO.html`, `03_Abnahmeprotokoll_Webdesign_BGB.html`
      - 03_Rechnungen: `Nexbot_Kleinunternehmer_Rechnung.html`
      - 04_Buchhaltung_EÜR: `Nexbot_EUER_Rechner_2026.html`
-     - 05_Behörden_Unterlagen: Gewerbeanmeldung Manching, ELSTER USt-IdNr.
+     - 05_Behörden_Unterlagen: W-IdNr. & USt-IdNr. Bescheid (BZSt), Gewerbeanmeldung Manching, ELSTER USt-IdNr.
    - 1-Klick Iframe-Vorschau & Druckfunktion im Dashboard
 5. **Solo-Tasks:**
    - Aufgeteilt nach *Akquise & Sales*, *Technik & Build* und *Recht & Verwaltung*

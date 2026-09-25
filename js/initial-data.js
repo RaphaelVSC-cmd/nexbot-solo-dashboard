@@ -571,8 +571,20 @@ export const INITIAL_DATA = {
       amount: "SOP",
       status: "aktiv",
       date: "2026-03-05",
-      filePath: "../../Nexbot Organisation/05_Behörden_Unterlagen/Nexbot_DNS_und_Domain_Leitfaden.html",
+      filePath: "organisation/05_Behoerden_Unterlagen/Nexbot_DNS_und_Domain_Leitfaden.html",
       description: "Technischer Leitfaden für A-Record (76.76.21.21), CNAME und schützende DNS-Konfiguration ohne Mail-Kollision."
+    },
+    {
+      id: "doc-011",
+      title: "Mitteilung Wirtschafts-Identifikationsnummer (W-IdNr. & USt-IdNr.)",
+      category: "05_Behörden_Unterlagen",
+      clientName: "Bundeszentralamt für Steuern (BZSt)",
+      leadId: null,
+      amount: "Amtlich",
+      status: "bestätigt",
+      date: "2026-09-22",
+      filePath: "organisation/05_Behoerden_Unterlagen/Mitteilung_der_Wirtschafts-Identifikationsnummer__W-IdNr.__9154025490319.pdf",
+      description: "Amtliche Zuteilung: W-IdNr. DE465235282-00001, USt-IdNr. DE465235282, Steuernummer 154/254/90319."
     }
   ],
 

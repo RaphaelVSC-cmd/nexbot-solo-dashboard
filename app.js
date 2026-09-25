@@ -577,6 +577,18 @@
         date: "2026-03-05",
         filePath: "organisation/05_Behoerden_Unterlagen/Nexbot_DNS_und_Domain_Leitfaden.html",
         description: "Technischer Leitfaden für A-Record (76.76.21.21), CNAME und schützende DNS-Konfiguration ohne Mail-Kollision."
+      },
+      {
+        id: "doc-011",
+        title: "Mitteilung Wirtschafts-Identifikationsnummer (W-IdNr. & USt-IdNr.)",
+        category: "05_Behörden_Unterlagen",
+        clientName: "Bundeszentralamt für Steuern (BZSt)",
+        leadId: null,
+        amount: "Amtlich",
+        status: "bestätigt",
+        date: "2026-09-22",
+        filePath: "organisation/05_Behoerden_Unterlagen/Mitteilung_der_Wirtschafts-Identifikationsnummer__W-IdNr.__9154025490319.pdf",
+        description: "Amtliche Zuteilung: W-IdNr. DE465235282-00001, USt-IdNr. DE465235282, Steuernummer 154/254/90319."
       }
     ],
 
@@ -2624,9 +2636,12 @@
             </div>
             <h3 class="table-cell-title" style="margin-bottom:0.4rem;">05_Behörden_Unterlagen</h3>
             <p style="font-size:0.78rem; color:var(--text-silver); margin-bottom:1rem;">
-              Sichere Ablage der Manching Originalnachweise (Gewerbemeldung, ELSTER USt-IdNr, VBG).
+              Sichere Ablage der Manching Originalnachweise (W-IdNr./USt-IdNr., Gewerbemeldung, ELSTER, VBG).
             </p>
             <div style="display:flex; flex-direction:column; gap:0.5rem;">
+              <a href="organisation/05_Behoerden_Unterlagen/Mitteilung_der_Wirtschafts-Identifikationsnummer__W-IdNr.__9154025490319.pdf" target="_blank" class="btn btn-primary btn-sm" style="justify-content:space-between;">
+                <span>W-IdNr. &amp; USt-IdNr. (BZSt)</span> <span>PDF ↗</span>
+              </a>
               <a href="organisation/05_Behoerden_Unterlagen/README_Behoerden_Checkliste_Manching.md" target="_blank" class="btn btn-secondary btn-sm" style="justify-content:space-between;">
                 <span>Behörden-Checkliste</span> <span>MD ↗</span>
               </a>

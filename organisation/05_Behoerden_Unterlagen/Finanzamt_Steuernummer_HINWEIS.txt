@@ -1,4 +1,9 @@
-[PLATZHALTER]
-Ersetze diesen Hinweis durch deine echte Datei:
-Finanzamt_Steuernummer.pdf
-(Offizieller Brief / Erfassungsbescheid vom Finanzamt mit deiner betrieblichen Steuernummer z. B. 124/XXX/XXXXX)
+[BESTÄTIGT & AKTIV]
+Offizielle Mitteilung des Bundeszentralamts für Steuern (BZSt) vom 22.09.2026:
+- Wirtschafts-Identifikationsnummer (W-IdNr.): DE465235282
+- Unterscheidungsmerkmal: 00001
+- Steuernummer (wirtschaftliche Tätigkeit / Betrieb): 154/254/90319
+- Umsatzsteuer-Identifikationsnummer (USt-IdNr. nach § 27a UStG): DE465235282
+
+Originalbescheid abgelegt unter:
+Mitteilung_der_Wirtschafts-Identifikationsnummer__W-IdNr.__9154025490319.pdf
